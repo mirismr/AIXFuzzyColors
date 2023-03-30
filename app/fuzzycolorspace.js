@@ -41,7 +41,7 @@ export class FuzzyColorSpace {
 
         this.renderer = new THREE.WebGLRenderer({canvas: hmtl_element_qs});
         this.renderer.localClippingEnabled = true;
-        this.renderer.setSize(html_element.width(), html_element.width()/1.5);
+        this.renderer.setSize(html_element.width(), html_element.width()/1.8);
         
         html_element.append( this.renderer.domElement );
 
