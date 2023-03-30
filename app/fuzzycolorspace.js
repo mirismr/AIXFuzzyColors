@@ -84,7 +84,7 @@ export class FuzzyColorSpace {
         ];
         
         let p2e_material = new THREE.MeshBasicMaterial({
-            color: new THREE.Color(`rgb(0, 255, 0)`),
+            color: new THREE.Color(`rgb(0, 0, 0)`),
             clippingPlanes : cube_planes,
             clipIntersection: false,
         });
