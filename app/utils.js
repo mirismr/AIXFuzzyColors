@@ -1,0 +1,482 @@
+import {Point3D} from "./point3d.js";
+import {FuzzyColorSpace, SphericalFuzzyColor} from "./fuzzycolorspace.js";
+
+export function getISCCBasicPrototypes(){
+    return [ 
+        new Point3D(254.0, 181.0, 186.0),
+        new Point3D(190.0, 1.0, 50.0),
+        new Point3D(243.0, 132.0, 1.0),
+        new Point3D(128.0, 70.0, 27.0),
+        new Point3D(243.0, 195.0, 1.0),
+        new Point3D(102.0, 93.0, 30.0),
+        new Point3D(141.0, 182.0, 1.0),
+        new Point3D(1.0, 136.0, 86.0),
+        new Point3D(62, 97.0, 180.0),// new Point3D(1.0, 103.0, 194.0),
+        new Point3D(154.0, 78.0, 174.0),
+        new Point3D(252.0, 252.0, 249.0),
+        new Point3D(135.0, 134.0, 134.0),
+        new Point3D(7.0, 7.0, 7.0)
+    ]
+}
+
+export function getISCCBasicPrototypesWithLabels() {
+    return [
+    [
+        "Pink",
+        new Point3D(254.0, 181.0, 186.0),
+    ],
+    [
+        "Red",
+        new Point3D(190.0, 1.0, 50.0),
+    ],
+    [
+        "Orange",
+        new Point3D(243.0, 132.0, 1.0),
+    ],
+    [
+        "Brown",
+        new Point3D(128.0, 70.0, 27.0),
+    ],
+    [
+        "Yellow",
+        new Point3D(243.0, 195.0, 1.0),
+    ],
+    [
+        "Olive",
+        new Point3D(102.0, 93.0, 30.0),
+    ],
+    [
+        "Yellow-Green",
+        new Point3D(141.0, 182.0, 1.0),
+    ],
+    [
+        "Green",
+        new Point3D(1.0, 136.0, 86.0),
+    ],
+    [
+        "Blue",
+        new Point3D(62, 97.0, 180.0),
+    ],
+    [
+        "Purple",
+        new Point3D(154.0, 78.0, 174.0),
+    ],
+    [
+        "White",
+        new Point3D(252.0, 252.0, 249.0),
+    ],
+    [
+        "Gray",
+        new Point3D(135.0, 134.0, 134.0),
+    ],
+    [
+        "Black",
+        new Point3D(7.0, 7.0, 7.0)
+    ]
+    ];
+}
+
+export function getGranularPrototypes() {
+    return [
+        [
+            "Pink",
+            [new Point3D(254.0, 181.0, 186.0), new Point3D(234.0, 147.0, 153.0), new Point3D(228.0, 113.0, 122.0), new Point3D(249.0, 204.0, 202.0), new Point3D(222.0, 165.0, 164.0), new Point3D(234.0, 216.0, 215.0)],
+            [new Point3D(190.0, 1.0, 50.0), new Point3D(243.0, 132.0, 1.0), new Point3D(128.0, 70.0, 27.0), new Point3D(243.0, 195.0, 1.0), new Point3D(102.0, 93.0, 30.0), new Point3D(141.0, 182.0, 1.0), new Point3D(1.0, 136.0, 86.0), new Point3D(1.0, 161.0, 194.0), new Point3D(154.0, 78.0, 174.0), new Point3D(220.0, 220.0, 220.0), new Point3D(132.0, 132.0, 130.0), new Point3D(3.0, 3.0, 3.0), new Point3D(254.0, 181.0, 186.0), new Point3D(234.0, 147.0, 153.0), new Point3D(228.0, 113.0, 122.0), new Point3D(249.0, 204.0, 202.0), new Point3D(222.0, 165.0, 164.0), new Point3D(234.0, 216.0, 215.0)]
+        ],
+        [
+            "Red",
+            [new Point3D(181,20, 38), new Point3D(235, 77, 95), new Point3D(201, 38, 57), new Point3D(145, 12, 25), new Point3D(190.0, 1.0, 50.0)],
+            // [new Point3D(230.0, 25.0, 25.0), new Point3D(188.0, 63.0, 74.0), new Point3D(132.0, 27.0, 45.0), new Point3D(92.0, 9.0, 35.0), new Point3D(171.0, 78.0, 82.0), new Point3D(206.0, 70.0, 118.0)],
+            [new Point3D(254.0, 181.0, 186.0), new Point3D(243.0, 132.0, 1.0), new Point3D(128.0, 70.0, 27.0), new Point3D(243.0, 195.0, 1.0), new Point3D(102.0, 93.0, 30.0), new Point3D(141.0, 182.0, 1.0), new Point3D(1.0, 136.0, 86.0), new Point3D(1.0, 161.0, 194.0), new Point3D(154.0, 78.0, 174.0), new Point3D(220.0, 220.0, 220.0), new Point3D(132.0, 132.0, 130.0), new Point3D(3.0, 3.0, 3.0), new Point3D(230.0, 25.0, 25.0), new Point3D(188.0, 63.0, 74.0), new Point3D(132.0, 27.0, 45.0), new Point3D(92.0, 9.0, 35.0), new Point3D(171.0, 78.0, 82.0), new Point3D(206.0, 70.0, 118.0)]
+        ],
+        // [
+        //     "Orange",
+        //     [],
+        //     [new Point3D(254.0, 181.0, 186.0), new Point3D(190.0, 1.0, 50.0), new Point3D(128.0, 70.0, 27.0), new Point3D(243.0, 195.0, 1.0), new Point3D(102.0, 93.0, 30.0), new Point3D(141.0, 182.0, 1.0), new Point3D(1.0, 136.0, 86.0), new Point3D(1.0, 161.0, 194.0), new Point3D(154.0, 78.0, 174.0), new Point3D(220.0, 220.0, 220.0), new Point3D(132.0, 132.0, 130.0), new Point3D(3.0, 3.0, 3.0)]
+        // ],
+        [
+            "Brown",
+            [new Point3D(155.0, 84.0, 43.0), new Point3D(74.0, 52.0, 45.0), new Point3D(121.0, 58.0, 28.0), new Point3D(203.0, 132.0, 88.0), new Point3D(155.0, 84.0, 43.0), new Point3D(75.0, 36.0, 29.0), new Point3D(155.0, 84.0, 43.0), new Point3D(155.0, 84.0, 43.0)],
+            [new Point3D(254.0, 181.0, 186.0), new Point3D(190.0, 1.0, 50.0), new Point3D(243.0, 132.0, 1.0), new Point3D(243.0, 195.0, 1.0), new Point3D(102.0, 93.0, 30.0), new Point3D(141.0, 182.0, 1.0), new Point3D(1.0, 136.0, 86.0), new Point3D(1.0, 161.0, 194.0), new Point3D(154.0, 78.0, 174.0), new Point3D(220.0, 220.0, 220.0), new Point3D(132.0, 132.0, 130.0), new Point3D(3.0, 3.0, 3.0), new Point3D(155.0, 84.0, 43.0), new Point3D(74.0, 52.0, 45.0), new Point3D(121.0, 58.0, 28.0), new Point3D(203.0, 132.0, 88.0), new Point3D(155.0, 84.0, 43.0), new Point3D(75.0, 36.0, 29.0), new Point3D(155.0, 84.0, 43.0), new Point3D(155.0, 84.0, 43.0)]
+        ],
+        [
+            "Yellow",
+            [new Point3D(230.0, 230.0, 25.0), new Point3D(212.0, 175.0, 55.0), new Point3D(175.0, 141.0, 19.0), new Point3D(248.0, 222.0, 126.0), new Point3D(201.0, 174.0, 93.0), new Point3D(243.0, 229.0, 171.0)],
+            [new Point3D(254.0, 181.0, 186.0), new Point3D(190.0, 1.0, 50.0), new Point3D(243.0, 132.0, 1.0), new Point3D(128.0, 70.0, 27.0), new Point3D(102.0, 93.0, 30.0), new Point3D(141.0, 182.0, 1.0), new Point3D(1.0, 136.0, 86.0), new Point3D(1.0, 161.0, 194.0), new Point3D(154.0, 78.0, 174.0), new Point3D(220.0, 220.0, 220.0), new Point3D(132.0, 132.0, 130.0), new Point3D(3.0, 3.0, 3.0), new Point3D(230.0, 230.0, 25.0), new Point3D(212.0, 175.0, 55.0), new Point3D(175.0, 141.0, 19.0), new Point3D(248.0, 222.0, 126.0), new Point3D(201.0, 174.0, 93.0), new Point3D(243.0, 229.0, 171.0)]
+        ],
+        [
+            "Olive",
+            [new Point3D(134.0, 126.0, 54.0), new Point3D(102.0, 93.0, 30.0)],
+            [new Point3D(254.0, 181.0, 186.0), new Point3D(190.0, 1.0, 50.0), new Point3D(243.0, 132.0, 1.0), new Point3D(128.0, 70.0, 27.0), new Point3D(243.0, 195.0, 1.0), new Point3D(141.0, 182.0, 1.0), new Point3D(1.0, 136.0, 86.0), new Point3D(1.0, 161.0, 194.0), new Point3D(154.0, 78.0, 174.0), new Point3D(220.0, 220.0, 220.0), new Point3D(132.0, 132.0, 130.0), new Point3D(3.0, 3.0, 3.0), new Point3D(134.0, 126.0, 54.0), new Point3D(102.0, 93.0, 30.0)]
+        ],
+        [
+            "Yellow-Green",
+            [new Point3D(141.0, 182.0, 1.0), new Point3D(189.0, 218.0, 87.0), new Point3D(138.0, 154.0, 91.0)],
+            [new Point3D(254.0, 181.0, 186.0), new Point3D(190.0, 1.0, 50.0), new Point3D(243.0, 132.0, 1.0), new Point3D(128.0, 70.0, 27.0), new Point3D(243.0, 195.0, 1.0), new Point3D(102.0, 93.0, 30.0), new Point3D(1.0, 136.0, 86.0), new Point3D(1.0, 161.0, 194.0), new Point3D(154.0, 78.0, 174.0), new Point3D(220.0, 220.0, 220.0), new Point3D(132.0, 132.0, 130.0), new Point3D(3.0, 3.0, 3.0), new Point3D(141.0, 182.0, 1.0), new Point3D(189.0, 218.0, 87.0), new Point3D(138.0, 154.0, 91.0)]
+        ],
+        [
+            "Green",
+            [new Point3D(1.0, 136.0, 86.0), new Point3D(62.0, 180.0, 137.0), new Point3D(106.0, 171.0, 142.0), new Point3D(59.0, 120.0, 97.0), new Point3D(25.0, 230.0, 25.0)],
+            [new Point3D(254.0, 181.0, 186.0), new Point3D(190.0, 1.0, 50.0), new Point3D(243.0, 132.0, 1.0), new Point3D(128.0, 70.0, 27.0), new Point3D(243.0, 195.0, 1.0), new Point3D(102.0, 93.0, 30.0), new Point3D(141.0, 182.0, 1.0), new Point3D(1.0, 161.0, 194.0), new Point3D(154.0, 78.0, 174.0), new Point3D(220.0, 220.0, 220.0), new Point3D(132.0, 132.0, 130.0), new Point3D(3.0, 3.0, 3.0), new Point3D(1.0, 136.0, 86.0), new Point3D(62.0, 180.0, 137.0), new Point3D(106.0, 171.0, 142.0), new Point3D(59.0, 120.0, 97.0), new Point3D(25.0, 230.0, 25.0)]
+        ],
+        [
+            "Blue",
+            [new Point3D(25.0, 25.0, 230.0), new Point3D(73.0, 151.0, 208.0), new Point3D(1.0, 103.0, 165.0), new Point3D(1.0, 65.0, 106.0), new Point3D(67.0, 107.0, 149.0), new Point3D(1.0, 133.0, 161.0)],//new Point3D(145.0, 163.0, 176.0), new Point3D(37.0, 36.0, 64.0),  new Point3D(161.0, 202.0, 241.0),
+            [new Point3D(254.0, 181.0, 186.0), new Point3D(190.0, 1.0, 50.0), new Point3D(243.0, 132.0, 1.0), new Point3D(128.0, 70.0, 27.0), new Point3D(243.0, 195.0, 1.0), new Point3D(102.0, 93.0, 30.0), new Point3D(141.0, 182.0, 1.0),new Point3D(187, 189, 192), new Point3D(1.0, 136.0, 86.0), new Point3D(154.0, 78.0, 174.0), new Point3D(220.0, 220.0, 220.0), new Point3D(132.0, 132.0, 130.0), new Point3D(3.0, 3.0, 3.0), new Point3D(18.0, 18.0, 32.0), new Point3D(25.0, 25.0, 230.0), new Point3D(73.0, 151.0, 208.0), new Point3D(1.0, 103.0, 165.0), new Point3D(1.0, 65.0, 106.0), new Point3D(161.0, 202.0, 241.0), new Point3D(67.0, 107.0, 149.0), new Point3D(145.0, 163.0, 176.0), new Point3D(1.0, 133.0, 161.0), new Point3D(37.0, 36.0, 64.0)]
+        ],
+        // [
+        //     "Purple",
+        //     [],
+        //     [new Point3D(254.0, 181.0, 186.0), new Point3D(190.0, 1.0, 50.0), new Point3D(243.0, 132.0, 1.0), new Point3D(128.0, 70.0, 27.0), new Point3D(243.0, 195.0, 1.0), new Point3D(102.0, 93.0, 30.0), new Point3D(141.0, 182.0, 1.0), new Point3D(1.0, 136.0, 86.0), new Point3D(1.0, 161.0, 194.0), new Point3D(220.0, 220.0, 220.0), new Point3D(132.0, 132.0, 130.0), new Point3D(3.0, 3.0, 3.0)]
+        // ],
+        [
+            "White",
+            [new Point3D(250.0, 250.0, 250.0)],
+            [new Point3D(254.0, 181.0, 186.0), new Point3D(190.0, 1.0, 50.0), new Point3D(243.0, 132.0, 1.0), new Point3D(128.0, 70.0, 27.0), new Point3D(243.0, 195.0, 1.0), new Point3D(102.0, 93.0, 30.0), new Point3D(141.0, 182.0, 1.0), new Point3D(1.0, 136.0, 86.0), new Point3D(1.0, 161.0, 194.0), new Point3D(154.0, 78.0, 174.0), new Point3D(132.0, 132.0, 130.0), new Point3D(3.0, 3.0, 3.0), new Point3D(250.0, 250.0, 250.0)]
+        ],
+        [
+            "Gray",
+            [new Point3D(153.0, 153.0, 153.0), new Point3D(128.0, 128.0, 128.0), new Point3D(103.0, 103.0, 103.0)],
+            [new Point3D(254.0, 181.0, 186.0), new Point3D(190.0, 1.0, 50.0), new Point3D(243.0, 132.0, 1.0), new Point3D(128.0, 70.0, 27.0), new Point3D(243.0, 195.0, 1.0), new Point3D(102.0, 93.0, 30.0), new Point3D(141.0, 182.0, 1.0), new Point3D(1.0, 136.0, 86.0), new Point3D(1.0, 161.0, 194.0), new Point3D(154.0, 78.0, 174.0), new Point3D(220.0, 220.0, 220.0), new Point3D(3.0, 3.0, 3.0), new Point3D(153.0, 153.0, 153.0), new Point3D(128.0, 128.0, 128.0), new Point3D(103.0, 103.0, 103.0)]
+        ],
+        [
+            "Black",
+            [new Point3D(7.0, 7.0, 7.0)],
+            [new Point3D(254.0, 181.0, 186.0), new Point3D(190.0, 1.0, 50.0), new Point3D(243.0, 132.0, 1.0), new Point3D(128.0, 70.0, 27.0), new Point3D(243.0, 195.0, 1.0), new Point3D(102.0, 93.0, 30.0), new Point3D(141.0, 182.0, 1.0), new Point3D(1.0, 136.0, 86.0), new Point3D(1.0, 161.0, 194.0), new Point3D(154.0, 78.0, 174.0), new Point3D(220.0, 220.0, 220.0), new Point3D(132.0, 132.0, 130.0), new Point3D(55.0, 55.0, 55.0), new Point3D(7.0, 7.0, 7.0)]
+        ]    
+    
+    ]
+}
+
+function hexToRgb(hex) {
+    var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+    return result ? {
+      r: parseInt(result[1], 16),
+      g: parseInt(result[2], 16),
+      b: parseInt(result[3], 16)
+    } : null;
+}  
+
+export function addPrototypeColorFromPicker(event) {
+    let div_text = $("#fuzzycolor-intro-selected-prototypes").text().replace(/\s/g, '');
+    if (div_text == "Prototypeswillbeappearhere"){
+        $("#fuzzycolor-intro-selected-prototypes").text("");
+    }
+    let new_color = `<div style=\"margin-left: 3px; height: 20px; width: 20px; border: 1px black solid; background-color: ${event.target.value}\" value=\"${event.target.value}\"></div>`;
+    
+    $("#fuzzycolor-intro-selected-prototypes").append(new_color);
+}
+
+export function addGranularFromPicker(event) {
+    let div_text = $("#granular-selected-prototypes").text().replace(/\s/g, '');
+    if (div_text == "Prototypeswillbeappearhere"){
+        $("#granular-selected-prototypes").text("");
+    }
+    let new_color = `<div style=\"margin-left: 3px; height: 20px; width: 20px; border: 1px black solid; background-color: ${event.target.value}\" value=\"${event.target.value}\"></div>`;
+    $("#granular-selected-prototypes").append(new_color);
+}
+
+function drawIsolatedPrototype(rgb, rgb_p2e, a_parameter, b_parameter, fcs_support){
+    fcs_support.addSphericalColor({r:rgb.r, g:rgb.g, b:rgb.b, kernel_radius:a_parameter, support_radius:b_parameter,});
+    fcs_support.addPoint2Evaluate(rgb_p2e.r,rgb_p2e.g, rgb_p2e.b);
+}
+
+export function simpleParametersChange(event) {
+    let rgb_p2e = hexToRgb($("#simple-point-to-evaluate").val());
+    let p2e = new Point3D(rgb_p2e.r, rgb_p2e.g, rgb_p2e.b);
+    let membership_degree = "";
+    let distance = "";
+
+    let rgb = hexToRgb($("#simple-picker").val());
+    let prototype = new Point3D(rgb.r, rgb.g, rgb.b);
+    let a_parameter = parseFloat($("#a-parameter").val());
+    let b_parameter = parseFloat($("#b-parameter").val());
+
+    let fcs_support = new FuzzyColorSpace('#simple-main-support', "flex-grow:5;");
+
+    if (a_parameter <= b_parameter){
+        drawIsolatedPrototype(rgb, rgb_p2e, a_parameter, b_parameter, fcs_support);
+        let fc = new SphericalFuzzyColor(prototype, a_parameter, b_parameter);
+        membership_degree = fc.getMembershipDegree(p2e);
+        distance = prototype.getDistance(p2e);
+        showParameterError("#simple-parameter-error", "");
+    }
+    else {
+        showParameterError("#simple-parameter-error", "a > b is not allowed");
+    }
+
+
+    $("#simple-distance").text(distance.toFixed(2));
+    $("#simple-md").text(membership_degree.toFixed(2));
+}
+
+export function showParameterError(html_element, text_to_write) {
+    $(html_element).text(text_to_write);
+}
+
+
+export function buildFCS() {
+    let prototypes = []
+    let rgb;
+    $("#fuzzycolor-intro-selected-prototypes").children().each(function(i) {
+        rgb = hexToRgb($(this).attr("value"));
+        prototypes.push( new Point3D(rgb.r, rgb.g, rgb.b));
+    });
+
+    let fcs = new FuzzyColorSpace('#fuzzycolor-intro-main', "flex-grow:1; margin: auto auto 10px;");
+    fcs.buildSphericalFuzzyColorSpace(prototypes);
+}
+
+export function cleanPrototypesList(){
+    $("#fuzzycolor-intro-selected-prototypes").empty();
+    new FuzzyColorSpace('#fuzzycolor-intro-main', "flex-grow:1; margin: auto auto 10px;");
+}
+
+export function buildGranule() {
+    let rgb;
+    let rgb_p2e = hexToRgb($("#granular-point-to-evaluate").val());
+    let p2e = new Point3D(rgb_p2e.r, rgb_p2e.g, rgb_p2e.b);
+    console.log(rgb_p2e);
+
+    let a_parameter = parseFloat($("#granular-a-parameter").val());
+    let b_parameter = parseFloat($("#granular-b-parameter").val());
+    let distance=0;
+    let membership_degree=0;
+    let max_membership_degree = 0;
+    let min_distance = 999;
+    
+    let fcs_support = new FuzzyColorSpace('#granular-main-support', "flex-grow:5;");
+
+    if (a_parameter <= b_parameter){
+        $("#granular-selected-prototypes").children().each(function(i) {
+            rgb = hexToRgb($(this).attr("value"));     
+            drawIsolatedPrototype(rgb, rgb_p2e, a_parameter, b_parameter, fcs_support);
+
+            let prototype = new Point3D(rgb.r, rgb.g, rgb.b);
+            let fc = new SphericalFuzzyColor(prototype, a_parameter, b_parameter);
+            membership_degree = fc.getMembershipDegree(p2e);
+            if(membership_degree > max_membership_degree){
+                max_membership_degree = membership_degree;
+            }
+            distance = prototype.getDistance(p2e);
+            if(distance < min_distance){
+                min_distance = distance;
+            }
+        });
+        showParameterError("#granular-parameter-error", "");
+    }
+    else {
+        showParameterError("#granular-parameter-error", "a > b is not allowed");
+        max_membership_degree = 0;
+        min_distance = 999;
+    }
+
+    if(min_distance != 999){
+        $("#granular-distance").text(min_distance.toFixed(2));
+        $("#granular-md").text(max_membership_degree.toFixed(2));
+    }
+}
+
+export function cleanGranule(){
+    $("#granular-selected-prototypes").empty();
+    $("#granular-selected-prototypes").text("Prototypes will be appear here");
+    let fcs_support = new FuzzyColorSpace('#granular-main-support', "flex-grow:5;");
+    $("#granular-distance").text("");
+    $("#granular-md").text("");
+}
+
+export function initializeGranularSelect(prototypes_positives_negatives, html_element, parent){
+    let select = "<select id=" + "\""+html_element+"\"><option value=\"-1\">All</option>";
+    for (const pair of prototypes_positives_negatives) {
+        select += `<option value=\"${pair[0]}\">${pair[0]}</option>`
+    }
+
+    select += "</select>";
+    $("#"+parent).append(select);
+}
+
+function buildMatrixImage(image_data){
+    let output = [];
+    for (let i = 0; i < image_data.length; i += 4) {
+        output.push(new Point3D(image_data[i], image_data[i+1], image_data[i+2]));
+    }
+    return output;
+}
+
+export function selectGranularColor() {
+    let visible_color = [$('#granular-picker :selected').val()];
+
+    if (visible_color[0] == "-1")
+        visible_color = getGranularPrototypes().map(color_prototype => color_prototype[0]);
+
+    let fcs = new FuzzyColorSpace('#granular-space', "flex-grow:5;");
+    fcs.buildGranularSphericalFuzzyColorSpace(getGranularPrototypes(), visible_color);
+}
+
+export function visualizeGranularColor() {
+    let visible_color = [$('#granular-results-picker :selected').val()];
+
+    if (visible_color[0] == "-1")
+        visible_color = getGranularPrototypes().map(color_prototype => color_prototype[0]);
+
+    let fcs = new FuzzyColorSpace('#granular-results-space', "flex-grow:1;");
+    fcs.buildGranularSphericalFuzzyColorSpace(getGranularPrototypes(), visible_color);
+
+    if (visible_color[0] != "-1"){
+        var preview = document.querySelector("#saved-image");
+        
+        var canvas = document.getElementById("saved-image-canvas");
+        var ctx = canvas.getContext("2d");
+        
+        
+        var image_data = ctx.getImageData(0, 0, 180, 180);
+        var image = buildMatrixImage(image_data.data);
+        var degrees_image = fcs.mapImage(visible_color, image, fcs.granularFuzzyColors).flat();
+
+        var canvas_mapped = document.getElementById("mapped-image");
+        ctx = canvas_mapped.getContext("2d");
+        ctx.drawImage(preview, 0, 0, 180, 180);
+
+        const imageData = ctx.getImageData(0, 0, 180, 180);
+        const data = imageData.data;
+        let degrees_index = 0;
+        
+        for (var i = 0; i < data.length; i += 4) {
+            data[i + 3] = degrees_image[degrees_index]*255;
+            degrees_index++;
+        }
+        
+        ctx.putImageData(imageData, 0, 0);
+    }
+}
+
+export function visualizeFCSColor() {
+    let visible_color = [$('#fcs-results-picker :selected').val()];
+
+    if (visible_color[0] == "-1")
+        visible_color = getISCCBasicPrototypesWithLabels().map(color_prototype => color_prototype[0]);
+
+    let fcs = new FuzzyColorSpace('#fcs-results-space', "flex-grow:1;");
+    fcs.buildSphericalFuzzyColorSpaceWithLabels(getISCCBasicPrototypesWithLabels(), visible_color);
+
+    if (visible_color[0] != "-1"){
+        var preview = document.querySelector("#fcs-saved-image");
+        
+        var canvas = document.getElementById("fcs-saved-image-canvas");
+        var ctx = canvas.getContext("2d");
+        
+        
+        var image_data = ctx.getImageData(0, 0, 180, 180);
+        var image = buildMatrixImage(image_data.data);
+        var degrees_image = fcs.mapImage(visible_color, image, fcs.sphericalFuzzyColors).flat();
+
+        var canvas_mapped = document.getElementById("fcs-mapped-image");
+        ctx = canvas_mapped.getContext("2d");
+        ctx.drawImage(preview, 0, 0, 180, 180);
+
+        const imageData = ctx.getImageData(0, 0, 180, 180);
+        const data = imageData.data;
+        let degrees_index = 0;
+        
+        for (var i = 0; i < data.length; i += 4) {
+            data[i + 3] = degrees_image[degrees_index]*255;
+            degrees_index++;
+        }
+        
+        ctx.putImageData(imageData, 0, 0);
+    }
+}
+
+export function saveImage() {
+    var preview = document.getElementById("saved-image");
+    var file    = document.querySelector('input[type=file]').files[0];
+    var reader  = new FileReader();
+
+    reader.addEventListener("load", function () {
+        preview.src = reader.result;
+        var img = new Image();
+        img.onload = function () {
+            var canvas = document.getElementById("saved-image-canvas");
+            var ctx = canvas.getContext("2d");
+
+            ctx.drawImage(preview, 0, 0, 180, 180);
+        }
+        img.src = reader.result;
+
+    }, false);
+
+    if (file) {
+        reader.readAsDataURL(file);
+    }
+
+    $('#granular-results-picker').val('-1').change();
+    var canvas_mapped = document.getElementById("mapped-image");
+    var ctx = canvas_mapped.getContext("2d");
+    var img = new Image();
+    ctx.drawImage(img, 0, 0, 180, 180);
+
+    const imageData = ctx.getImageData(0, 0, 180, 180);
+    const data = imageData.data;
+    for (let i = 0; i < data.length; i += 4) {
+        data[i] = 255; // red
+        data[i + 1] = 255; // green
+        data[i + 2] = 255; // blue
+    }
+    ctx.putImageData(imageData, 0, 0);
+}
+
+export function saveFCSImage() {
+    var preview = document.getElementById("fcs-saved-image");
+    var file    = document.querySelector('input[type=file]').files[0];
+    var reader  = new FileReader();
+
+    reader.addEventListener("load", function () {
+        preview.src = reader.result;
+        var img = new Image();
+        img.onload = function () {
+            var canvas = document.getElementById("fcs-saved-image-canvas");
+            var ctx = canvas.getContext("2d");
+
+            ctx.drawImage(preview, 0, 0, 180, 180);
+        }
+        img.src = reader.result;
+
+    }, false);
+
+    if (file) {
+        reader.readAsDataURL(file);
+    }
+
+    $('#fcs-results-picker').val('-1').change();
+    var canvas_mapped = document.getElementById("fcs-mapped-image");
+    var ctx = canvas_mapped.getContext("2d");
+    var img = new Image();
+    ctx.drawImage(img, 0, 0, 180, 180);
+
+    const imageData = ctx.getImageData(0, 0, 180, 180);
+    const data = imageData.data;
+    for (let i = 0; i < data.length; i += 4) {
+        data[i] = 255; // red
+        data[i + 1] = 255; // green
+        data[i + 2] = 255; // blue
+    }
+    ctx.putImageData(imageData, 0, 0);
+}
+
+export function initImageLoaded(element, element_results, filename_results){
+    const canvas = document.getElementById(element);
+    const ctx = canvas.getContext('2d'); 
+    var img = new Image();
+    img.onload = function() {
+      ctx.drawImage(img, 0, 0, 180, 180);
+    };
+    img.src = 'img/bandera9.jpg';
+
+    const canvas_results = document.getElementById(element_results);
+    const ctx_results = canvas_results.getContext('2d'); 
+    var img2 = new Image();
+    img2.onload = function() {
+        ctx_results.drawImage(img2, 0, 0, 180, 180);
+    };
+    img2.src = 'img/'+filename_results;
+}

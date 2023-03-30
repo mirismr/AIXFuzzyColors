@@ -1,0 +1,1109 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags for IEEE Xplore immersive article \[[0-9]{1,2}\]-->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description"
+    content="An interactive approach to build fuzzy color spaces">
+  <meta charset="utf8">
+  <title>An interactive approach to build fuzzy color spaces</title>
+
+  <!-- Stylesheet for IEEE Xplore immersive article -->
+  <link rel="stylesheet" href="fonts/stylesheet.css">
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- MathJax javascript library and implementation file/s -->
+  <script type="text/javascript" async
+    src="https://xploreqa.ieee.org/xploreAssets/MathJax-274/MathJax.js?config=default">
+    </script>
+
+  <!-- Example fuzzy colors immersive app -->
+  <script type="text/javascript" src="lib/jquery-3.5.1.js"></script>
+  <script async src="lib/es-module-shims.js"></script>
+
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "./lib/three.module.js",
+      "three/addons/": "./jsm/"
+    }
+  }
+  </script>
+
+</head>
+
+<body>
+  <!-- Article with large top spacing -->
+  <article class="mt-lg">
+    <header>
+      <!-- Page container -->
+      <div class="container">
+        <!-- Page title -->
+        <h1>
+          An interactive approach to build fuzzy color spaces
+        </h1>
+        <!-- Subheading -->
+        <p class="subhead">
+          An interactive article on the granular modelling of fuzzy color categories. Learn how color categories
+          are represented by the so-called granules, which allow to represent IS-A relationships between color categories.
+          This paper also let you to dive in the granular fuzzy color spaces to understand the associated building process.
+          Finally, you can test this approach with your own image examples.
+        </p>
+        <!-- Header info general wrapper -->
+        <div class="header-info">
+          <!-- Header left info box -->
+          <div class="header-left box">
+            <!-- Header authors section -->
+            <div class="header-authors">
+              <h2>Authors</h2>
+              <ul>
+                <li>Míriam Mengíbar-Rodríguez | University of Granada</li>
+                <li>Jesús Chamorro-Martínez | University of Granada</li>
+                <li>James M. Keller | University of Missouri</li>
+              </ul>
+            </div>
+            <!-- Published info section -->
+            <div class="header-published">
+              <h2>Published</h2>
+              <p>Preprint</p>
+            </div>
+          </div>
+          <!-- Header legend section -->
+          <div class="header-legend">
+            <svg class="click-icon" data-name="Click"
+              xmlns="http://www.w3.org/2000/svg" viewBox="0 0 83.62 122.88">
+              <title>Click</title>
+              <path
+                d="M40.59,14.63a3.36,3.36,0,0,1-1,2.39l0,0a3.39,3.39,0,0,1-4.77,0,3.42,3.42,0,0,1-1-2.4V3.39A3.4,3.4,0,0,1,37.2,0a3.34,3.34,0,0,1,2.39,1,3.39,3.39,0,0,1,1,2.4V14.63Zm25,76.65a1.89,1.89,0,0,1,3.77,0V99.9a1.89,1.89,0,1,1-3.77,0V91.28ZM54.46,87.47a1.89,1.89,0,0,1,3.77,0V99.9a1.89,1.89,0,1,1-3.77,0V87.47Zm-28-7.63a1.92,1.92,0,0,1-.35-.23q-5.24-4.24-10.44-8.53a8.36,8.36,0,0,0-3.57-1.79,3.54,3.54,0,0,0-2,.09A2,2,0,0,0,9,70.49a6.9,6.9,0,0,0-.4,3.24,12.47,12.47,0,0,0,1.11,4,26.49,26.49,0,0,0,2.92,4.94l17.68,26.74a2.37,2.37,0,0,1,.36,1,15.28,15.28,0,0,0,1.87,6.4,2.89,2.89,0,0,0,2.57,1.46c9,0,18.62-.34,27.53,0a8.33,8.33,0,0,0,4.69-1.51,15,15,0,0,0,4.29-5l.34-.57c3.4-5.87,6.71-11.57,7-18.33L78.85,85l0-.33,0-1.84c.06-5.74.16-14.54-4.62-15.4H71.14c.09,2.46,0,5-.18,7.3-.08,1.36-.15,2.63-.15,3.79a2.31,2.31,0,1,1-4.62,0c0-1.1.08-2.52.17-4,.32-5.73.75-13.38-3.24-14.14h-3a2.2,2.2,0,0,1-.58-.07,69.07,69.07,0,0,1-.13,8.29c-.07,1.36-.15,2.63-.15,3.79a2.31,2.31,0,1,1-4.61,0c0-1.1.08-2.52.16-4,.33-5.73.76-13.38-3.24-14.14h-3a2,2,0,0,1-.6-.08V66a2.31,2.31,0,1,1-4.61,0V42c0-4-1.64-6.55-3.73-7.61a5.32,5.32,0,0,0-4.71-.06l-.1.06c-2.07,1-3.69,3.59-3.69,7.7v42a2.31,2.31,0,1,1-4.62,0V79.84Zm44.14-17a2.49,2.49,0,0,1,.61-.08h3.19a2.33,2.33,0,0,1,.53.06c8.73,1.4,8.61,12.65,8.52,20,0,3.4.14,6.78.18,10.17-.39,7.91-4,14.1-7.67,20.47l-.32.55A19.49,19.49,0,0,1,70,120.55a12.88,12.88,0,0,1-7.29,2.32H35.17a7.23,7.23,0,0,1-6.44-3.5,19,19,0,0,1-2.56-7.88L8.94,85.42A31,31,0,0,1,5.5,79.58,16.88,16.88,0,0,1,4,74a11.42,11.42,0,0,1,.8-5.42,6.54,6.54,0,0,1,3.55-3.49A8.05,8.05,0,0,1,13,64.76a13.19,13.19,0,0,1,5.61,2.77L26.45,74V42.09c0-6.1,2.73-10,6.22-11.82l.15-.06a9.81,9.81,0,0,1,4.33-1,10,10,0,0,1,4.49,1.07C45.16,32.06,47.91,36,47.91,42v7.6a2.41,2.41,0,0,1,.6-.08H51.7a2.33,2.33,0,0,1,.53.06c3.82.61,5.73,3.16,6.63,6.47a2.25,2.25,0,0,1,1.23-.36h3.18a2.26,2.26,0,0,1,.53.06c4.07.65,6,3.49,6.79,7.11ZM14.63,37A3.33,3.33,0,0,1,17,38a3.39,3.39,0,0,1-2.39,5.79H3.39a3.36,3.36,0,0,1-2.39-1A3.4,3.4,0,0,1,3.39,37ZM23,20.55a3.39,3.39,0,0,1-2.4,5.79,3.4,3.4,0,0,1-2.4-1l-7.91-7.94a3.42,3.42,0,0,1-1-2.4,3.39,3.39,0,0,1,5.79-2.4L23,20.55ZM59.2,43.81a3.41,3.41,0,0,1-3.4-3.4A3.41,3.41,0,0,1,59.2,37H70.43a3.35,3.35,0,0,1,2.4,1,3.4,3.4,0,0,1-2.4,5.79ZM55.62,24.74a3.39,3.39,0,0,1-4.8-4.8l7.91-8a3.39,3.39,0,0,1,4.8,4.8l-7.91,8Z" />
+            </svg>
+            <p>Indicates interactive elements</p>
+          </div>
+        </div>
+        <!-- Box of anchored links -->
+        <div class="contents box">
+          <h2>Contents:</h2>
+          <ul>
+            <li>
+              <a href="#introduction">Introduction</a>
+              <span class="separator">&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+            </li>
+            <li>
+              <a href="#granularfuzzycolors">Defining granular fuzzy colors</a>
+              <span class="separator">&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+            </li>
+            <li>
+              <a href="#granularfuzzycolors">Building granular fuzzy colors</a>
+              <span class="separator">&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+            </li>
+            <li>
+              <a href="#results">Results</a>
+              <span class="separator">&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+            </li>
+            <li>
+              <a href="#conclusions">Conclusions and future work</a>
+            </li>
+            
+          </ul>
+        </div>
+      </div>
+    </header>
+
+    <!-- Content container with large top spacing -->
+    <div class="container mt-lg">
+      <!-- Anchor ID -->
+      <section id="introduction">
+        <!-- Section title -->
+        <h2>I. Introduction</h2>
+        <p>
+        Humans usually describe the color concept through color categories like green, white or red. Since color is one of most distinguishable 
+        visual features for human perception, there is a need to develop models which are able to deal with color in tasks such as image analysis [<a href="#ref_1">1</a>],
+        linguistic interaction [<a href="#ref_2">2</a>], or visual scene description [<a href="#ref_3">3</a>], [<a href="#ref_4">4</a>], [<a href="#ref_5">5</a>].
+        Colors are represented by numerical triplets in color spaces. This representation is too different from the way humans describe color,
+        given by color names associated to subsets of resemblant precise colors [<a href="#ref_6">6</a>], [<a href="#ref_7">7</a>], and hence not well suited to
+        capture the human’s perception of color categorization [<a href="#ref_8">8</a>]. Moreover, color is blurred by nature: there is a progressive and blurred 
+        transition between different colors categories [<a href="#ref_9">9</a>], [<a href="#ref_10">10</a>], [<a href="#ref_11">11</a>] 
+        (e.g., where is the limit between the red color and the orange one?).
+        In addition, these categories are subjective and context-dependent [<a href="#ref_12">12</a>], [<a href="#ref_13">13</a>], that is,
+        the criteria under which we judge color resemblance are not only perceptual, but also depend on the person and the context.
+        </p>
+        <p>
+        In order to deal with these issues, fuzzy colors and fuzzy color spaces [<a href="#ref_14">14</a>] have been proposed as a suitable way for modelling human color categories.
+        Recent approaches are based on defining three-dimensional membership functions on the color space domain. Prototypes, which represent color categories,
+        are often used in this type of techniques. In order to obtain the membership degree, the distance to these prototypes are calculated. Others methods are included in this
+        category such as those inspired by the membership functions proposed in fuzzy clustering techniques (e.g., fuzzy c-means) [<a href="#ref_33">33</a>]. A different way of obtaining the membership function, not 
+        based on clustering-like membership functions, is proposed in [<a href="#ref_34">34</a>], where the membership degree is defined by means of a linear function on the basis of the Euclidean distance to the prototype. A more recent
+        approach [<a href="#ref_14">14</a>] propose a technique for representing color categories by means of a fuzzified Voronoi tessellation of the color space. It is based on the theory of conceptual spaces [<a href="#ref_35">35</a>], [<a href="#ref_36">36</a>] plus a fuzzifying methodology to obtain a Voronoi-based function for each single fuzzy color. Techniques in 
+        this last group allow to model any color term, whose membership functions are less restrictives than in the previous proposals.
+        <p>
+        Nevertheless, in some cases the membership function for a color category is not convex. Commonly, this fact occurs when there are IS-A relationships, where a color category
+        is composed by the union of a set of subcategories. For example, crisp colors in the category "light green" are also in the "green" category, thus it is possible to define the 
+        fuzzy set associated to the "green" category as the union of the fuzzy sets for "light green", "dark green", etc. However, the union of their membership function for the category
+        "green" could yield a non-convex membership function, even when each subcategory is modelled by a convex fuzzy set.
+        In [<a href="#ref_46">46</a>], the authors propose the notion of granular fuzzy color to address this problem, defined as aggregation of basic ones (the so-called granules).
+        This methodology builds a fuzzy color (a granule) from a set of prototypes, where each granule corresponds to
+        a subcategory of the color category, and the membership
+        function is defined on the basis of the distance to those
+        prototypes. Finally, to create each granule, a sphere-based membership function
+        is used in [<a href="#ref_46">46</a>].
+        </p>
+        <p>
+        In this paper we illustrate the idea of a granular fuzzy color and a granular fuzzy color space in an interactive way. We propose several interactive elements,
+        where the reader can understand the different steps to build granular fuzzy colors and granular fuzzy color spaces. Furthermore, these elements allow the user
+        to build and test his/her own granular fuzzy colors in a simple and intuitive way. For this purpose, the sphere-based granular fuzzy colors are used for a better
+        understanding: it is a simple approach but very powerful.
+        </p>
+        <p>
+        The paper is organized as follows. In section II, the idea of a granular fuzzy color will be introduced, where it will be explained
+        through two interactive elements. The first element shows to the reader a granular fuzzy color with a single granule; the second element 
+        illustrates to the reader the idea of a granular fuzzy color with several granules. Both elements allows the reader the selection of his/her
+        own sets of prototypes to build the fuzzy colors. Section III describes the methodology to build granular fuzzy color spaces. Again, two interactive elements are proposed
+        to illustrate the idea of a granular fuzzy color space where each fuzzy color is composed by one granule and by a set of granules. In Section IV it is showed some experimental
+        results over natural images. Then, an interactive element where the reader can load and test his/her own image. Finally, conclusions and future work are described in Section V.
+        </p>
+      </section>
+      
+      <h2 id="granularfuzzycolors">II. Defining granular fuzzy colors</h2>
+
+      <p class="inline-math">Let us consider the set of crisp colors that can be represented in a computer using any crisp color space $$\Gamma$$.
+      A fuzzy color is the computational representation of a color term; formally [<a href="#ref_14">14</a>]:</p>
+
+      <p class="inline-math">
+      <b>Definition II.1.</b> A fuzzy color $$\tilde{C}$$ is a linguistic label whose semantics is represented as a normal fuzzy subset of colors.
+      </p>
+      <p class="inline-math">
+      As it is proposed in [<a href="#ref_14">14</a>], imposing the use of normal membership functions implies that for each fuzzy color $$\tilde{C}$$
+      there is at least one crisp color $$\bold{r}$$ such that $$\tilde{C}(\bold{r}) = 1$$.
+      </p>
+
+      <p>There is a specific case of fuzzy color: the so-called granular fuzzy color, which is defined in [<a href="#ref_46">46</a>] as the union of other fuzzy colors:</p>
+      <p class="inline-math">
+        <b id="def-granular">Definition II.2.</b>
+        A fuzzy color $$\tilde{C}$$ is said to be granular iff there exists a finite set of fuzzy colors $$\{\tilde{C}_{1}, \ldots, \tilde{C}_{m}\}$$,
+        called granules, such that</p>
+        <p class="inline-math" style="text-align: center;">
+          $$\tilde{C} = \cup_{i=1}^{n}\tilde{C}_{i}$$
+        </p>
+        <p class="inline-math">
+        with the union performed on the corresponding membership functions via a t-conorm $$\bigoplus$$.
+      </p>
+
+      <p>
+        As we have introduced before, the granular approaches to fuzzy color modeling are used in this paper, which have shown to be more suitable
+        than non-granular ones [<a href="#ref_46">46</a>]. To define granular fuzzy colors, three-dimensional membership functions on the color space domain will be proposed.
+        In particular, we will use membership functions on the basis of parametric functions of the distance to prototypes [<a href="#ref_14">14</a>], [<a href="#ref_34">34</a>].
+        It is intuitive for the human perception the use of prototypes to describe basic color categories. There are some works in the color naming field 
+        [<a href="#ref_37">37</a>], [<a href="#ref_38">38</a>] which provide prototypes associated to color categories on the basis of human color perception.
+      </p>
+
+      <p class="inline-math">
+        Let $$\bold{p_{i}} \in \Gamma$$ be a crisp color prototype and let $$\lambda_i \in \mathbb{R}^{k_i}$$ be a set of 
+        $$k_i$$ parameters related to the kind of membership function used. 
+        Let $$P = \{p_1, \ldots, p_n\}$$ and $$\Lambda = \{\lambda_1, \ldots,\lambda_n\}$$ with $$n \geq 1$$.
+      </p>
+
+      <p class="inline-math">
+        <b>Definition II.3.</b>
+        A fuzzy color $$\tilde{C}$$ is a granular fuzzy color of the form:</p>
+        <p class="inline-math" style="text-align: center;">
+          $$\tilde{C}(\bold{c};P,\Lambda) = \bigoplus_{1 \leq i \leq n}{\tilde{C_{i}}(\bold{c}; \bold{p_{i}}, \lambda_{i})}$$
+        </p>
+        <p class="inline-math">
+          with $$\bigoplus$$  being a t-conorm, and where $$\tilde{C_{i}}(\bold{c}; \bold{p_{i}}, \lambda_{i})$$ 
+          is defined as:
+      </p>
+      <p id="def-fuzzy-color" class="inline-math" style="text-align: center;">
+        $$\tilde{C}(\bold{c};\bold{p_{i}}, \lambda_{i}) = f(\|\bold{c}-\bold{p_{i}}\|; \lambda_{i})$$
+      </p>
+      <p class="inline-math">
+        with $$\bold{p_{i}} \in \Gamma$$  being a crisp color prototype, $$\|·\|$$ being the Euclidean distance and 
+        $$\bold{c}$$ being the crisp color to be analyzed. 
+        The function $$f : [0, +\infty] \rightarrow [0, 1]$$ is a non-increasing function satisfying $$f(0) = 1$$.
+      </p>
+      <p class="inline-math">
+        There are many different types of functions $$f$$ (as is showed in [<a href="#ref_46">46</a>] or in [<a href="#ref_46">48</a>]) that can be used for defining a fuzzy color, being the
+        most employed the sphere-based ones and the polyhedron-based ones [<a href="#ref_14">14</a>]. In this paper we will focus on the
+        sphere-based, since it is a simple but powerful approach. In particular, the following function $$f$$ , with parameters $$\lambda = (a, b)$$,
+        is used [<a href="#ref_34">34</a>]:
+      </p>
+      <p id="def-sphere-mf" class="inline-math" style="text-align: center;">
+        $$f(x; a,b) = 
+        \begin{cases}
+          1,  & x < a, \\
+          \frac{b-x}{b-a},  & a \leq x \leq b, \\
+          0,  & x > b 
+        \end{cases}
+        $$
+      </p>
+      <p class="inline-math">
+      The parameter $$a$$ represents the radius of the sphere centered around the prototype $$\bold{p_{i}}$$ where colors are fully 
+      representative of the color category (having membership 1). The parameter $$b$$ is the radius of the sphere centered
+      around $$\bold{p_{i}}$$ containing all colors which are compatible to some extent (having membership greater than 0) with the 
+      color category. Membership decreases linearly with the distance to $$\bold{p_{i}}$$ when $$a \leq x \leq b$$, corresponding to points 
+      between the surfaces of both spheres. 
+      </p>
+
+      <!-- <p>Fig. 1 shows graphically the sphere-based membership function, with both 
+        the sphere associated to the core and the support.</p>
+      <div class="static" style="margin-bottom: 20px">
+        <img src="img/esquemaFuncionEsfera.png" alt="" style="margin: auto auto; width: 20%; display: block"/>
+        <div class="caption inline-math"><b>Figure 1:</b> Sphere-based membership function. The parameter $$a$$ represents the
+          radius of the sphere associated to the core, while the parameter $$b$$ represents the radius of the sphere
+          associated to the support. Given a color $$\bold{c}$$, its membership to the i-th fuzzy color is calculated from its 
+          distance to the prototype pi by using the trapezoidal function $$T(x; a, b)$$.</div>
+      </div> -->
+
+      <p class="inline-math">
+        An interactive element to understand how a granular fuzzy color is modelled is included in Fig.1. Here, it is showed 
+        a RGB cube where a granular fuzzy color with a single granule is represented. On the right side, we can see several
+        interactive elements where we can change the parameters and interact with the figure. As we have described previously, it is needed
+        a set of prototypes $$P$$ and a set of parameters $$\Lambda$$ for building a granular fuzzy color $$\tilde{C}$$. In this case,
+        $$P = \{\bold{p}_1\}$$ and $$\Lambda = \{\lambda_1\} = \{(a_1, b_1)\}$$ since the granular fuzzy color $$\tilde{C}$$ 
+        built is made up with only a granule, i.e., $$\tilde{C}(\bold{c};P,\Lambda) = \tilde{C_{1}}(\bold{c}; \bold{p_{1}}, \lambda_{1})$$.
+      </p>
+      <p class="inline-math">
+        Within the RGB cube two elements are showed: the granular fuzzy color $$\tilde{C}$$ (the purple spheres) and
+        a crisp color $$\bold{c}$$ (the green tetrahedron) to evaluate in the fuzzy color. For the granule which compose the fuzzy color,
+        three elements are showed: first, the prototype $$\bold{p}_1$$ as a solid point in the center of the spheres; second,
+        a internal sphere with a radius of $$b_1$$, which represents the kernel of the fuzzy color; finally, a external sphere
+        with a radius of $$a_1$$, which illustrates the support of the fuzzy color.
+      </p>
+      <p class="inline-math">
+        By default, the interactive element
+        builds $$\tilde{C}$$ through the prototype $$\bold{p}_1 = (154, 78, 174)$$
+        and the parameters $$a_1 = 15$$ and $$b_1 = 30$$, but these values can be modified through the pickers on the right side.
+        In the default case, it is showed that the point to evaluate $$\bold{c}$$ is outside of the fuzzy color spheres, thus 
+        the membership degree is 0. If we change the value of $$b_1$$ from 30 to 110 to grow up the support and reach $$\bold{c}$$,
+        we can observe that the membership degree has now a value of 0.09, since the point $$\bold{c}$$ is now within the support.
+        We can also change the value of $$a_1$$ from 15 to 90 and see how the kernel grows up. Due to this change, $$\bold{c}$$ is now
+        nearer from the kernel and the membership degree reach a value of 0.43. If the kernel reach the point $$\bold{c}$$
+        (change $$a_1$$ value to 110 too), the membership degree has the maximum value since $$\bold{c}$$ is now inside of the 
+        kernel sphere. We want to highlight the fact that, in this experiment, although the membership degree increases because 
+        we force to the point $$\bold{c}$$ to be within core or support, the distance keeps the same value.
+      </p>
+
+      <p class="inline-math">
+        We can also move the point $$\bold{c}$$ to analyse how it affects to the membership degree and to the distance.
+        For example (assuming that $$a_1$$ and $$b_1$$ parameters has 15 and 30 values, respectively), we can move it to the 
+        (164, 74, 191) RGB coordinates. Here, $$\bold{c}$$ has a membership degree of 0.66, since
+        it is closer to $$\bold{p}_1$$ (distance changes from 101.42 to 20.22). If we pick a closer $$\bold{c}$$ to the prototype
+        $$\bold{p}_1$$ (for example, (152, 82, 173)), we can see that distance decrease to 4.58 and membership degree reach a value
+        of 1 (note in the RGB cube that $$\bold{c}$$ is inside of the kernel sphere).
+        In this experiment, instead of modifying $$a_i$$ or $$b_i$$ parameter, we are changing the position of the point
+        to evaluate $$\bold{c}$$ to see how increase (decrease) the membership degree (the distance), numerically and visually. 
+      </p>
+
+      <div class="framed" style="margin-top: 20px; margin-bottom: 20px;">
+        <div class="inside">
+          <div class="eyebrow">
+            <p class="inline-math">
+              You can select your own prototype $$\bold{p_1}$$ in the first color picker            
+              or change $$a_1$$ and $$b_1$$ parameters to see how they affect in the fuzzy color building process.
+              The second color picker allows you to select your own $$\bold{c}$$ to evaluate it in the granualr fuzzy color and obtain the membership
+              degree and the distance associated. All these changes will update the left-side RGB cube and the drawed elements.
+              You can also interact with the RGB cube by zooming (with mouse scroll) or rotating (click and drag) it.
+            </p>
+          </div>
+        <script type="module" src="app/simple.js"></script>
+        
+        <div style="display: flex; margin-bottom: 20px;">
+          <div style="display: flex; flex-direction:column; flex-grow: 1;">
+            <div style="border: dashed #11679a; border-radius: 10px;">
+            <div class="caption" style="display: flex;">
+              <label class="inline-math" style="margin-right: 10px;">Pick up a prototype $$\bold{p}$$: </label>
+              <input type="color" id="simple-picker" value="#9A4EAE">
+            </div>
+            <div class="caption" style="display: flex;">
+              <label class="inline-math" style="margin-right: 10px;">$$a$$ parameter: </label>
+              <input id="a-parameter" style="width: 50px" type="number" min=0 value="15"/>
+            </div>
+            <div class="caption" style="display: flex;  margin-bottom: 1rem;">
+              <label class="inline-math" style="margin-right: 10px;">$$b$$ parameter: </label>
+              <input id="b-parameter" style="width: 50px" type="number" min=0 value="30"/>
+              <label id="simple-parameter-error" class="inline-math" style="margin-left: 5px; color: red; font-size: smaller;"></label>
+            </div>
+            </div>
+
+            <div style="border: dashed #11679a; border-radius: 10px; margin-top: 20px;">
+              <div class="caption" style="display: flex;">
+                <label class="inline-math" style="margin-right: 10px;  margin-top: 4px;">
+                  Pick up a color to evaluate $$\bold{c}$$: </label>
+                <input type="color" id="simple-point-to-evaluate" value="#CD98DD">
+              </div>
+              <div class="caption" style="display: flex;">
+                <label class="inline-math" style="margin-right: 10px;">Distance from $$\bold{c}$$ to $$\bold{p}$$: </label>
+                <label id="simple-distance">101.42</label>
+              </div>
+              <div class="caption" style="display: flex; margin-bottom: 1rem;">
+                <label class="inline-math" style="margin-right: 10px;">Membership degree of $$\bold{c}$$: </label>
+                <label id="simple-md">0.00</label>
+              </div>
+            </div>
+          </div>
+          <canvas id="simple-main-support"></canvas>
+        </div>
+        <div class="caption"><b>Figure 1:</b><br>Introducing granular fuzzy color composed by a single granule. 
+          It is showed an interactive RGB cube where we can build our own granular fuzzy color by selecting a custom prototype
+          and the needed parameters. We can also evaluate a RGB point and see the membership degree associated to the built
+          fuzzy color.
+        </div>
+      </div>
+      </div>
+
+      <p class="inline-math">
+        In order to get a deeper vision of the granular fuzzy colors, another interactive element is introduced in Fig.2. Here, it is showed 
+        a RGB cube where a granular fuzzy color with three granules are drawed. On the right side, we can see a toolbox where we can change
+        some parameters and interact with the figure. As we have described previously, it is needed
+        a set of prototypes $$P$$ and a set of parameters $$\Lambda$$ for building a granular fuzzy color $$\tilde{C}$$. In this case,
+        $$P = \{\bold{p}_1, \bold{p}_2, \bold{p}_3\}$$ and $$\Lambda = \{\lambda_1, \lambda_2, \lambda_3\} = \{(a_1, b_1), (a_2, b_2), (a_3, b_3)\}$$ 
+        since the granular fuzzy color $$\tilde{C}$$ 
+        built is made up by three granules, i.e., $$\tilde{C}(\bold{c};P,\Lambda) =  
+          \tilde{C_{1}}(\bold{c}; \bold{p_{1}}, \lambda_{1}) \oplus
+          \tilde{C_{2}}(\bold{c}; \bold{p_{2}}, \lambda_{2}) \oplus
+          \tilde{C_{3}}(\bold{c}; \bold{p_{3}}, \lambda_{3})$$.
+        About the t-conorm $$\oplus$$, we use maximum function for this experiment.
+      </p>
+      <p class="inline-math">
+        Within the RGB cube, again, two elements are showed: the granular fuzzy color $$\tilde{C}$$ (the three purple spheres) and
+        a crisp color $$\bold{c}$$ (the green tetrahedron) to evaluate in the fuzzy color. For each granule $$\tilde{C}_i$$ three elements are showed:
+        first, the prototype $$\bold{p}_i$$ as a solid point in the center of the spheres; second,
+        a internal sphere with a radius of $$b_i$$, which represents the kernel of the granule; finally, a external sphere
+        with a radius of $$a_i$$, which illustrates the support of the granule.
+      </p>
+      <p class="inline-math">
+        By default, the interactive element
+        builds each $$\tilde{C}_i$$ through the prototypes $$\bold{p}_1 = (154, 78, 174)$$, $$\bold{p}_2 = (194, 81, 225)$$,
+        $$\bold{p}_3 = (170, 81, 225)$$ and the parameters $$a_i = 15$$ and $$b_i = 30$$ (i.e., the same parameters for the three granules),
+        but these values can be modified through the pickers on the right side.
+
+        In the default case, it is showed that the point to evaluate $$\bold{c}$$ is outside of the three granules spheres, thus 
+        the membership degree is 0. If we change the value of $$b_i$$ from 30 to 50 to grow up the supports,
+        we can observe that the membership degree has now a value of 0.09, since the point $$\bold{c}$$ is now within the support of one of the granules.
+        We can also change the value of $$a_i$$ from 15 to 40 and see how the kernels grows up. Due to this change, $$\bold{c}$$ is now
+        nearer from the kernel of one of the granules and the membership degree reach a value of 0.31. If one of the kernels reach the point $$\bold{c}$$
+        (change $$a_i$$ value to 47 too), the membership degree has the maximum value since $$\bold{c}$$ is now inside of one of the 
+        kernel spheres. We want to highlight that we are using max as t-conorm, thus if $$\bold{c}$$ is in at least one granule the membership degree will
+        be greater than 0. Furthermore, note that in this experiment, although the membership degree increases because 
+        we force to the point $$\bold{c}$$ to be within a core or support, the distance keeps the same value.
+      </p>
+
+      <p class="inline-math">
+        In this experiment, we can also move the point $$\bold{c}$$ to analyse how it affects to the membership degree and to the distance.
+        For example (assuming that $$a_i$$ and $$b_i$$ parameters has 15 and 30 values, respectively), we can move it to the 
+        (203, 70, 206) RGB coordinates. Here, $$\bold{c}$$ has a membership degree of 0.42, since
+        it is closer to $$\bold{p}_2$$ (minimum distance changes from 60.17 to 23.73). If we pick a closer $$\bold{c}$$ to the prototype
+        $$\bold{p}_2$$ (for example, (203, 70, 220)), we can see that distance decrease to 15.07 and membership degree reach a value
+        of 1 (note in the RGB cube that $$\bold{c}$$ is inside of the kernel sphere of $$\tilde{C}_2$$).
+        In this experiment, instead of modifying $$a_i$$ or $$b_i$$ parameter, we are changing the position of the point
+        to evaluate $$\bold{c}$$ to see how increase (decrease) the membership degree (the distance), numerically and visually. 
+      </p>
+
+
+      <div class="framed" style="margin-top: 20px; margin-bottom: 20px;">
+        <div class="inside">
+          <div class="eyebrow">
+            <p class="inline-math">
+              You can select your own set of prototypes $$P$$ in the first color picker            
+              or change $$a_i$$ and $$b_i$$ parameters to see how they affect in the granules building process.
+              The second color picker allows you to select your own $$\bold{c}$$ to evaluate it in the granular fuzzy color and obtain the membership
+              degree and the distance associated. All these changes will update the left-side RGB cube and the drawed elements.
+              You can also interact with the RGB cube by zooming (with mouse scroll) or rotating (click and drag) it.
+            </p>
+          </div>
+        <script type="module" src="app/granular.js"></script>
+        
+        <div style="display: flex; margin-bottom: 20px;" >
+          <div style="display: flex; flex-direction:column; flex-grow: 1;">
+            <div style="border: dashed #11679a; border-radius: 10px;">
+              <div class="caption" style="display: flex;">
+                <label style="margin-right: 10px; margin-top: 4px;">Pick up a set of prototypes: </label>
+                <input type="color" id="granular-picker-prototypes" value="#9A4EAE">
+              </div>
+              <div class="caption" style="display: flex;">
+                <div id="granular-selected-prototypes" style="padding:5px; display:flex; flex-wrap: wrap; border: dashed #11679a; color:gray">
+                  <!-- Prototypes will be appear here -->
+                  <div style="margin-left: 3px; height: 20px; width: 20px; border: 1px black solid; background-color: #9A4EAE" value="#9A4EAE"></div>
+                  <div style="margin-left: 3px; height: 20px; width: 20px; border: 1px black solid; background-color: #C251E1" value="#C251E1"></div>
+                  <div style="margin-left: 3px; height: 20px; width: 20px; border: 1px black solid; background-color: #AA51E1" value="#AA51E1"></div>
+                </div>
+              </div>
+              <div class="caption" style="display: flex;">
+                <label class="inline-math" style="margin-right: 10px; margin-top: 4px;">$$a$$ parameter: </label>
+                <input id="granular-a-parameter" style="width: 50px" type="number" value="15"/>
+                <label class="inline-math" style="padding-left: 10px; border-left: dashed #11679a; margin-left: 10px; margin-right: 10px; margin-top: 4px;">$$b$$ parameter: </label>
+                <input id="granular-b-parameter" style="width: 50px" type="number" value="30"/>
+                <label id="granular-parameter-error" class="inline-math" style="margin-left: 5px; color: red; font-size: smaller;"></label>
+              </div>
+              <div class="caption" style="display: flex; margin-bottom: 1rem;">
+                <button type="button" id="granule-build-button" style="margin-right: 10px;">Build color</button>
+                <button type="button" id="granule-clean-button" style="margin-right: 10px;">Remove color</button>
+              </div>
+            </div>
+
+            <div style="border: dashed #11679a; border-radius: 10px; margin-top: 20px;">
+              <div class="caption" style="display: flex;">
+                <label style="margin-right: 10px;margin-top: 4px;">Pick up a color to evaluate: </label>
+                <input type="color" id="granular-point-to-evaluate" value="#AA5082">
+              </div>
+              <div class="caption" style="display: flex;">
+                <label style="margin-right: 10px;">Minimum distance: </label>
+                <label id="granular-distance">60.17</label>
+              </div>
+              <div class="caption" style="display: flex; margin-bottom: 1rem;">
+                <label style="margin-right: 10px;">Membership degree: </label>
+                <label id="granular-md">0.00</label>
+              </div>
+            </div>
+          </div>
+          <canvas style="border: dashed #11679a; border-radius: 10px;" id="granular-main-support"></canvas>
+        </div>
+
+        
+        <div class="caption"><b>Figure 2:</b><br>Introducing granular fuzzy color composed by a set of granules (three, in this case). 
+          It is showed an interactive RGB cube where we can build our own granular fuzzy color by selecting a custom set of prototypes
+          and the needed parameters. We can also evaluate a RGB point and see the membership degree associated to the built
+          fuzzy color.</div>
+      </div>
+      </div>
+
+      <h2 id="results">III. Building granular fuzzy colors</h2>
+
+      <p class="inline-math">
+      In the previous section, we have introduced the granular fuzzy color idea: it is defined on the basis of a set of color prototypes $$P$$.
+      This set of positive prototypes are fully representative of the color term modelled by the 
+      fuzzy color (i.e., their membership to the fuzzy color is 1.0). To emphasize this feature of $$P$$, from now
+      on we will note it as $$P^+ = \{\bold{p_1}, \ldots , \bold{p_n}\}$$. Furthermore, for the building process, we will also consider
+      prototypes representing the complement of the color term we want to model. Let $$P^− = \{\bold{np_1}, \ldots , \bold{np_m}\}$$,
+      with $$m \geq 1$$, be a set of negative prototypes, satisfying $$P^+ \cap P^− = \emptyset$$. Negative prototypes can be 
+      obtained in several ways. In particular, when color categories are disjoint in semantics, the negative 
+      prototypes for a certain color category include the positive prototypes for the rest of color categories.
+      </p>
+      <p class="inline-math">
+        We need to learn $$\lambda_i = (a_i , b_i )$$ to build a granular fuzzy color, which are related to the parameters of the function defined in Eq.(<a href="#def-sphere-mf">3</a>),
+        that is, the radius of the core and the support. To estimate these parameters a simple procedure will be used 
+        [<a href="ref_46">46</a>]: the sphere associated with the support of each $$\tilde{C}_i$$ is expanded until it reaches
+        some negative prototype. In this way, we can see the negative prototypes as the “limiters” of the growth of the support
+        of the granular color $$\tilde{C}$$ (given by the union of the individual supports).
+      </p>
+      <p class="inline-math">
+        Thus, let $$D_i$$ be the distance from $$\bold{p}_i$$ to its nearest point in the set
+        $$P^−_i = P^− \cup P^+\textbackslash\{\bold{p}_i\}$$. Note that $$P^−_i$$ is the set of prototypes employed to limit the
+        growth of the granule $$\tilde{C}_i \in \tilde{C}$$, that include both the negative prototypes of $$\tilde{C}$$ and the
+        positive prototypes of the rest of granules that form $$\tilde{C}$$. Then, $$\lambda_i$$ is obtained as follows
+        [<a href="ref_46">46</a>]:
+      </p>
+      
+      <p id="def-lambda" class="inline-math" style="text-align: center;">
+        $$\lambda_i = (a_i, b_i) = (\alpha_i D_i, \beta_i D_i)$$
+      </p>
+
+      <p class="inline-math">
+        with $$\alpha_i \in [0, 1)$$ and $$\beta_i \in (0, 1]$$ being scale factors for the core radius and the support radius,
+        respectively, satisfying $$\alpha_i < \beta_i$$. 
+      </p>
+      
+
+      <!-- <div class="static" style="margin-bottom: 20px">
+        <img src="img/buildGranule.png" alt="" style="margin: auto auto; width: 30%; display: block"/>
+        <div class="inline-math caption"><b>Figure 2:</b> Example of how a granule is built (2D view). In this case, 
+          $$\alpha_i = 0.2$$, $$\beta_i = 0.9$$ and the set of prototypes employed to limit the growth of the
+          granule is $$P^−_i = \{\bold{np_1}, \ldots , \bold{np_5}, \bold{p_j}\}$$.</div>
+      </div> -->
+      <p class="inline-math">
+      The concept of fuzzy color space [<a href="ref_14">14</a>] arise when we need to work with several color terms,
+      as for example in some practical applications of color modelling. A fuzzy color space 
+      $$\tilde{\Gamma} = \{\tilde{C}_{1}, \ldots, \tilde{C}_{m}\}$$ is a set of fuzzy colors defined on a certain
+      crisp color space $$\Gamma$$. In our case, each $$\tilde{C^k} \in \tilde{\Gamma}$$ is a granular fuzzy color
+      composed by the union of color granules. Let $$\tilde{C^k_i} \in \tilde{C^k}$$ be the
+      i-th granule of the granular fuzzy color $$\tilde{C^k} \in \tilde{\Gamma}$$. The learn of fuzzy colors parameters is a advisable way
+      to build fuzzy color spaces, since several color categories should be modelled.
+      </p>
+      
+      <p class="inline-math">
+      In order to understand the granular fuzzy color building process, an interactive element is showed in Fig. <a href="#fcs-fig""">4</a>.
+      Here, it is showed a RGB cube where a set of granular fuzzy colors are drawed (i.e., a fuzzy color space).
+      On the right side, we can see a toolbox where we can change some parameters and interact with the figure. 
+      As we have described in this section previously, it is needed a set of positive prototypes $$P^+$$ and a set of negative prototypes $$P^-$$ to learn $$\lambda_i = (a_i , b_i )$$ and build the granular fuzzy color $$\tilde{C}_i$$. 
+      This example shows how learn these parameters for a set of granular fuzzy colors which represents several color categories. For the sake of simplicity, each granular fuzzy color is made up with only a granule (i.e., we need only a positive prototype to build each fuzzy color). Our starter point is a set of prototypes
+      $$P$$, so we use each $$\bold{p}_i \in P$$ as the positive prototype and $$P\textbackslash\{\bold{p}_i\}$$ as the set of negative prototypes. This fact will grow the sphere associated of each granular fuzzy color until it reach another kernel of some another color category.
+      </p>
+      <p class="inline-math">
+      Within the RGB cube a set of granular fuzzy colors are showed (the colorful spheres). For each granular fuzzy color three elements are showed:
+      first, the prototype $$\bold{p}_i$$ as a solid point in the center of the spheres; second,
+      a internal sphere with a radius of $$b_i$$, which represents the kernel of the granule; finally, a external sphere
+      with a radius of $$a_i$$, which illustrates the support of the granule. Note that these parameters are learned in this case.
+      </p>
+      <p class="inline-math">
+      By default, the interactive element
+      builds the granular fuzzy color space through the basic ISCC-NBS prototypes [<a href="#ref_39">39</a>]. In particular, here we are using the core set of 13 basic color categories (see Fig. <a href="#iscc-nbs-fig">3</a>), made up of 10 hue names (pink, red, orange, brown, yellow, olive, yellow-green, green, blue, violet, purple) and three neutral ones (white, gray, and black). In this example, we can verify that there is no fuzzy color support that intersects with the kernel of another fuzzy color, since given a prototype $$\bold{p}_i$$ the prototypes of the rest of categories $$P\textbackslash\{\bold{p}_i\}$$ (i.e., the negative prototypes) act like "limiters" of the growth of the support sphere.
+      </p>
+
+      <div id="iscc-nbs-fig" class="static" style="margin-bottom: 20px;">
+        <div style="display:flex;">
+          <img src="img/isccbasic.png" alt="" style="margin: auto auto; display: block"/>
+          <img src="img/iscccomplete.png" alt="" style="margin: auto auto; display: block"/>
+        </div>
+        <div class="caption"><b>Figure 3:</b> Prototypes provided by the ISCC-NBS system. On the left, the 13 basic color categories;
+        on the right, the 267 extended color categories.</div>
+      </div>
+
+      <p class="inline-math">
+      This interactive element also allows the creation of a custom granular fuzzy color space. For example, we could create a granular fuzzy color space of four color categories: red, green, blue and black. Our set of prototypes would be $$P = \{(255, 0, 0), (0, 255, 0), (0, 0, 255), (0, 0, 0)\}$$, respectively. It is showed that each prototype is drawed in four corners of the RGB cube. If we look at black fuzzy color, we can see that the support sphere grows up until it reach the red, green and blue kernel spheres. This behavior also happens in the rest of fuzzy colors.
+      </p>
+
+      
+      <div id="fcs-fig" class="framed">
+        <div class="inside">
+          <div class="eyebrow">
+            Let's build your own fuzzy color space! You can select your own set of color prototypes in the picker by clicking it and selecting the desired color.
+            You can repeat this process until you select the desired number of prototypes.
+            The selected colors will appear below in the "selected prototypes" section.
+            Once you have selected your set of custom prototypes,
+            you can build the fuzzy color space by clicking the "Build Fuzzy Color Space" button. If you want to restart the process and 
+            create another fuzzy color space, you can remove the selected prototypes and the created fuzzy color space by clicking the
+            "Remove Fuzzy Color Space" button. You can also interact with the RGB cube by zooming (with mouse scroll) or rotating (click and drag) it.  
+          </div>
+          <script type="module" src="app/fcs.js"></script>
+          <div id="fuzzycolor-intro" style="display: flex; margin: auto auto 10px;">
+            <canvas id="fuzzycolor-intro-main"></canvas>
+            <div class="caption" id="fuzzycolor-intro-interactive" >
+              <div style="display: flex;">
+                <label>Pick up a set of prototypes: </label>
+                <input style="margin-left: 10px; margin-bottom: 10px" type="color" id="fuzzycolor-intro-prototypes-picker">
+              </div>  
+              <div id="fuzzycolor-intro-selected-prototypes" style="padding:5px; display:flex; flex-wrap: wrap; border: dashed #11679a; color:gray">
+                Prototypes will be appear here
+              </div>
+            <button type="button" id="intro-build-fcs" style="margin-top: 10px;">Build Fuzzy Color Space</button>
+            <button type="button" id="intro-clean-prototypes" style="margin-top: 10px;">Remove Fuzzy Color Space</button>
+          </div>
+        </div>
+        <div class="caption"><b>Figure 4:</b><br>Granular fuzzy color space where each fuzzy color is composed by one granule. It is showed an interactive RGB cube where we can build our own granular fuzzy color space by selecting a custom set of prototypes. This element will learn automatically the set of parameters needed to build each granular fuzzy color.</div>
+      </div>
+    </div>
+
+    <p>
+      Once we have illustrated the basics ideas of the granular fuzzy color, Fig. 5 shows another interactive element illustrating a granular fuzzy color space where each fuzzy color is composed by a set of granules. In this case, the color categories modelled are the following: pink, red, brown, yellow, olive, yellow-green, green, blue, gray, white and black. For each color category, we use as positive prototypes the ones corresponding to the some modifiers from the ISCC-NBS [<a href="#ref_39">39</a>], that is, the subset of prototypes in the ISCC-NBS complete set associated to the basic color category for the given modifiers; and as negative prototypes the prototypes from the ISCC-NBS basic set corresponding to all color categories except the itself color category modelled (see Fig. <a ref="#iscc-nbs-fig">3</a>).
+    </p>
+    <p>
+      Each color category could have different number of granules defining the granular fuzzy color. For example, on the one hand, if we select the color category "blue", we can see a set of 6 granules corresponding to specific color categories of the ISCC-NBS complete set: "Vivid Blue", "Strong Blue", "Brilliant Blue", "Deep Blue", "Very Light Blue" and "Light Blue". With all these tonalities, we are modelling the color category "blue" in a richer way (color subcategories range from lighter ones to darker ones, covering a bigger set of blue tonalities).
+      On the other hand, if we select the color category "black", we can see the opposite case where we have just a granule to model this category.
+    </p>
+    <p>
+      In this figure, where we are modelling granular fuzzy color with more than one granule, we can also check the constraint explained previously: there is no granular fuzzy color support that intersects with the kernel of another granular fuzzy color, not even in the granules of the same granular fuzzy color.
+    </p>
+
+    <div class="framed">
+      <div class="inside">
+        <div class="eyebrow">
+          Let's see a granular fuzzy color space with more than one granule for each granular fuzzy color. Here, you can select a particular color category in order to see the granular fuzzy color. You can also interact with the RGB cube by zooming (with mouse scroll) or rotating (click and drag) it.
+        </div>
+      <script type="module" src="app/granular_fcs.js"></script>
+      <div style="display: flex; margin: auto auto 10px;">
+        <canvas id="granular-space" style="flex-grow:5;"></canvas>
+        <div class="caption" id="granular-select" style="flex-grow:1; display:flex; flex-direction: column;">
+          <label style="margin-right: 10px; margin-bottom: 10px;">Pick up a color: </label>
+        </div>
+      </div>
+      <div class="caption"><b>Figure 5:</b><br>Granular fuzzy color space with more complex fuzzy colors (more than one granule for some fuzzy colors).</div>
+    </div>
+    </div>
+
+      <h2 id="results">IV. Results</h2>
+      <p>
+        In this section, the ability of the granular fuzzy colors to represent colors and their several tonalities is analysed. For this reason, a comparison between non-granular fuzzy colors and granular fuzzy colors are proposed through qualitative experiments. Two interactive elements have been developed and proposed in this section to perform these experiments. By default, an natural image with high variability in color tonalities are proposed to test  granular fuzzy colors, but the reader could load his/her own image to test them.
+      </p>
+
+      <p class="inline-math">
+        In order to show how a particular fuzzy color model a color category, the following method is proposed: given an image, the membership degree to a given fuzzy color of each pixel is calculated. Then, these membership degrees are used as transparency degree (alpha channel) in the original image. Note that membership degree with a value of 0 corresponds to maximum transparency and, therefore, shows the background color that, in this case, is the white; on the other hand, membership degree with a value of 1 corresponds with non-transparency and, therefore, shows the original color of the image pixel. This color mapping allows us to see the colors "selected" to some degree by the model, thus it is expected that it shows the areas of the image for the given color category.
+      </p>
+
+      <p>
+        In the following interactive elements, by default, a natural image of a flag waving in the wind is showed, although the read could load his/her own image example. In this image, six dominant colors can be labeled: "red" (the two side strips of the flag), "white" (the middle strip of the flag, flag stick and the clouds), "blue" (the sky), "green" and "yellow" (the middle flag details). There are two relevant causes to use this example: on the one hand, there are different subcategories of red (corresponding to the waves in the flag) which are related by an IS-A relationship; on the other hand,
+        there is a lot of variation within the same hue due to the shape of the waves in the flag and the light reflection on
+        their surfaces. By default, the explained mapping is showed on the right side for the "red" color category.
+      </p>
+
+      <p>
+        Fig. 6 shows an interactive element where a non-granular fuzzy color space is represented on the left side. It is built through the basic ISCC-NBS prototypes [<a href="#ref_39">39</a>]. As in previous examples, here we are using the core set of 13 basic color categories (see Fig. <a href="#iscc-nbs-fig">3</a>), where each of them is used as the positive prototype needed to build a non-granular fuzzy color. The rest positives are used as negative prototypes for this non-granular fuzzy color. In the mapping image for the "red" color category, it is showed that this approach is not able to model the variability of the red colors in the folds of the flag. The non-granular techniques do not detect the shadow areas corresponding to different types of red, like "light red" or "dark red" (there are "holes" in the mapping image), working well only in the cases of "vivid red" regions.
+        If we select "blue" color category through the selector, it is showed a similar effect: there are a lot of sky zones where the membership degree to the non-granular fuzzy color corresponding to the "blue" category is too low ("holes" in the mapping image).
+      </p>
+
+    
+      <div class="framed">
+        <div class="inside">
+          <div class="eyebrow">
+            Let's test your own image with this non-granular fuzzy color space. There are 13 basic color categories modeled that the reader can select through the picker element. Furthermore, the reader could load his/her own image with the top button and see the mapping image for a given color category.
+          </div>
+        <script type="module" src="app/fcs_results.js"></script>
+        <div style="display: flex; margin: auto auto 10px;">
+          <canvas id="fcs-results-space" style="flex-grow:1;"></canvas>
+          <div id="fcs-results-select" style="margin-top: 60px; margin-right:80px; display:flex; flex-direction: column;">
+            <label style="margin-right: 10px;">Select an image: </label>
+            <input type="file" id="fcs-source-image" accept="image/*">
+            <div id="fcs-image-wrapper" style="display: flex; margin: auto auto; margin-top: 10px;">
+            
+            <div style="display:flex; flex-direction: column;">
+              <label style="margin-right: 10px; margin-top: 20px;">Original image: </label>
+              <img src="img/bandera9.jpg" width="180" height="180" style="margin-right: 10px; " id="fcs-saved-image"></img>
+            </div>
+            
+            <div style="display:flex; flex-direction: column;">
+              <label style="margin-right: 10px; margin-top: 20px;">Mapped image: </label>
+              <canvas width="180" height="180" id="fcs-mapped-image"></canvas>
+            </div>
+            <canvas width="180" height="180" style="display: none;" id="fcs-saved-image-canvas"></canvas>
+            </div>
+            <label style="margin-right: 10px; margin-top: 20px;">Pick up a color: </label>
+            </div>
+          </div>
+        <div class="caption"><b>Figure 6:</b><br>Results obtained by non-granular fuzzy colors.</div>
+      </div>
+      </div>
+
+      <p>
+        Fig. 7 shows an interactive element where a granular fuzzy color space is represented on the left side. Here, color categories modelled are the following: pink, red, brown, yellow, olive, yellow-green, green, blue, gray, white and black. For each color category, we use as positive prototypes the ones corresponding to the some modifiers from the ISCC-NBS [<a href="#ref_39">39</a>], that is, the subset of prototypes in the ISCC-NBS complete set associated to the basic color category for the given modifiers; and as negative prototypes the prototypes from the ISCC-NBS basic set corresponding to all color categories except the itself color category modelled (see Fig. <a ref="#iscc-nbs-fig">3</a>). In the mapping image for the "red" color category, it is showed that this approach is able to model the variability of the red colors in the folds of the flag. The granular approach selects almost all the pixels (i.e., it gives high membership degree to all the red pixels even in the different red tonalities).
+        If we select "blue" color category through the selector, it is showed a similar effect: the blue of the sky is captured almost entirely; second, the blue
+        pixels of the balloon are also selected with a high membership degree, including the different subcategories of
+        "blue", like "light blue", "deep blue" or "pale blue", among others.
+      </p>
+
+      <div class="framed">
+        <div class="inside">
+          <div class="eyebrow">
+            Let's test your own image with this granular fuzzy color space. There is a set of color categories modeled that the reader can select through the picker element. Furthermore, the reader could load his/her own image with the top button and see the mapping image for a given color category.
+          </div>
+        <script type="module" src="app/granular_fcs_results.js"></script>
+        <div style="display: flex;">
+          <canvas id="granular-results-space" style="flex-grow:1;"></canvas>
+          <div id="granular-results-select" style="margin-top: 60px; margin-right:80px; display:flex; flex-direction: column;">
+            <label style="margin-right: 10px;">Select an image: </label>
+            <input type="file" id="source-image" accept="image/*">
+            <div id="image-wrapper" style="display: flex; margin: auto auto; margin-top: 10px;">
+            
+            <div style="display:flex; flex-direction: column;">
+              <label style="margin-right: 10px; margin-top: 20px;">Original image: </label>
+              <img src="img/bandera9.jpg" width="180" height="180" style="margin-right: 10px; " id="saved-image"></img>
+            </div>
+            
+            <div style="display:flex; flex-direction: column;">
+              <label style="margin-right: 10px; margin-top: 20px;">Mapped image: </label>
+              <canvas width="180" height="180" id="mapped-image"></canvas>
+            </div>
+            <canvas width="180" height="180" style="display: none;" id="saved-image-canvas"></canvas>
+            </div>
+            <label style="margin-right: 10px; margin-top: 20px;">Pick up a color: </label>
+            </div>
+          </div>
+        <div class="caption"><b>Figure 7:</b><br>Results obtained by granular fuzzy colors.</div>
+      </div>
+      </div>
+      </section>
+
+      <p>
+        These experiments allow us to conclude some interesting ideas: the granular approach selects almost all the pixels (i.e., it
+        gives high membership degree to all the color category pixels), while the non-granular techniques leave many "holes" (i.e., they
+        give zero or very low membership degrees to many pixels). This is due to single-prototype based models are less accurate than granular
+        ones and so, in this particular case, they leave out some crisp colors in the models of "red" and "blue" that,
+        as a consequence, are not captured by the model in the examples.
+      </p>
+
+      <h2 id="conclusions">Conclusions and future work</h2>
+
+      <p>
+        In this paper, interactive figures has been developed in order to dive the user in an experimental experience. In this case, the notion of granular fuzzy color has been introduced to represent color categories. The concept of granule is explained in an incremental way in two interactive figures: first, granular fuzzy colors with only a granule; second, granular fuzzy colors with several granules. These figures allow the user to change prototypes and parameters for a better understanding of the fuzzy color concept.
+      </p>
+
+      <p>
+        Furthermore, based on the proposed definition, a methodology for building granular fuzzy colors has been described. The interactive elements for this theorical method are also two: first, a simpler granular fuzzy color space can be built allowing the user to select the prototypes for each color category; second, a complex granular fuzzy color space is build through a predefined set of prototypes, where 13 color categories are represented. In both figures, the parameters needed to build each fuzzy color are learned automatically. By the use of these figures, the reader can get details about the building process and even create his/her own fuzzy color spaces.
+      </p>
+
+      <p>
+        Some qualitative experiments have been performed in order to analyze the ability of the described methodology to represent colors and their different tonalities. For this reason, a comparison between non-granular fuzzy colors and granular fuzzy colors are proposed. Non-granular approaches are not able to model the hue variations of given
+        color categories; this behavior is expected since non-granular techniques do not consider subtypes of
+        tonalities in their models. On the other hand, the granular approach described in this paper has correctly
+        captured the colors of the images, including their various subcategories. In this paper, two interactive elements are proposed to perform this comparison. The reader can test his/her own images examples in both approaches and see the results.
+      </p>
+
+      <p>
+        This paper, where interactive figures are within the paper itself, allows the reader to immerse in the approach proposed. They make easier to understand complex concepts through simple and visual figures, allowing the reader to change parameters and interact with the theory in a practical way.
+      </p>
+      
+      <p class="inline-math">
+        Our future work will follow two lines: first, the study of other functions f in Eq.(<a href="#def-sphere-mf">4</a>), particularly the case
+        of Voronoi cells, and distances in other color spaces. As we have explained, the sphere-based case is used because
+        it is simple and facilitates the explanation of the proposal but, in addition, because the combination allows
+        complex models. The Voronoi-based function in [<a href="#ref_14">14</a>] is expected to avoid
+        the mentioned limitation, at the cost of working with a more complex model. Let us remark that a fuzzy color 
+        space $$\tilde{\Lambda}$$ could be built by using any crisp
+        color space $$\Lambda$$ (RGB, LAB, etc.) as reference set. The interactive elements proposed in this paper should be extended to this complex functions too.
+        </p>
+      <p class="inline-math">
+        Second, a method to automatically learn the set of prototypes $$P$$ in a given context will be studied. There are some works in literature trying to solve this problems [<a href="#ref_47">47</a>], where a set of clustering-based techniques are proposed for non-granular fuzzy colors. To address the granular fuzzy color case, new clustering-based techniques will be needed in order to model the IS-A relationships. New interactive elements should be designed and implemented to understand how these clustering-based techniques work and how the set of prototypes is extracted.
+      </p>
+
+      <h3>Acknowledgment</h3>
+      <p id="Acknowledgment" class="inline-math">
+        This work has been supported by the Spanish Ministry of Science, Innovation and Universities under the Grant PID2021-126363NB-I00 funded by MCIN/AEI/10.13039/501100011033 and by “ERDF A way of making Europe”.
+      </p>
+
+      <section class="references">
+        <h2 id="references">References</h2>
+        <ol>
+          <li id="ref_1">
+            A discussion on fuzzy cardinality and quantification. Some applications in image processing.
+            <span>
+              J. Chamorro-Martínez, D. Sánchez, J. Soto-Hidalgo, and P. Martínez-Jiménez, Fuzzy Sets and Systems,
+              vol. 257, pp. 85–101, December 2014.
+            </span>
+          </li>
+          <li id="ref_2">
+            Describing images via linguistic features and hierarchical segmentation.
+            <span>
+              R. Castillo-Ortega, J. Chamorro-Martínez, N. Marín, D. Sánchez, and J. M. Soto-Hidalgo, FUZZ-IEEE 2010, 2010, pp. 1–8.
+            </span>
+          </li>
+          <li id="ref_3">
+            Large scale retrieval and generation of image descriptions.
+            <span>
+              V. Ordonez, X. Han, P. Kuznetsova, G. Kulkarni, M. Mitchell, K. Yamaguchi, K. Stratos, A. Goyal, J. Dodge, A. Mensch, H. D. III, A. C. Berg, Y. Choi, and T. L. Berg,
+              International Journal of Computer Vision, vol. 119, no. 1, pp. 46–59, 2016.
+            </span>
+          </li>
+          <li id="ref_4">
+            The role of graduality for referring expression generation in visual scenes.
+            <span>
+              A. Gatt, N. Marín, F. Portet, and D. Sánchez,
+              Proceedings IPMU 2016, Part I, CCIS 610, 2016, pp. 191–203.
+            </span>
+          </li>
+          <li id="ref_5">
+            Scene selection for teaching basic visual concepts in the Refer4Learning app.
+            <span>
+              N. Marín, G. Rivas-Gervilla, and D. Sánchez,
+              IEEE Int. Conference on Fuzzy Systems, FUZZ-IEEE Naples, Italy, 2017.
+            </span>
+          </li>
+          <li id="ref_6">
+            Categorical color mapping using color-categorical weighting method - part i: Theory.
+            <span>
+              H. Motomura,
+              Journal of Imaging Science and Technology, vol. 13, pp. 117–129, 2001.
+            </span>
+          </li>
+          <li id="ref_7">
+            Categorical color mapping using color-categorical weighting method - part ii: Experiment.
+            <span>
+              H. Motomura,
+              Journal of Imaging Science and Technology, vol. 45, pp. 130–140, 2001.
+            </span>
+          </li>
+          <li id="ref_8">
+            Color perception.
+            <span>
+              A. Robertson,
+              Physics Today, pp. 24–29, Dec. 1992.
+            </span>
+          </li>
+          <li id="ref_9">
+            Cognitive representations of semantic categories.
+            <span>
+              E. Rosch,
+              Journal of Experimental Psychology: General, vol. 104, pp. 192–233, 1975.
+            </span>
+          </li>
+          <li id="ref_10">
+            Prototype classification and logical classification: The two systems.
+            <span>
+              E. Rosch,
+              New Trends in Cognitive Representation: Challenges to Piaget’s Theory, E. Scholnik, Ed. Hillsdale, NJ: Lawrence Erlbaum Associates, 1978, pp. 73–86.
+            </span>
+          </li>
+          <li id="ref_11">
+            The linguistic significance of the meanings of basic color terms.
+            <span>
+              P. Kay and C. McDaniel,
+              Language, vol. 54, no. 3, pp. 610–646, 1978.
+            </span>
+          </li>
+          <li id="ref_12">
+            Vision Science
+            <span>
+              S. E. Palmer,
+              The MIT Press, 1999.
+            </span>
+          </li>
+          <li id="ref_13">
+            Color vision: from Genes to Perception.
+            <span>
+              K. Gegenfurtner and L. Sharpe,
+              Cambridge University Press, 2001.
+            </span>
+          </li>
+          <li id="ref_14">
+            Fuzzy color spaces: A conceptual approach to color vision.
+            <span>
+              J. Chamorro-Martínez, J. Soto-Hidalgo, P. Martínez-Jiménez, and D. Sánchez,
+              IEEE Transactions on Fuzzy Systems, vol. 25, no. 5, pp. 1264– 1280, October 2017.
+            </span>
+          </li>
+          <li id="ref_15">
+            A simple method for color quantization: Octree quantization.
+            <span>
+              M. Gervautz and W. Purgathofer,
+              New Trends in Computer Graphics, N. Magnenat-Thalmann and D. Thalmann, Eds. Springer Berlin Heidelberg, 1988, pp. 219–231.
+            </span>
+          </li>
+          <li id="ref_16">
+            Color quantization by preserving color distribution features
+            <span>
+                W. Lin and J. Lin,  Signal Processing, vol. 78, no. 2, pp. 201 – 214, 1999.
+            </span>
+        
+        </li>
+        <li id="ref_17">
+            Color quantization by pairwise clustering using a reduced graph
+            <span>
+                A. Medeiros and P. Carvalho,  Electronic Notes in Discrete Mathematics, vol. 7, no. 0, pp. 138 – 141, 2001.
+            </span>
+        
+        </li>
+        <li id="ref_18">
+            A fast and novel technique for color quantization using reduction of color space dimensionality
+            <span>
+                S. Cheng and C. Yang,  Pattern Recognition Letters, vol. 22, no. 8, pp. 845 – 856, 2001.
+            </span>
+        
+        </li>
+        <li id="ref_19">
+        Color-naming system using fuzzy set theorical approach
+        <span>
+            N. Sugano,  in IEEE Int. Conference on Fuzzy Systems, 2001, pp. 81–84.
+        </span>
+        </li>
+        <li id="ref_20">
+            Image retrieval using fuzzy representation of colors
+            <span>
+                A. Younes, I. Truck, and H. Akdag,  Soft Comput., vol. 11, no. 3, pp. 287–298, 2007.
+            </span>
+        
+        </li>
+        <li id="ref_21">
+            Retrieving images in fuzzy object-relational databases using dominant color descriptors
+            <span>
+                J. Chamorro-Martínez, J. Medina, C. Barranco, E. Galán-Perales, and J. Soto-Hidalgo,  Fuzzy Sets and Systems, vol. 158, no. 3, pp. 312–324, 2007.
+            </span>
+        
+        </li>
+        <li id="ref_22">
+        Human perception-based color segmentation using fuzzy logic.
+        <span>
+            L. Shamir,  in IPCV, 2006, pp. 496–502.
+        </span>
+        </li>
+        <li id="ref_23">
+            A new approach in content- based image retrieval using fuzzy
+            <span>
+                H. Aboulmagd, N. El-Gayar, and H. Onsi,  Telecommunication Systems, vol. 40, no. 2, pp. 55–66, 2009.
+            </span>
+        
+        </li>
+        <li id="ref_24">
+            Fuzzy colors application on foliage plant retrieval
+            <span>
+                A. Kadir, L. Nugroho, A. Susanto, and I. Santosa,  Int. J. of Data Modeling and Knowledge Management, vol. 1, no. 2, pp. 31–44, 2011.
+            </span>
+        
+        </li>
+        <li id="ref_25">
+            Fuzzy color space segmentation to identify the same dominant colors as users
+            <span>
+                J. Amante and M. Fonseca,  in 18th International Conference on Distributed Multimedia Systems, 2012, pp. 48–53.
+            </span>
+        
+        </li>
+        <li id="ref_26">
+            Image retrieval based on color features integrated with anisotropic directionality
+            <span>
+                J. Bai, X. Wang, and L. Jiao,  Systems Engineering and Electronics, Journal of, vol. 21, no. 1, pp. 127–133, Feb 2010.
+            </span>
+        
+        </li>
+        <li id="ref_27">
+            Centroids of color categories compared by two methods
+            <span>
+                R. Boynton, R. Maclaury, and K. Uchikawa,  Color Research & Application, vol. 14, no. 1, pp. 6–15, 1989.
+            </span>
+        
+        </li>
+        <li id="ref_28">
+            Locating basic colours in the munsell space
+            <span>
+                J. Sturges and T. Whitfield,  Color Research & Application, vol. 20, no. 6, pp. 364–376, 1995.
+            </span>
+        
+        </li>
+        <li id="ref_29">
+            Fuzzy colour category map for the measurement of colour similarity and dissimilarity
+            <span>
+                M. Seaborn, L. Hepplewhite, and J. Stonham,  Pattern Recognition, vol. 38, no. 2, pp. 165–177, 2005.
+            </span>
+        
+        </li>
+        <li id="ref_30">
+            Salient features of munsell color space as a function of monolexemic naming and response latencies
+            <span>
+                J. Sturges and T. Whitfeld,  Vision Research, vol. 37, no. 3, pp. 307–313, 1999.
+            </span>
+        
+        </li>
+        <li id="ref_31">
+            A computational model of colour categorization
+            <span>
+                S. Yendrikhovskij,  Color Research & Application, vol. 26, no. 1, pp. 235–238, 2001.
+            </span>
+        
+        </li>
+        <li id="ref_32">
+            Parametric fuzzy sets for automatic color naming
+            <span>
+                R. Benavente, M. Vanrell, and R. Baldrich,  Journal of the Optical Society of America, vol. 25, no. 10, pp. 2582–2593, Oct 2008.
+            </span>
+        
+        </li>
+        <li id="ref_33">
+            Computing color categories form statistics of natural images
+            <span>
+                S.Yendrikhovskij, Journal of Imagin Science and Technology, vol. 45, no. 5, pp.409 – 417, 2001.
+            </span>
+        
+        </li>
+        <li id="ref_34">
+            Fuzzy color model and clustering algorithm for color clustering problem
+            <span>
+                D. Kim and K. Lee,  in First International Conference on Information and Management Sciences, May 2002, pp. 205–214.
+            </span>
+        </li>
+        <li id="ref_35">
+          Conceptual Spaces: The Geometry of Thought
+          <span>
+          P. Gardenfors, ser. A Bradford book. Bradford Bks, 2004.
+          </span>
+        </li>
+        <li id="ref_36">
+          The Geometry of Meaning: Semantics Based on Conceptual Spaces
+          <span>
+            P. Gardenfors, MIT Press, 2014.
+          </span>
+        </li>
+        <li id="ref_37">
+        A computational model for color naming and describing color composition of images
+        <span>
+            A. Mojsilovic,  IEEE Transactions on Image Processing, vol. 14, no. 5, pp. 690–699, May 2005.
+        </span>
+        </li>
+        <li id="ref_38">
+            Comparison of fabric color naming using rgb and hsv color models
+            <span>
+                P. Charoensawan, S. Phongsuphap, and I. Shimizu,  in 2018 15th International Joint Conference on Computer Science and Software Engineering (JCSSE), July 2018, pp. 1–5.
+            </span>
+        
+        </li>
+        <li id="ref_39">
+            The ISCC-NBS method of designating colors and a dictionary of color names
+            <span>
+                K. Kelly and D. Judd,  National Bureau of Standards (USA), no. NBS Circular 553, 1955.
+            </span>
+        
+        </li>
+        <li id="ref_40">
+          Basic Color Terms: Their Universality and Evolution
+          <span>
+          B. Berlin and P. Kay, ser. Anthropology, linguistics, psychology. University of California Press, 1991.
+        </span>
+        </li>
+        <li id="ref_41">
+          Color: Universal Language and Dictionary of Names
+          <span>
+            K. Kelly and D. Judd, ser. National Bureau of Standards special publication. U.S. Department of Commerce, National Bureau of Standards, 1976, no. 440.
+          </span>
+        
+        </li>
+        <li id="ref_42">
+            Fuzzy partitions and relations: An axiomatic basis for clustering
+            <span>
+                J. Bezdek and J. Harris,  Fuzzy Sets and Systems, vol. 1, no. 2, pp. 111–127, 1978.
+            </span>
+        
+        </li>
+        <li id="ref_43">
+            JFCS: A color modeling java software based on fuzzy color spaces
+            <span>
+                J. Soto-Hidalgo, P. Martínez-Jiménez, J. Chamorro-Martínez, and D. Sánchez,  IEEE Computational Intelligence Magazine, vol. 11, no. 2, pp. 16–28, May 2016.
+            </span>
+        </li>
+        <li id="ref_44">
+            Computational generation of referring expressions: A survey
+            <span>
+                E. Krahmer and K. van Deemter, Computational Linguistics, vol. 38, no. 1, pp. 173–218, 2012.
+            </span>
+        </li>
+        <li id="ref_45">
+            Deep residual learning for image recognition
+            <span>
+                S. R. K. He, X. Zhang and J. Sun, in IEEE Int. Conf. on Computer Vision and Pattern Recognition, 2016, pp. 770–778.
+            </span>
+        </li>
+
+        <li id="ref_46">
+          Granular modelling of fuzzy color categories
+          <span>
+            J. Chamorro-Martínez and J. M. Keller, in IEEE Transactions on Fuzzy Systems, 2019, vol. 28, no. 9, pp. 1897-1909.
+          </span>
+      </li>
+
+      <li id="ref_47">
+        An image-based approach for building fuzzy color spaces
+        <span>
+          M. Mengíbar-Rodríguez, J. Chamorro-Martínez, in Information Sciences, 2022, vol. 616, pp. 577-592.
+        </span>
+      </li>
+
+      <li id="ref_48">
+        On a Granular Approach for Fuzzy Color Modelling
+        <span>
+          J. Chamorro-Martínez, M. Mengíbar-Rodríguez and J. M. Keller, in IEEE International Conference on Fuzzy Systems (FUZZ-IEEE), 2020, pp. 1-8.
+        </span>
+      </li>
+        
+        </ol>
+      </section>
+    </div>
+
+  </article><!-- End of aticle -->
+
+  <!-- Scroll to top button -->
+  <a class="scroll-top" href="#">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 312.36">
+      <path fill="white"
+        d="M0 276.77 253.12 0 512 282.48l-32.65 29.88-226.2-246.83L32.66 306.64z" />
+    </svg>
+  </a>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      let scrollTopBtn = document.querySelector(".scroll-top");
+      window.onscroll = function () { scrollFunction(scrollTopBtn) };
+
+      function scrollFunction(el) {
+        if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+          el.style.display = "flex";
+        } else {
+          el.style.display = "none";
+        }
+      }
+    });
+  </script>
+</body>
+
+</html>
