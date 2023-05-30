@@ -156,15 +156,13 @@ function hexToRgb(hex) {
       b: parseInt(result[3], 16)
     } : null;
 }  
+function componentToHex(c) {
+    var hex = c.toString(16);
+    return hex.length == 1 ? "0" + hex : hex;
+}
 
-export function addPrototypeColorFromPicker(event) {
-    let div_text = $("#fuzzycolor-intro-selected-prototypes").text().replace(/\s/g, '');
-    if (div_text == "Prototypeswillbeappearhere"){
-        $("#fuzzycolor-intro-selected-prototypes").text("");
-    }
-    let new_color = `<div style=\"margin-left: 3px; height: 20px; width: 20px; border: 1px black solid; background-color: ${event.target.value}\" value=\"${event.target.value}\"></div>`;
-    
-    $("#fuzzycolor-intro-selected-prototypes").append(new_color);
+function rgbToHex(r, g, b) {
+    return "#" + componentToHex(r) + componentToHex(g) + componentToHex(b);
 }
 
 export function addGranularFromPicker(event) {
@@ -214,22 +212,62 @@ export function showParameterError(html_element, text_to_write) {
     $(html_element).text(text_to_write);
 }
 
+export function openModalFCS() {
+    var modal = document.getElementById("modal-fcs");
+    modal.style.display = "block";
+
+    $("#fuzzycolor-intro-selected-prototypes-modal").text("Prototypes will be appear here");
+}
 
 export function buildFCS() {
+    document.querySelector("#intro-clean-prototypes").disabled = false;
+
     let prototypes = []
     let rgb;
-    $("#fuzzycolor-intro-selected-prototypes").children().each(function(i) {
+    $("#fuzzycolor-intro-selected-prototypes").empty();
+
+    $("#fuzzycolor-intro-selected-prototypes-modal").children().each(function(i) {
         rgb = hexToRgb($(this).attr("value"));
         prototypes.push( new Point3D(rgb.r, rgb.g, rgb.b));
+        addPrototypeToList("#fuzzycolor-intro-selected-prototypes", rgb.r, rgb.g, rgb.b);
     });
 
     let fcs = new FuzzyColorSpace('#fuzzycolor-intro-main', "flex-grow:1; margin: auto auto 10px;");
     fcs.buildSphericalFuzzyColorSpace(prototypes);
+    
+    let modal = document.getElementById("modal-fcs");
+    modal.style.display = "none";
 }
 
-export function cleanPrototypesList(){
+export function addPrototypeColorFromPicker(event) {
+    let div_text = $("#fuzzycolor-intro-selected-prototypes-modal").text().replace(/\s/g, '');
+    if (div_text == "Prototypeswillbeappearhere"){
+        $("#fuzzycolor-intro-selected-prototypes-modal").text("");
+    }
+    
+    let rgb = hexToRgb(event.target.value);
+    addPrototypeToList("#fuzzycolor-intro-selected-prototypes-modal", rgb.r, rgb.g, rgb.b);
+}
+
+function addPrototypeToList(html_list_id, r, g, b) {
+    let hexadecimal = rgbToHex(r, g, b);
+
+    let new_color = `<div style=\"margin-left: 3px; margin-bottom: 2px; height: 20px; width: 20px; border: 1px black solid; background-color: rgb(${r}, ${g}, ${b})\" value=\"${hexadecimal}\"></div>`;
+    $(html_list_id).append(new_color);
+}
+
+export function resetToDefaultFCS(){
+    document.querySelector("#intro-clean-prototypes").disabled = true;
+
+    let basic_prototypes = getISCCBasicPrototypes();
     $("#fuzzycolor-intro-selected-prototypes").empty();
-    new FuzzyColorSpace('#fuzzycolor-intro-main', "flex-grow:1; margin: auto auto 10px;");
+
+    for (let i = 0; i < basic_prototypes.length; i += 1) {
+        addPrototypeToList("#fuzzycolor-intro-selected-prototypes", basic_prototypes[i].x, basic_prototypes[i].y, basic_prototypes[i].z);
+    }
+    
+    let fcs = new FuzzyColorSpace('#fuzzycolor-intro-main', "flex-grow:1;");
+    fcs.buildSphericalFuzzyColorSpace(basic_prototypes);
 }
 
 export function buildGranule() {
@@ -326,7 +364,7 @@ export function visualizeGranularColor() {
         var preview = document.querySelector("#saved-image");
         
         var canvas = document.getElementById("saved-image-canvas");
-        var ctx = canvas.getContext("2d");
+        var ctx = canvas.getContext("2d", { willReadFrequently: true });
         
         
         var image_data = ctx.getImageData(0, 0, 180, 180);
@@ -334,7 +372,7 @@ export function visualizeGranularColor() {
         var degrees_image = fcs.mapImage(visible_color, image, fcs.granularFuzzyColors).flat();
 
         var canvas_mapped = document.getElementById("mapped-image");
-        ctx = canvas_mapped.getContext("2d");
+        ctx = canvas_mapped.getContext("2d", { willReadFrequently: true });
         ctx.drawImage(preview, 0, 0, 180, 180);
 
         const imageData = ctx.getImageData(0, 0, 180, 180);
@@ -363,7 +401,7 @@ export function visualizeFCSColor() {
         var preview = document.querySelector("#fcs-saved-image");
         
         var canvas = document.getElementById("fcs-saved-image-canvas");
-        var ctx = canvas.getContext("2d");
+        var ctx = canvas.getContext("2d", { willReadFrequently: true });
         
         
         var image_data = ctx.getImageData(0, 0, 180, 180);
@@ -371,7 +409,7 @@ export function visualizeFCSColor() {
         var degrees_image = fcs.mapImage(visible_color, image, fcs.sphericalFuzzyColors).flat();
 
         var canvas_mapped = document.getElementById("fcs-mapped-image");
-        ctx = canvas_mapped.getContext("2d");
+        ctx = canvas_mapped.getContext("2d", { willReadFrequently: true });
         ctx.drawImage(preview, 0, 0, 180, 180);
 
         const imageData = ctx.getImageData(0, 0, 180, 180);
@@ -397,7 +435,7 @@ export function saveImage() {
         var img = new Image();
         img.onload = function () {
             var canvas = document.getElementById("saved-image-canvas");
-            var ctx = canvas.getContext("2d");
+            var ctx = canvas.getContext("2d", { willReadFrequently: true });
 
             ctx.drawImage(preview, 0, 0, 180, 180);
         }
@@ -411,7 +449,7 @@ export function saveImage() {
 
     $('#granular-results-picker').val('-1').change();
     var canvas_mapped = document.getElementById("mapped-image");
-    var ctx = canvas_mapped.getContext("2d");
+    var ctx = canvas_mapped.getContext("2d", { willReadFrequently: true });
     var img = new Image();
     ctx.drawImage(img, 0, 0, 180, 180);
 
@@ -435,7 +473,7 @@ export function saveFCSImage() {
         var img = new Image();
         img.onload = function () {
             var canvas = document.getElementById("fcs-saved-image-canvas");
-            var ctx = canvas.getContext("2d");
+            var ctx = canvas.getContext("2d", { willReadFrequently: true })
 
             ctx.drawImage(preview, 0, 0, 180, 180);
         }
@@ -449,7 +487,7 @@ export function saveFCSImage() {
 
     $('#fcs-results-picker').val('-1').change();
     var canvas_mapped = document.getElementById("fcs-mapped-image");
-    var ctx = canvas_mapped.getContext("2d");
+    var ctx = canvas_mapped.getContext("2d", { willReadFrequently: true });
     var img = new Image();
     ctx.drawImage(img, 0, 0, 180, 180);
 
@@ -465,7 +503,7 @@ export function saveFCSImage() {
 
 export function initImageLoaded(element, element_results, filename_results){
     const canvas = document.getElementById(element);
-    const ctx = canvas.getContext('2d'); 
+    const ctx = canvas.getContext("2d", { willReadFrequently: true });
     var img = new Image();
     img.onload = function() {
       ctx.drawImage(img, 0, 0, 180, 180);
@@ -473,7 +511,7 @@ export function initImageLoaded(element, element_results, filename_results){
     img.src = 'img/bandera9.jpg';
 
     const canvas_results = document.getElementById(element_results);
-    const ctx_results = canvas_results.getContext('2d'); 
+    const ctx_results = canvas_results.getContext("2d", { willReadFrequently: true });
     var img2 = new Image();
     img2.onload = function() {
         ctx_results.drawImage(img2, 0, 0, 180, 180);
