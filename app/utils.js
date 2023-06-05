@@ -96,7 +96,7 @@ export function getGranularPrototypes() {
         // ],
         [
             "Brown",
-            [new Point3D(155.0, 84.0, 43.0), new Point3D(74.0, 52.0, 45.0), new Point3D(121.0, 58.0, 28.0), new Point3D(203.0, 132.0, 88.0), new Point3D(155.0, 84.0, 43.0), new Point3D(75.0, 36.0, 29.0), new Point3D(155.0, 84.0, 43.0), new Point3D(155.0, 84.0, 43.0)],
+            [new Point3D(74.0, 52.0, 45.0), new Point3D(121.0, 58.0, 28.0), new Point3D(203.0, 132.0, 88.0), new Point3D(75.0, 36.0, 29.0), new Point3D(155.0, 84.0, 43.0)],
             [new Point3D(254.0, 181.0, 186.0), new Point3D(190.0, 1.0, 50.0), new Point3D(243.0, 132.0, 1.0), new Point3D(243.0, 195.0, 1.0), new Point3D(102.0, 93.0, 30.0), new Point3D(141.0, 182.0, 1.0), new Point3D(1.0, 136.0, 86.0), new Point3D(1.0, 161.0, 194.0), new Point3D(154.0, 78.0, 174.0), new Point3D(220.0, 220.0, 220.0), new Point3D(132.0, 132.0, 130.0), new Point3D(3.0, 3.0, 3.0), new Point3D(155.0, 84.0, 43.0), new Point3D(74.0, 52.0, 45.0), new Point3D(121.0, 58.0, 28.0), new Point3D(203.0, 132.0, 88.0), new Point3D(155.0, 84.0, 43.0), new Point3D(75.0, 36.0, 29.0), new Point3D(155.0, 84.0, 43.0), new Point3D(155.0, 84.0, 43.0)]
         ],
         [
@@ -351,21 +351,80 @@ export function selectGranularColor() {
     fcs.buildGranularSphericalFuzzyColorSpace(getGranularPrototypes(), visible_color);
 }
 
-export function resetToDefaultGranularFCS(prototypes_positives_negatives, parent) {
-    let parent_element = $("#"+parent);
+function addNewPrototypeGranular(event) {
+    let colorLabel = event.target.id.replace("picker_", "");
+    let listToAddId = event.target.id.replace("picker", "granules_wrapper");
+    let hexadecimal = $("#"+event.target.id).val();
+    let color = hexToRgb(hexadecimal);
+
+    let html_prototype = `<div value=\"${hexadecimal}\" style=\"display:flex; flex-direction:column;\">`;
+    html_prototype += `<div style=\"margin-left: 3px; margin-top: 3px; height: 20px; width: 20px; border: 1px black solid; background-color: rgb(${color.r}, ${color.b}, ${color.b})\" value=\"${hexadecimal}\"></div>`;
+    html_prototype += `<a class=\"cross-prototype\" id=\"delete_${colorLabel}_${color.r}_${color.g}_${color.b}\" style=\"text-align:center;\">&times</a>`;
+    html_prototype += "</div>"
+    html_prototype += `<input style=\"margin-left: 10px;\" type=\"color\" id=\"${event.target.id}\">`
+
+
+    var prototypesList = document.getElementById(listToAddId);
+    prototypesList.removeChild(prototypesList.lastChild);
+    $("#"+listToAddId).append(html_prototype);
+
+    document.querySelector("#"+event.target.id).addEventListener("change", addNewPrototypeGranular, false);
+    document.querySelector(`#delete_${colorLabel}_${color.r}_${color.g}_${color.b}`).addEventListener("click", removePrototypeGranular, false);
+}
+
+function removePrototypeGranular(event) {
+    let splittedId = event.target.id.split("_")
+    let labelToRemove = splittedId[1];
+    let listToRemoveId = `granules_wrapper_${labelToRemove}`;
+
+    $("#"+listToRemoveId).children().each(function(i) {
+        if (i > 0 && i < $("#"+listToRemoveId).children().length-1){
+            let rgb = hexToRgb($(this).attr("value"));
+            let childrenRgb = splittedId.slice(-3);
+
+            if(rgb.r == childrenRgb[0] && rgb.g == childrenRgb[1] && rgb.b == childrenRgb[2]){
+                var prototypesList = document.getElementById(listToRemoveId);
+                prototypesList.removeChild(this);
+                return true
+            }
+        }
+    });
+}
+
+export function resetToDefaultGranularFCS() {
+
+    let prototypes_positives_negatives = getGranularPrototypes();
+
+    let visible_colors = prototypes_positives_negatives.map(color_prototype => color_prototype[0]);
+    let fcs = new FuzzyColorSpace('#granular-space', "flex-grow:1;");
+    fcs.buildGranularSphericalFuzzyColorSpace(getGranularPrototypes(), visible_colors);
+
+    let parent_element = $("#granules-wrapper");
+    parent_element.empty();
     let html_prototypes = "";
 
+
     for (const triplet of prototypes_positives_negatives) {
-        html_prototypes += "<div style=\"margin: 4px; display:flex;\">"
-        html_prototypes += `<label>${triplet[0]}: </label>`
+        html_prototypes += `<div id=\"granules_wrapper_${triplet[0]}\" style=\"margin: 4px; display:flex;\">`
+        html_prototypes += `<label style=\"margin-top: 3px; margin-right: 3px;\">${triplet[0]}: </label>`
         for (const color of triplet[1]) {
             let hexadecimal = rgbToHex(color.x, color.y, color.z);
-            html_prototypes += `<div style=\"margin-left: 3px; margin-bottom: 2px; height: 20px; width: 20px; border: 1px black solid; background-color: rgb(${color.x}, ${color.y}, ${color.z})\" value=\"${hexadecimal}\"></div>`;
+            html_prototypes += `<div value=\"${hexadecimal}\" style=\"display:flex; flex-direction:column;\">`;
+            html_prototypes += `<div style=\"margin-left: 3px; margin-top: 3px; height: 20px; width: 20px; border: 1px black solid; background-color: rgb(${color.x}, ${color.y}, ${color.z})\" value=\"${hexadecimal}\"></div>`;
+            html_prototypes += `<a class=\"cross-prototype\" id=\"delete_${triplet[0]}_${color.x}_${color.y}_${color.z}\" style=\"text-align:center;\">&times</a>`;
+            html_prototypes += "</div>"
         }
+        html_prototypes += `<input style=\"margin-left: 10px;\" type=\"color\" id=\"picker_${triplet[0]}\">`
         html_prototypes += "</div>"
     }
-
     parent_element.append(html_prototypes);
+
+    for (const triplet of prototypes_positives_negatives) {
+        document.querySelector(`#picker_${triplet[0]}`).addEventListener("change", addNewPrototypeGranular, false);
+        for (const color of triplet[1]) {
+            document.querySelector(`#delete_${triplet[0]}_${color.x}_${color.y}_${color.z}`).addEventListener("click", removePrototypeGranular, false);
+        }
+    }
 }
 
 export function visualizeGranularColor() {

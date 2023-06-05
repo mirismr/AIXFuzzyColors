@@ -598,7 +598,10 @@
         <canvas id="granular-space"></canvas>
         <div class="caption" id="granular-select">
           <label style="margin-right: 10px; margin-bottom: 10px;">Prototypes used to build the Fuzzy Color Space: </label>
-          <div id="granules-wrapper" style="display:flex; flex-direction: column; border: dashed; border-color: #11679a;margin-bottom: 10px;"></div>
+          <div id="granules-wrapper" style="height: 333px; overflow:scroll; display:flex; flex-direction: column; border: dashed; border-color: #11679a;margin-bottom: 10px;"></div>
+          <button type="button" id="granular-build-fcs" style="margin-top: 10px;">Build new Fuzzy Color Space</button>
+          <button type="button" id="granular-clean-prototypes" style="margin-top: 10px; margin-bottom: 10px;">Reset to default example</button>
+          <br>
           <label style="margin-right: 10px; margin-bottom: 10px;">Pick up a color: </label>
         </div>
       </div>
