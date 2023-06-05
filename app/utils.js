@@ -879,7 +879,7 @@ function removePrototypeGranular(event) {
     document.querySelector("#granular-clean-prototypes").disabled = false;
 }
 
-function obtainCurrentGranularPrototypes() {
+export function obtainCurrentGranularPrototypes() {
     let prototypes = []
     $("#granules-wrapper").children().each(function(a) {
         let label = $(this).attr("id").replace("granules_wrapper_", "");
@@ -960,14 +960,24 @@ export function resetToDefaultGranularFCS() {
     $("#granular-picker").val("-1").change();
 }
 
+
+export function visualizeCustomGranularColor() {
+    let prototypes = obtainCurrentGranularPrototypes();
+    generalVisualizeGranularColor(prototypes);
+}
+
 export function visualizeGranularColor() {
+    generalVisualizeGranularColor(getGranularPrototypes())
+}
+
+function generalVisualizeGranularColor(protoypes) {
     let visible_color = [$('#granular-results-picker :selected').val()];
 
     if (visible_color[0] == "-1")
-        visible_color = getGranularPrototypes().map(color_prototype => color_prototype[0]);
+        visible_color = protoypes.map(color_prototype => color_prototype[0]);
 
     let fcs = new FuzzyColorSpace('#granular-results-space', "flex-grow:1;");
-    fcs.buildGranularSphericalFuzzyColorSpace(getGranularPrototypes(), visible_color);
+    fcs.buildGranularSphericalFuzzyColorSpace(protoypes, visible_color);
 
     if (visible_color[0] != "-1"){
         var preview = document.querySelector("#saved-image");
@@ -996,6 +1006,7 @@ export function visualizeGranularColor() {
         ctx.putImageData(imageData, 0, 0);
     }
 }
+
 
 export function obtainCustomPrototypesLabelsFCS() {
     let prototypes = []

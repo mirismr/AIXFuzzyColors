@@ -15,7 +15,6 @@ let sourceImageFCS = document.querySelector('#fcs-source-image');
 sourceImageFCS.addEventListener("change", saveFCSImage, false);
 
 var rad = document.fcs_form.fcs_to_use;
-var prev = null;
 for (var i = 0; i < rad.length; i++) {
     rad[i].addEventListener('change', function() {
         if (this.value == "default"){
