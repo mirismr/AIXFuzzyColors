@@ -80,71 +80,554 @@ export function getGranularPrototypes() {
     return [
         [
             "Pink",
-            [new Point3D(254.0, 181.0, 186.0), new Point3D(234.0, 147.0, 153.0), new Point3D(228.0, 113.0, 122.0), new Point3D(249.0, 204.0, 202.0), new Point3D(222.0, 165.0, 164.0), new Point3D(234.0, 216.0, 215.0)],
-            [new Point3D(190.0, 1.0, 50.0), new Point3D(243.0, 132.0, 1.0), new Point3D(128.0, 70.0, 27.0), new Point3D(243.0, 195.0, 1.0), new Point3D(102.0, 93.0, 30.0), new Point3D(141.0, 182.0, 1.0), new Point3D(1.0, 136.0, 86.0), new Point3D(1.0, 161.0, 194.0), new Point3D(154.0, 78.0, 174.0), new Point3D(220.0, 220.0, 220.0), new Point3D(132.0, 132.0, 130.0), new Point3D(3.0, 3.0, 3.0), new Point3D(254.0, 181.0, 186.0), new Point3D(234.0, 147.0, 153.0), new Point3D(228.0, 113.0, 122.0), new Point3D(249.0, 204.0, 202.0), new Point3D(222.0, 165.0, 164.0), new Point3D(234.0, 216.0, 215.0)]
+            [
+                new Point3D(254, 181, 186),
+                new Point3D(234, 147, 153),
+                new Point3D(228, 113, 122),
+                new Point3D(249, 204, 202),
+                new Point3D(222, 165, 164),
+                new Point3D(234, 216, 215)
+            ],
+            [
+                new Point3D(181, 20, 38),
+                new Point3D(235, 77, 95),
+                new Point3D(201, 38, 57),
+                new Point3D(145, 12, 25),
+                new Point3D(190, 1, 50),
+                new Point3D(74, 52, 45),
+                new Point3D(121, 58, 28),
+                new Point3D(203, 132, 88),
+                new Point3D(75, 36, 29),
+                new Point3D(155, 84, 43),
+                new Point3D(230, 230, 25),
+                new Point3D(212, 175, 55),
+                new Point3D(175, 141, 19),
+                new Point3D(248, 222, 126),
+                new Point3D(201, 174, 93),
+                new Point3D(243, 229, 171),
+                new Point3D(134, 126, 54),
+                new Point3D(102, 93, 30),
+                new Point3D(141, 182, 1),
+                new Point3D(189, 218, 87),
+                new Point3D(138, 154, 91),
+                new Point3D(1, 136, 86),
+                new Point3D(62, 180, 137),
+                new Point3D(106, 171, 142),
+                new Point3D(59, 120, 97),
+                new Point3D(25, 230, 25),
+                new Point3D(25, 25, 230),
+                new Point3D(73, 151, 208),
+                new Point3D(1, 103, 165),
+                new Point3D(1, 65, 106),
+                new Point3D(67, 107, 149),
+                new Point3D(1, 133, 161),
+                new Point3D(250, 250, 250),
+                new Point3D(153, 153, 153),
+                new Point3D(128, 128, 128),
+                new Point3D(103, 103, 103),
+                new Point3D(7, 7, 7)
+            ]
         ],
         [
             "Red",
-            [new Point3D(181,20, 38), new Point3D(235, 77, 95), new Point3D(201, 38, 57), new Point3D(145, 12, 25), new Point3D(190.0, 1.0, 50.0)],
-            // [new Point3D(230.0, 25.0, 25.0), new Point3D(188.0, 63.0, 74.0), new Point3D(132.0, 27.0, 45.0), new Point3D(92.0, 9.0, 35.0), new Point3D(171.0, 78.0, 82.0), new Point3D(206.0, 70.0, 118.0)],
-            [new Point3D(254.0, 181.0, 186.0), new Point3D(243.0, 132.0, 1.0), new Point3D(128.0, 70.0, 27.0), new Point3D(243.0, 195.0, 1.0), new Point3D(102.0, 93.0, 30.0), new Point3D(141.0, 182.0, 1.0), new Point3D(1.0, 136.0, 86.0), new Point3D(1.0, 161.0, 194.0), new Point3D(154.0, 78.0, 174.0), new Point3D(220.0, 220.0, 220.0), new Point3D(132.0, 132.0, 130.0), new Point3D(3.0, 3.0, 3.0), new Point3D(230.0, 25.0, 25.0), new Point3D(188.0, 63.0, 74.0), new Point3D(132.0, 27.0, 45.0), new Point3D(92.0, 9.0, 35.0), new Point3D(171.0, 78.0, 82.0), new Point3D(206.0, 70.0, 118.0)]
+            [
+                new Point3D(181, 20, 38),
+                new Point3D(235, 77, 95),
+                new Point3D(201, 38, 57),
+                new Point3D(145, 12, 25),
+                new Point3D(190, 1, 50)
+            ],
+            [
+                new Point3D(254, 181, 186),
+                new Point3D(234, 147, 153),
+                new Point3D(228, 113, 122),
+                new Point3D(249, 204, 202),
+                new Point3D(222, 165, 164),
+                new Point3D(234, 216, 215),
+                new Point3D(74, 52, 45),
+                new Point3D(121, 58, 28),
+                new Point3D(203, 132, 88),
+                new Point3D(75, 36, 29),
+                new Point3D(155, 84, 43),
+                new Point3D(230, 230, 25),
+                new Point3D(212, 175, 55),
+                new Point3D(175, 141, 19),
+                new Point3D(248, 222, 126),
+                new Point3D(201, 174, 93),
+                new Point3D(243, 229, 171),
+                new Point3D(134, 126, 54),
+                new Point3D(102, 93, 30),
+                new Point3D(141, 182, 1),
+                new Point3D(189, 218, 87),
+                new Point3D(138, 154, 91),
+                new Point3D(1, 136, 86),
+                new Point3D(62, 180, 137),
+                new Point3D(106, 171, 142),
+                new Point3D(59, 120, 97),
+                new Point3D(25, 230, 25),
+                new Point3D(25, 25, 230),
+                new Point3D(73, 151, 208),
+                new Point3D(1, 103, 165),
+                new Point3D(1, 65, 106),
+                new Point3D(67, 107, 149),
+                new Point3D(1, 133, 161),
+                new Point3D(250, 250, 250),
+                new Point3D(153, 153, 153),
+                new Point3D(128, 128, 128),
+                new Point3D(103, 103, 103),
+                new Point3D(7, 7, 7)
+            ]
         ],
-        // [
-        //     "Orange",
-        //     [],
-        //     [new Point3D(254.0, 181.0, 186.0), new Point3D(190.0, 1.0, 50.0), new Point3D(128.0, 70.0, 27.0), new Point3D(243.0, 195.0, 1.0), new Point3D(102.0, 93.0, 30.0), new Point3D(141.0, 182.0, 1.0), new Point3D(1.0, 136.0, 86.0), new Point3D(1.0, 161.0, 194.0), new Point3D(154.0, 78.0, 174.0), new Point3D(220.0, 220.0, 220.0), new Point3D(132.0, 132.0, 130.0), new Point3D(3.0, 3.0, 3.0)]
-        // ],
         [
             "Brown",
-            [new Point3D(74.0, 52.0, 45.0), new Point3D(121.0, 58.0, 28.0), new Point3D(203.0, 132.0, 88.0), new Point3D(75.0, 36.0, 29.0), new Point3D(155.0, 84.0, 43.0)],
-            [new Point3D(254.0, 181.0, 186.0), new Point3D(190.0, 1.0, 50.0), new Point3D(243.0, 132.0, 1.0), new Point3D(243.0, 195.0, 1.0), new Point3D(102.0, 93.0, 30.0), new Point3D(141.0, 182.0, 1.0), new Point3D(1.0, 136.0, 86.0), new Point3D(1.0, 161.0, 194.0), new Point3D(154.0, 78.0, 174.0), new Point3D(220.0, 220.0, 220.0), new Point3D(132.0, 132.0, 130.0), new Point3D(3.0, 3.0, 3.0), new Point3D(155.0, 84.0, 43.0), new Point3D(74.0, 52.0, 45.0), new Point3D(121.0, 58.0, 28.0), new Point3D(203.0, 132.0, 88.0), new Point3D(155.0, 84.0, 43.0), new Point3D(75.0, 36.0, 29.0), new Point3D(155.0, 84.0, 43.0), new Point3D(155.0, 84.0, 43.0)]
+            [
+                new Point3D(74, 52, 45),
+                new Point3D(121, 58, 28),
+                new Point3D(203, 132, 88),
+                new Point3D(75, 36, 29),
+                new Point3D(155, 84, 43)
+            ],
+            [
+                new Point3D(254, 181, 186),
+                new Point3D(234, 147, 153),
+                new Point3D(228, 113, 122),
+                new Point3D(249, 204, 202),
+                new Point3D(222, 165, 164),
+                new Point3D(234, 216, 215),
+                new Point3D(181, 20, 38),
+                new Point3D(235, 77, 95),
+                new Point3D(201, 38, 57),
+                new Point3D(145, 12, 25),
+                new Point3D(190, 1, 50),
+                new Point3D(230, 230, 25),
+                new Point3D(212, 175, 55),
+                new Point3D(175, 141, 19),
+                new Point3D(248, 222, 126),
+                new Point3D(201, 174, 93),
+                new Point3D(243, 229, 171),
+                new Point3D(134, 126, 54),
+                new Point3D(102, 93, 30),
+                new Point3D(141, 182, 1),
+                new Point3D(189, 218, 87),
+                new Point3D(138, 154, 91),
+                new Point3D(1, 136, 86),
+                new Point3D(62, 180, 137),
+                new Point3D(106, 171, 142),
+                new Point3D(59, 120, 97),
+                new Point3D(25, 230, 25),
+                new Point3D(25, 25, 230),
+                new Point3D(73, 151, 208),
+                new Point3D(1, 103, 165),
+                new Point3D(1, 65, 106),
+                new Point3D(67, 107, 149),
+                new Point3D(1, 133, 161),
+                new Point3D(250, 250, 250),
+                new Point3D(153, 153, 153),
+                new Point3D(128, 128, 128),
+                new Point3D(103, 103, 103),
+                new Point3D(7, 7, 7)
+            ]
         ],
         [
             "Yellow",
-            [new Point3D(230.0, 230.0, 25.0), new Point3D(212.0, 175.0, 55.0), new Point3D(175.0, 141.0, 19.0), new Point3D(248.0, 222.0, 126.0), new Point3D(201.0, 174.0, 93.0), new Point3D(243.0, 229.0, 171.0)],
-            [new Point3D(254.0, 181.0, 186.0), new Point3D(190.0, 1.0, 50.0), new Point3D(243.0, 132.0, 1.0), new Point3D(128.0, 70.0, 27.0), new Point3D(102.0, 93.0, 30.0), new Point3D(141.0, 182.0, 1.0), new Point3D(1.0, 136.0, 86.0), new Point3D(1.0, 161.0, 194.0), new Point3D(154.0, 78.0, 174.0), new Point3D(220.0, 220.0, 220.0), new Point3D(132.0, 132.0, 130.0), new Point3D(3.0, 3.0, 3.0), new Point3D(230.0, 230.0, 25.0), new Point3D(212.0, 175.0, 55.0), new Point3D(175.0, 141.0, 19.0), new Point3D(248.0, 222.0, 126.0), new Point3D(201.0, 174.0, 93.0), new Point3D(243.0, 229.0, 171.0)]
+            [
+                new Point3D(230, 230, 25),
+                new Point3D(212, 175, 55),
+                new Point3D(175, 141, 19),
+                new Point3D(248, 222, 126),
+                new Point3D(201, 174, 93),
+                new Point3D(243, 229, 171)
+            ],
+            [
+                new Point3D(254, 181, 186),
+                new Point3D(234, 147, 153),
+                new Point3D(228, 113, 122),
+                new Point3D(249, 204, 202),
+                new Point3D(222, 165, 164),
+                new Point3D(234, 216, 215),
+                new Point3D(181, 20, 38),
+                new Point3D(235, 77, 95),
+                new Point3D(201, 38, 57),
+                new Point3D(145, 12, 25),
+                new Point3D(190, 1, 50),
+                new Point3D(74, 52, 45),
+                new Point3D(121, 58, 28),
+                new Point3D(203, 132, 88),
+                new Point3D(75, 36, 29),
+                new Point3D(155, 84, 43),
+                new Point3D(134, 126, 54),
+                new Point3D(102, 93, 30),
+                new Point3D(141, 182, 1),
+                new Point3D(189, 218, 87),
+                new Point3D(138, 154, 91),
+                new Point3D(1, 136, 86),
+                new Point3D(62, 180, 137),
+                new Point3D(106, 171, 142),
+                new Point3D(59, 120, 97),
+                new Point3D(25, 230, 25),
+                new Point3D(25, 25, 230),
+                new Point3D(73, 151, 208),
+                new Point3D(1, 103, 165),
+                new Point3D(1, 65, 106),
+                new Point3D(67, 107, 149),
+                new Point3D(1, 133, 161),
+                new Point3D(250, 250, 250),
+                new Point3D(153, 153, 153),
+                new Point3D(128, 128, 128),
+                new Point3D(103, 103, 103),
+                new Point3D(7, 7, 7)
+            ]
         ],
         [
             "Olive",
-            [new Point3D(134.0, 126.0, 54.0), new Point3D(102.0, 93.0, 30.0)],
-            [new Point3D(254.0, 181.0, 186.0), new Point3D(190.0, 1.0, 50.0), new Point3D(243.0, 132.0, 1.0), new Point3D(128.0, 70.0, 27.0), new Point3D(243.0, 195.0, 1.0), new Point3D(141.0, 182.0, 1.0), new Point3D(1.0, 136.0, 86.0), new Point3D(1.0, 161.0, 194.0), new Point3D(154.0, 78.0, 174.0), new Point3D(220.0, 220.0, 220.0), new Point3D(132.0, 132.0, 130.0), new Point3D(3.0, 3.0, 3.0), new Point3D(134.0, 126.0, 54.0), new Point3D(102.0, 93.0, 30.0)]
+            [
+                new Point3D(134, 126, 54),
+                new Point3D(102, 93, 30)
+            ],
+            [
+                new Point3D(254, 181, 186),
+                new Point3D(234, 147, 153),
+                new Point3D(228, 113, 122),
+                new Point3D(249, 204, 202),
+                new Point3D(222, 165, 164),
+                new Point3D(234, 216, 215),
+                new Point3D(181, 20, 38),
+                new Point3D(235, 77, 95),
+                new Point3D(201, 38, 57),
+                new Point3D(145, 12, 25),
+                new Point3D(190, 1, 50),
+                new Point3D(74, 52, 45),
+                new Point3D(121, 58, 28),
+                new Point3D(203, 132, 88),
+                new Point3D(75, 36, 29),
+                new Point3D(155, 84, 43),
+                new Point3D(230, 230, 25),
+                new Point3D(212, 175, 55),
+                new Point3D(175, 141, 19),
+                new Point3D(248, 222, 126),
+                new Point3D(201, 174, 93),
+                new Point3D(243, 229, 171),
+                new Point3D(141, 182, 1),
+                new Point3D(189, 218, 87),
+                new Point3D(138, 154, 91),
+                new Point3D(1, 136, 86),
+                new Point3D(62, 180, 137),
+                new Point3D(106, 171, 142),
+                new Point3D(59, 120, 97),
+                new Point3D(25, 230, 25),
+                new Point3D(25, 25, 230),
+                new Point3D(73, 151, 208),
+                new Point3D(1, 103, 165),
+                new Point3D(1, 65, 106),
+                new Point3D(67, 107, 149),
+                new Point3D(1, 133, 161),
+                new Point3D(250, 250, 250),
+                new Point3D(153, 153, 153),
+                new Point3D(128, 128, 128),
+                new Point3D(103, 103, 103),
+                new Point3D(7, 7, 7)
+            ]
         ],
         [
             "Yellow-Green",
-            [new Point3D(141.0, 182.0, 1.0), new Point3D(189.0, 218.0, 87.0), new Point3D(138.0, 154.0, 91.0)],
-            [new Point3D(254.0, 181.0, 186.0), new Point3D(190.0, 1.0, 50.0), new Point3D(243.0, 132.0, 1.0), new Point3D(128.0, 70.0, 27.0), new Point3D(243.0, 195.0, 1.0), new Point3D(102.0, 93.0, 30.0), new Point3D(1.0, 136.0, 86.0), new Point3D(1.0, 161.0, 194.0), new Point3D(154.0, 78.0, 174.0), new Point3D(220.0, 220.0, 220.0), new Point3D(132.0, 132.0, 130.0), new Point3D(3.0, 3.0, 3.0), new Point3D(141.0, 182.0, 1.0), new Point3D(189.0, 218.0, 87.0), new Point3D(138.0, 154.0, 91.0)]
+            [
+                new Point3D(141, 182, 1),
+                new Point3D(189, 218, 87),
+                new Point3D(138, 154, 91)
+            ],
+            [
+                new Point3D(254, 181, 186),
+                new Point3D(234, 147, 153),
+                new Point3D(228, 113, 122),
+                new Point3D(249, 204, 202),
+                new Point3D(222, 165, 164),
+                new Point3D(234, 216, 215),
+                new Point3D(181, 20, 38),
+                new Point3D(235, 77, 95),
+                new Point3D(201, 38, 57),
+                new Point3D(145, 12, 25),
+                new Point3D(190, 1, 50),
+                new Point3D(74, 52, 45),
+                new Point3D(121, 58, 28),
+                new Point3D(203, 132, 88),
+                new Point3D(75, 36, 29),
+                new Point3D(155, 84, 43),
+                new Point3D(230, 230, 25),
+                new Point3D(212, 175, 55),
+                new Point3D(175, 141, 19),
+                new Point3D(248, 222, 126),
+                new Point3D(201, 174, 93),
+                new Point3D(243, 229, 171),
+                new Point3D(134, 126, 54),
+                new Point3D(102, 93, 30),
+                new Point3D(1, 136, 86),
+                new Point3D(62, 180, 137),
+                new Point3D(106, 171, 142),
+                new Point3D(59, 120, 97),
+                new Point3D(25, 230, 25),
+                new Point3D(25, 25, 230),
+                new Point3D(73, 151, 208),
+                new Point3D(1, 103, 165),
+                new Point3D(1, 65, 106),
+                new Point3D(67, 107, 149),
+                new Point3D(1, 133, 161),
+                new Point3D(250, 250, 250),
+                new Point3D(153, 153, 153),
+                new Point3D(128, 128, 128),
+                new Point3D(103, 103, 103),
+                new Point3D(7, 7, 7)
+            ]
         ],
         [
             "Green",
-            [new Point3D(1.0, 136.0, 86.0), new Point3D(62.0, 180.0, 137.0), new Point3D(106.0, 171.0, 142.0), new Point3D(59.0, 120.0, 97.0), new Point3D(25.0, 230.0, 25.0)],
-            [new Point3D(254.0, 181.0, 186.0), new Point3D(190.0, 1.0, 50.0), new Point3D(243.0, 132.0, 1.0), new Point3D(128.0, 70.0, 27.0), new Point3D(243.0, 195.0, 1.0), new Point3D(102.0, 93.0, 30.0), new Point3D(141.0, 182.0, 1.0), new Point3D(1.0, 161.0, 194.0), new Point3D(154.0, 78.0, 174.0), new Point3D(220.0, 220.0, 220.0), new Point3D(132.0, 132.0, 130.0), new Point3D(3.0, 3.0, 3.0), new Point3D(1.0, 136.0, 86.0), new Point3D(62.0, 180.0, 137.0), new Point3D(106.0, 171.0, 142.0), new Point3D(59.0, 120.0, 97.0), new Point3D(25.0, 230.0, 25.0)]
+            [
+                new Point3D(1, 136, 86),
+                new Point3D(62, 180, 137),
+                new Point3D(106, 171, 142),
+                new Point3D(59, 120, 97),
+                new Point3D(25, 230, 25)
+            ],
+            [
+                new Point3D(254, 181, 186),
+                new Point3D(234, 147, 153),
+                new Point3D(228, 113, 122),
+                new Point3D(249, 204, 202),
+                new Point3D(222, 165, 164),
+                new Point3D(234, 216, 215),
+                new Point3D(181, 20, 38),
+                new Point3D(235, 77, 95),
+                new Point3D(201, 38, 57),
+                new Point3D(145, 12, 25),
+                new Point3D(190, 1, 50),
+                new Point3D(74, 52, 45),
+                new Point3D(121, 58, 28),
+                new Point3D(203, 132, 88),
+                new Point3D(75, 36, 29),
+                new Point3D(155, 84, 43),
+                new Point3D(230, 230, 25),
+                new Point3D(212, 175, 55),
+                new Point3D(175, 141, 19),
+                new Point3D(248, 222, 126),
+                new Point3D(201, 174, 93),
+                new Point3D(243, 229, 171),
+                new Point3D(134, 126, 54),
+                new Point3D(102, 93, 30),
+                new Point3D(141, 182, 1),
+                new Point3D(189, 218, 87),
+                new Point3D(138, 154, 91),
+                new Point3D(25, 25, 230),
+                new Point3D(73, 151, 208),
+                new Point3D(1, 103, 165),
+                new Point3D(1, 65, 106),
+                new Point3D(67, 107, 149),
+                new Point3D(1, 133, 161),
+                new Point3D(250, 250, 250),
+                new Point3D(153, 153, 153),
+                new Point3D(128, 128, 128),
+                new Point3D(103, 103, 103),
+                new Point3D(7, 7, 7)
+            ]
         ],
         [
             "Blue",
-            [new Point3D(25.0, 25.0, 230.0), new Point3D(73.0, 151.0, 208.0), new Point3D(1.0, 103.0, 165.0), new Point3D(1.0, 65.0, 106.0), new Point3D(67.0, 107.0, 149.0), new Point3D(1.0, 133.0, 161.0)],//new Point3D(145.0, 163.0, 176.0), new Point3D(37.0, 36.0, 64.0),  new Point3D(161.0, 202.0, 241.0),
-            [new Point3D(254.0, 181.0, 186.0), new Point3D(190.0, 1.0, 50.0), new Point3D(243.0, 132.0, 1.0), new Point3D(128.0, 70.0, 27.0), new Point3D(243.0, 195.0, 1.0), new Point3D(102.0, 93.0, 30.0), new Point3D(141.0, 182.0, 1.0),new Point3D(187, 189, 192), new Point3D(1.0, 136.0, 86.0), new Point3D(154.0, 78.0, 174.0), new Point3D(220.0, 220.0, 220.0), new Point3D(132.0, 132.0, 130.0), new Point3D(3.0, 3.0, 3.0), new Point3D(18.0, 18.0, 32.0), new Point3D(25.0, 25.0, 230.0), new Point3D(73.0, 151.0, 208.0), new Point3D(1.0, 103.0, 165.0), new Point3D(1.0, 65.0, 106.0), new Point3D(161.0, 202.0, 241.0), new Point3D(67.0, 107.0, 149.0), new Point3D(145.0, 163.0, 176.0), new Point3D(1.0, 133.0, 161.0), new Point3D(37.0, 36.0, 64.0)]
+            [
+                new Point3D(25, 25, 230),
+                new Point3D(73, 151, 208),
+                new Point3D(1, 103, 165),
+                new Point3D(1, 65, 106),
+                new Point3D(67, 107, 149),
+                new Point3D(1, 133, 161)
+            ],
+            [
+                new Point3D(254, 181, 186),
+                new Point3D(234, 147, 153),
+                new Point3D(228, 113, 122),
+                new Point3D(249, 204, 202),
+                new Point3D(222, 165, 164),
+                new Point3D(234, 216, 215),
+                new Point3D(181, 20, 38),
+                new Point3D(235, 77, 95),
+                new Point3D(201, 38, 57),
+                new Point3D(145, 12, 25),
+                new Point3D(190, 1, 50),
+                new Point3D(74, 52, 45),
+                new Point3D(121, 58, 28),
+                new Point3D(203, 132, 88),
+                new Point3D(75, 36, 29),
+                new Point3D(155, 84, 43),
+                new Point3D(230, 230, 25),
+                new Point3D(212, 175, 55),
+                new Point3D(175, 141, 19),
+                new Point3D(248, 222, 126),
+                new Point3D(201, 174, 93),
+                new Point3D(243, 229, 171),
+                new Point3D(134, 126, 54),
+                new Point3D(102, 93, 30),
+                new Point3D(141, 182, 1),
+                new Point3D(189, 218, 87),
+                new Point3D(138, 154, 91),
+                new Point3D(1, 136, 86),
+                new Point3D(62, 180, 137),
+                new Point3D(106, 171, 142),
+                new Point3D(59, 120, 97),
+                new Point3D(25, 230, 25),
+                new Point3D(250, 250, 250),
+                new Point3D(153, 153, 153),
+                new Point3D(128, 128, 128),
+                new Point3D(103, 103, 103),
+                new Point3D(7, 7, 7)
+            ]
         ],
-        // [
-        //     "Purple",
-        //     [],
-        //     [new Point3D(254.0, 181.0, 186.0), new Point3D(190.0, 1.0, 50.0), new Point3D(243.0, 132.0, 1.0), new Point3D(128.0, 70.0, 27.0), new Point3D(243.0, 195.0, 1.0), new Point3D(102.0, 93.0, 30.0), new Point3D(141.0, 182.0, 1.0), new Point3D(1.0, 136.0, 86.0), new Point3D(1.0, 161.0, 194.0), new Point3D(220.0, 220.0, 220.0), new Point3D(132.0, 132.0, 130.0), new Point3D(3.0, 3.0, 3.0)]
-        // ],
         [
             "White",
-            [new Point3D(250.0, 250.0, 250.0)],
-            [new Point3D(254.0, 181.0, 186.0), new Point3D(190.0, 1.0, 50.0), new Point3D(243.0, 132.0, 1.0), new Point3D(128.0, 70.0, 27.0), new Point3D(243.0, 195.0, 1.0), new Point3D(102.0, 93.0, 30.0), new Point3D(141.0, 182.0, 1.0), new Point3D(1.0, 136.0, 86.0), new Point3D(1.0, 161.0, 194.0), new Point3D(154.0, 78.0, 174.0), new Point3D(132.0, 132.0, 130.0), new Point3D(3.0, 3.0, 3.0), new Point3D(250.0, 250.0, 250.0)]
+            [
+                new Point3D(250, 250, 250)
+            ],
+            [
+                new Point3D(254, 181, 186),
+                new Point3D(234, 147, 153),
+                new Point3D(228, 113, 122),
+                new Point3D(249, 204, 202),
+                new Point3D(222, 165, 164),
+                new Point3D(234, 216, 215),
+                new Point3D(181, 20, 38),
+                new Point3D(235, 77, 95),
+                new Point3D(201, 38, 57),
+                new Point3D(145, 12, 25),
+                new Point3D(190, 1, 50),
+                new Point3D(74, 52, 45),
+                new Point3D(121, 58, 28),
+                new Point3D(203, 132, 88),
+                new Point3D(75, 36, 29),
+                new Point3D(155, 84, 43),
+                new Point3D(230, 230, 25),
+                new Point3D(212, 175, 55),
+                new Point3D(175, 141, 19),
+                new Point3D(248, 222, 126),
+                new Point3D(201, 174, 93),
+                new Point3D(243, 229, 171),
+                new Point3D(134, 126, 54),
+                new Point3D(102, 93, 30),
+                new Point3D(141, 182, 1),
+                new Point3D(189, 218, 87),
+                new Point3D(138, 154, 91),
+                new Point3D(1, 136, 86),
+                new Point3D(62, 180, 137),
+                new Point3D(106, 171, 142),
+                new Point3D(59, 120, 97),
+                new Point3D(25, 230, 25),
+                new Point3D(25, 25, 230),
+                new Point3D(73, 151, 208),
+                new Point3D(1, 103, 165),
+                new Point3D(1, 65, 106),
+                new Point3D(67, 107, 149),
+                new Point3D(1, 133, 161),
+                new Point3D(153, 153, 153),
+                new Point3D(128, 128, 128),
+                new Point3D(103, 103, 103),
+                new Point3D(7, 7, 7)
+            ]
         ],
         [
             "Gray",
-            [new Point3D(153.0, 153.0, 153.0), new Point3D(128.0, 128.0, 128.0), new Point3D(103.0, 103.0, 103.0)],
-            [new Point3D(254.0, 181.0, 186.0), new Point3D(190.0, 1.0, 50.0), new Point3D(243.0, 132.0, 1.0), new Point3D(128.0, 70.0, 27.0), new Point3D(243.0, 195.0, 1.0), new Point3D(102.0, 93.0, 30.0), new Point3D(141.0, 182.0, 1.0), new Point3D(1.0, 136.0, 86.0), new Point3D(1.0, 161.0, 194.0), new Point3D(154.0, 78.0, 174.0), new Point3D(220.0, 220.0, 220.0), new Point3D(3.0, 3.0, 3.0), new Point3D(153.0, 153.0, 153.0), new Point3D(128.0, 128.0, 128.0), new Point3D(103.0, 103.0, 103.0)]
+            [
+                new Point3D(153, 153, 153),
+                new Point3D(128, 128, 128),
+                new Point3D(103, 103, 103)
+            ],
+            [
+                new Point3D(254, 181, 186),
+                new Point3D(234, 147, 153),
+                new Point3D(228, 113, 122),
+                new Point3D(249, 204, 202),
+                new Point3D(222, 165, 164),
+                new Point3D(234, 216, 215),
+                new Point3D(181, 20, 38),
+                new Point3D(235, 77, 95),
+                new Point3D(201, 38, 57),
+                new Point3D(145, 12, 25),
+                new Point3D(190, 1, 50),
+                new Point3D(74, 52, 45),
+                new Point3D(121, 58, 28),
+                new Point3D(203, 132, 88),
+                new Point3D(75, 36, 29),
+                new Point3D(155, 84, 43),
+                new Point3D(230, 230, 25),
+                new Point3D(212, 175, 55),
+                new Point3D(175, 141, 19),
+                new Point3D(248, 222, 126),
+                new Point3D(201, 174, 93),
+                new Point3D(243, 229, 171),
+                new Point3D(134, 126, 54),
+                new Point3D(102, 93, 30),
+                new Point3D(141, 182, 1),
+                new Point3D(189, 218, 87),
+                new Point3D(138, 154, 91),
+                new Point3D(1, 136, 86),
+                new Point3D(62, 180, 137),
+                new Point3D(106, 171, 142),
+                new Point3D(59, 120, 97),
+                new Point3D(25, 230, 25),
+                new Point3D(25, 25, 230),
+                new Point3D(73, 151, 208),
+                new Point3D(1, 103, 165),
+                new Point3D(1, 65, 106),
+                new Point3D(67, 107, 149),
+                new Point3D(1, 133, 161),
+                new Point3D(250, 250, 250),
+                new Point3D(7, 7, 7)
+            ]
         ],
         [
             "Black",
-            [new Point3D(7.0, 7.0, 7.0)],
-            [new Point3D(254.0, 181.0, 186.0), new Point3D(190.0, 1.0, 50.0), new Point3D(243.0, 132.0, 1.0), new Point3D(128.0, 70.0, 27.0), new Point3D(243.0, 195.0, 1.0), new Point3D(102.0, 93.0, 30.0), new Point3D(141.0, 182.0, 1.0), new Point3D(1.0, 136.0, 86.0), new Point3D(1.0, 161.0, 194.0), new Point3D(154.0, 78.0, 174.0), new Point3D(220.0, 220.0, 220.0), new Point3D(132.0, 132.0, 130.0), new Point3D(55.0, 55.0, 55.0), new Point3D(7.0, 7.0, 7.0)]
-        ]    
-    
+            [
+                new Point3D(7, 7, 7)
+            ],
+            [
+                new Point3D(254, 181, 186),
+                new Point3D(234, 147, 153),
+                new Point3D(228, 113, 122),
+                new Point3D(249, 204, 202),
+                new Point3D(222, 165, 164),
+                new Point3D(234, 216, 215),
+                new Point3D(181, 20, 38),
+                new Point3D(235, 77, 95),
+                new Point3D(201, 38, 57),
+                new Point3D(145, 12, 25),
+                new Point3D(190, 1, 50),
+                new Point3D(74, 52, 45),
+                new Point3D(121, 58, 28),
+                new Point3D(203, 132, 88),
+                new Point3D(75, 36, 29),
+                new Point3D(155, 84, 43),
+                new Point3D(230, 230, 25),
+                new Point3D(212, 175, 55),
+                new Point3D(175, 141, 19),
+                new Point3D(248, 222, 126),
+                new Point3D(201, 174, 93),
+                new Point3D(243, 229, 171),
+                new Point3D(134, 126, 54),
+                new Point3D(102, 93, 30),
+                new Point3D(141, 182, 1),
+                new Point3D(189, 218, 87),
+                new Point3D(138, 154, 91),
+                new Point3D(1, 136, 86),
+                new Point3D(62, 180, 137),
+                new Point3D(106, 171, 142),
+                new Point3D(59, 120, 97),
+                new Point3D(25, 230, 25),
+                new Point3D(25, 25, 230),
+                new Point3D(73, 151, 208),
+                new Point3D(1, 103, 165),
+                new Point3D(1, 65, 106),
+                new Point3D(67, 107, 149),
+                new Point3D(1, 133, 161),
+                new Point3D(250, 250, 250),
+                new Point3D(153, 153, 153),
+                new Point3D(128, 128, 128),
+                new Point3D(103, 103, 103)
+            ]
+        ]
     ]
 }
 
@@ -342,13 +825,14 @@ function buildMatrixImage(image_data){
 }
 
 export function selectGranularColor() {
+    let prototypes = obtainCurrentGranularPrototypes()
     let visible_color = [$('#granular-picker :selected').val()];
 
     if (visible_color[0] == "-1")
-        visible_color = getGranularPrototypes().map(color_prototype => color_prototype[0]);
+        visible_color = prototypes.map(color_prototype => color_prototype[0]);
 
     let fcs = new FuzzyColorSpace('#granular-space', "flex-grow:1;");
-    fcs.buildGranularSphericalFuzzyColorSpace(getGranularPrototypes(), visible_color);
+    fcs.buildGranularSphericalFuzzyColorSpace(prototypes, visible_color);
 }
 
 function addNewPrototypeGranular(event) {
@@ -370,6 +854,8 @@ function addNewPrototypeGranular(event) {
 
     document.querySelector("#"+event.target.id).addEventListener("change", addNewPrototypeGranular, false);
     document.querySelector(`#delete_${colorLabel}_${color.r}_${color.g}_${color.b}`).addEventListener("click", removePrototypeGranular, false);
+
+    document.querySelector("#granular-clean-prototypes").disabled = false;
 }
 
 function removePrototypeGranular(event) {
@@ -389,10 +875,53 @@ function removePrototypeGranular(event) {
             }
         }
     });
+
+    document.querySelector("#granular-clean-prototypes").disabled = false;
+}
+
+function obtainCurrentGranularPrototypes() {
+    let prototypes = []
+    $("#granules-wrapper").children().each(function(a) {
+        let label = $(this).attr("id").replace("granules_wrapper_", "");
+        
+        prototypes.push([label, [], []])
+
+        let colorWrapper = $(this).children();
+        colorWrapper.each(function(i) {
+            if (i > 0 && i < colorWrapper.length-1){
+                let rgb = hexToRgb($(this).attr("value"));
+                prototypes[a][1].push(new Point3D(rgb.r, rgb.g, rgb.b));
+            }
+        });
+    });
+
+    for (let i = 0; i < prototypes.length; i += 1) {
+        let triplet1 = prototypes[i];
+        for (const triplet2 of prototypes) {
+            if (triplet1[0] != triplet2[0]){
+                for(const p of triplet2[1]){
+                    triplet1[2].push(p)
+                }
+            }
+        }
+    }
+
+    return prototypes;
+}
+
+export function buildGranularFCS() {
+    let prototypes = obtainCurrentGranularPrototypes();
+
+    let visible_colors = prototypes.map(color_prototype => color_prototype[0]);
+    let fcs = new FuzzyColorSpace('#granular-space', "flex-grow:1;");
+    fcs.buildGranularSphericalFuzzyColorSpace(prototypes, visible_colors);
+
+    $("#granular-picker").val("-1").change();
+
+    document.querySelector("#granular-clean-prototypes").disabled = false;
 }
 
 export function resetToDefaultGranularFCS() {
-
     let prototypes_positives_negatives = getGranularPrototypes();
 
     let visible_colors = prototypes_positives_negatives.map(color_prototype => color_prototype[0]);
@@ -425,6 +954,8 @@ export function resetToDefaultGranularFCS() {
             document.querySelector(`#delete_${triplet[0]}_${color.x}_${color.y}_${color.z}`).addEventListener("click", removePrototypeGranular, false);
         }
     }
+
+    document.querySelector("#granular-clean-prototypes").disabled = true;
 }
 
 export function visualizeGranularColor() {
