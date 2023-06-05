@@ -347,8 +347,25 @@ export function selectGranularColor() {
     if (visible_color[0] == "-1")
         visible_color = getGranularPrototypes().map(color_prototype => color_prototype[0]);
 
-    let fcs = new FuzzyColorSpace('#granular-space', "flex-grow:5;");
+    let fcs = new FuzzyColorSpace('#granular-space', "flex-grow:1;");
     fcs.buildGranularSphericalFuzzyColorSpace(getGranularPrototypes(), visible_color);
+}
+
+export function resetToDefaultGranularFCS(prototypes_positives_negatives, parent) {
+    let parent_element = $("#"+parent);
+    let html_prototypes = "";
+
+    for (const triplet of prototypes_positives_negatives) {
+        html_prototypes += "<div style=\"margin: 4px; display:flex;\">"
+        html_prototypes += `<label>${triplet[0]}: </label>`
+        for (const color of triplet[1]) {
+            let hexadecimal = rgbToHex(color.x, color.y, color.z);
+            html_prototypes += `<div style=\"margin-left: 3px; margin-bottom: 2px; height: 20px; width: 20px; border: 1px black solid; background-color: rgb(${color.x}, ${color.y}, ${color.z})\" value=\"${hexadecimal}\"></div>`;
+        }
+        html_prototypes += "</div>"
+    }
+
+    parent_element.append(html_prototypes);
 }
 
 export function visualizeGranularColor() {

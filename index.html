@@ -542,7 +542,7 @@
             create another fuzzy color space, just click again in "Build new Fuzzy Color Space" button. On the other hand, if you want to see the default example, click on "Reset to default example" button. You can also interact with the RGB cube by zooming (with mouse scroll) or rotating (click and drag) it to inspect the fuzzy color space created.  
           </div>
           <script type="module" src="app/fcs.js"></script>
-          <div id="fuzzycolor-intro" style="display: flex; margin: auto auto 10px;">
+          <div style="display: flex; margin: auto auto 10px;">
             <canvas id="fuzzycolor-intro-main"></canvas>
             <div class="caption" id="fuzzycolor-intro-interactive">
               <label>Prototypes used to build the Fuzzy Color Space: </label>
@@ -595,8 +595,10 @@
         </div>
       <script type="module" src="app/granular_fcs.js"></script>
       <div style="display: flex; margin: auto auto 10px;">
-        <canvas id="granular-space" style="flex-grow:5;"></canvas>
-        <div class="caption" id="granular-select" style="flex-grow:1; display:flex; flex-direction: column;">
+        <canvas id="granular-space"></canvas>
+        <div class="caption" id="granular-select">
+          <label style="margin-right: 10px; margin-bottom: 10px;">Prototypes used to build the Fuzzy Color Space: </label>
+          <div id="granules-wrapper" style="display:flex; flex-direction: column; border: dashed; border-color: #11679a;margin-bottom: 10px;"></div>
           <label style="margin-right: 10px; margin-bottom: 10px;">Pick up a color: </label>
         </div>
       </div>
