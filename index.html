@@ -591,7 +591,7 @@
     <div id="granular-fcs-fig" class="framed">
       <div class="inside">
         <div class="eyebrow">
-          Let's see a granular fuzzy color space with more than one granule for each granular fuzzy color. Here, you can select a particular color category in order to see the granular fuzzy color. You can also interact with the RGB cube by zooming (with mouse scroll) or rotating (click and drag) it.
+          Let's see a granular fuzzy color space with more than one granule for each granular fuzzy color. In this figure, you can modify the prototypes used to build each granular fuzzy color. You can add a new prototype for a category by clicking on the color picker. You can also remove a prototype for a category by clicking on the blue cross (placed under each color). Then, you can build a new fuzzy color space clicking on the "Build new Fuzzy Color Space" button. If you want to see the default example, click on "Reset to default example" button. Furthermore, you can select a particular color category in order to see the granular fuzzy color. You can also interact with the RGB cube by zooming (with mouse scroll) or rotating (click and drag) it.
         </div>
       <script type="module" src="app/granular_fcs.js"></script>
       <div style="display: flex; margin: auto auto 10px;">
@@ -633,7 +633,7 @@
       <div id="results-fcs-fig" class="framed">
         <div class="inside">
           <div class="eyebrow">
-            Let's test your own image with this single-granular fuzzy color space. There are 13 basic color categories modeled that the reader can select through the picker element. Furthermore, the reader could load his/her own image with the top button and see the mapping image for a given color category.
+            Let's test your own image with the default fuzzy color space or with the fuzzy color space created in Fig. <a href="#fcs-fig">5</a>. You can select which fuzzy color space to use on the right side. Furthermore, you could load your own image with the top button and see the mapping image for a given color category. You can select the desired color category on the bottom picker. If you want to use the custom fuzzy color space created in Fig. <a href="#fcs-fig">5</a>, the color categories will be appear as "Custom color 1", "Custom color 2", and so on.
           </div>
         <script type="module" src="app/fcs_results.js"></script>
         <div style="display: flex; margin: auto auto 10px;">
@@ -644,7 +644,7 @@
               <form name="fcs_form">
                 <label for="html">Default FCS</label>
                 <input type="radio" id="fcs-default" name="fcs_to_use" value="default" checked>
-                <label for="css">Fig. 5 FCS</label>
+                <label for="css">Fig. <a href="#fcs-fig">5</a> FCS</label>
                 <input type="radio" id="fcs-created" name="fcs_to_use" value="created">
               </form>
             </div>
@@ -681,7 +681,7 @@
       <div id="results-granular-fcs-fig" class="framed">
         <div class="inside">
           <div class="eyebrow">
-            Let's test your own image with this granular fuzzy color space. There is a set of color categories modeled that the reader can select through the picker element. Furthermore, the reader could load his/her own image with the top button and see the mapping image for a given color category.
+            Let's test your own image with the default granular fuzzy color space or with the fuzzy color space created in Fig. <a href="#granular-fcs-fig">6</a>. You can select which fuzzy color space to use on the right side. Furthermore, you could load your own image with the top button and see the mapping image for a given color category. You can select the desired color category on the bottom picker.
           </div>
         <script type="module" src="app/granular_fcs_results.js"></script>
         <div style="display: flex;">
@@ -692,7 +692,7 @@
               <form name="granular_fcs_form">
                 <label for="html">Default FCS</label>
                 <input type="radio" id="granular-fcs-default" name="granular_fcs_to_use" value="default" checked>
-                <label for="css">Fig. 6 FCS</label>
+                <label for="css">Fig. <a href="#granular-fcs-fig">6</a> FCS</label>
                 <input type="radio" id="granular-fcs-created" name="granular_fcs_to_use" value="created">
               </form>
             </div>
