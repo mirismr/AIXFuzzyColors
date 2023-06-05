@@ -173,7 +173,7 @@
       </p>
       <p class="inline-math">
       As it is proposed in [<a href="#ref_14">14</a>], imposing the use of normal membership functions implies that for each fuzzy color $$\tilde{C}$$
-      there is at least one crisp color $$\bold{r}$$ such that $$\tilde{C}(\bold{r}) = 1$$.
+      there is at least one crisp color $$\bold{r}$$ such that $$\tilde{C}(\bold{r}) = 1$$. <b style="color: red">As a result, the absence of any elements in the set implies that no fuzzy color is being represented. To ensure consistency, we employ normalization because we anticipate that at least one color is fully representative of a color term.</b>
       </p>
 
       <p>
@@ -202,9 +202,7 @@
       <p>
         As we have introduced before, the granular approaches to fuzzy color modeling are used in this paper, which have shown to be more suitable
         than non-granular ones [<a href="#ref_46">46</a>]. To define granular fuzzy colors, three-dimensional membership functions on the color space domain will be proposed.
-        In particular, we will use membership functions on the basis of parametric functions of the distance to prototypes [<a href="#ref_14">14</a>], [<a href="#ref_34">34</a>].
-        It is intuitive for the human perception the use of prototypes to describe basic color categories. There are some works in the color naming field 
-        [<a href="#ref_37">37</a>], [<a href="#ref_38">38</a>] which provide prototypes associated to color categories on the basis of human color perception.
+        In particular, we will use membership functions on the basis of parametric functions of the distance to prototypes [<a href="#ref_14">14</a>], [<a href="#ref_34">34</a>]. <b style="color: red">This concept comes naturally to humans as we commonly rely on color prototypes to define fundamental color categories. Simultaneously, the similarity of colors and their categorization are closely related with the concept of distance in color spaces. This relationship is clearly demonstrated in color naming methodologies [<a href="#ref_37">37</a>], [<a href="#ref_38">38</a>], where prototypes are used to establish connections between color categories and computational representations of color.</b>
       </p>
 
       <p class="inline-math">
@@ -229,7 +227,10 @@
       <p class="inline-math">
         with $$\bold{p}_{i} \in \Gamma$$  being a crisp color prototype, $$\|·\|$$ being the Euclidean distance and 
         $$\bold{c}$$ being the crisp color to be analyzed. 
-        The function $$f : [0, +\infty] \rightarrow [0, 1]$$ is a non-increasing function satisfying $$f(0) = 1$$.
+        The function $$f : [0, +\infty] \rightarrow [0, 1]$$ is a non-increasing function satisfying $$f(0) = 1$$. <b style="color: red">This condition states that the membership of the prototype to the color category which it represents must be 1,
+        since distance 0 means $$\bold{c} = \bold{p}_i$$. The condition of $$f$$ being a non-increasing function is intuitive
+        as it implies that resemblance to the prototype (and consequently membership to the associated category) should not increase with greater distance.
+        It is immediate that every fuzzy color is a granular fuzzy color, since it is expressed as the union of other fuzzy colors.</b>
       </p>
       <p class="inline-math">
         There are many different types of functions $$f$$ [<a href="#ref_46">46</a>], [<a href="#ref_46">48</a>] that can be used for defining a fuzzy color, being the
@@ -504,9 +505,22 @@
         with $$\alpha_i \in [0, 1)$$ and $$\beta_i \in (0, 1]$$ being scale factors for the core radius and the support radius,
         respectively, satisfying $$\alpha_i < \beta_i$$. 
       </p>
+      <p class="inline-math">
+        <b style="color: red">
+          In the particular case $$\alpha_i = 0$$, we obtain $$a_i = 0$$. This fact means that
+        only the positive prototype is fully representative of the color
+        category (i.e., there is a single point core in the granule); as the
+        alpha value increases, the size of the granule core increases. In
+        the case of $$\beta_i = 1$$, we get $$b_i = D_i$$, which implies that the
+        radius of the support is equal to the distance from the prototype
+        $$\bold{p}_i$$ to its nearest point in $$P^−_i$$; as the beta value decreases, the size
+        of the support also decreases. In any case, due to the condition $$\alpha_i < \beta_i$$, the radius of the support will always be greater than
+        the radius of the core.
+        </b>
+      </p>
       
       <p class="inline-math">
-        To carry on the experiments in this section, the ISCC-NBS system [<a href="#ref_39">39</a>] will be used by default. In particular, for the first example, we will use the core set of 13 basic color categories (see left subfigure of Fig. <a href="#iscc-nbs-fig">3</a>), made up of 10 hue names (pink, red, orange, brown, yellow, olive, yellow-green, green, blue, violet, purple) and three neutral ones (white, gray, and black); for the second experiment, the complete set of 267 color categories will be used (see right subfigure of Fig. <a href="#iscc-nbs-fig">4</a>).
+        To carry on the experiments in this section, the ISCC-NBS system [<a href="#ref_39">39</a>] will be used by default. In particular, for the first example, we will use the core set of 13 basic color categories (see left subfigure of Fig. <a href="#iscc-nbs-fig">4</a>), made up of 10 hue names (pink, red, orange, brown, yellow, olive, yellow-green, green, blue, violet, purple) and three neutral ones (white, gray, and black); for the second experiment, the complete set of 267 color categories will be used (see right subfigure of Fig. <a href="#iscc-nbs-fig">4</a>).
       </p>
 
       <div id="iscc-nbs-fig" class="static" style="margin-bottom: 20px;">
