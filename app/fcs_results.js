@@ -11,5 +11,5 @@ initializeGranularSelect(getISCCBasicPrototypesWithLabels(), "fcs-results-picker
 let selectGranularColor = document.querySelector('#fcs-results-picker');
 selectGranularColor.addEventListener("change", visualizeFCSColor, false);
 
-let sourceImage = document.querySelector('#fcs-source-image');
-sourceImage.addEventListener("change", saveFCSImage, false);
+let sourceImageFCS = document.querySelector('#fcs-source-image');
+sourceImageFCS.addEventListener("change", saveFCSImage, false);

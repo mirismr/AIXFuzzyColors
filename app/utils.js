@@ -427,7 +427,7 @@ export function visualizeFCSColor() {
 
 export function saveImage() {
     var preview = document.getElementById("saved-image");
-    var file    = document.querySelector('input[type=file]').files[0];
+    var file    = document.querySelector('#source-image').files[0];
     var reader  = new FileReader();
 
     reader.addEventListener("load", function () {
@@ -465,7 +465,7 @@ export function saveImage() {
 
 export function saveFCSImage() {
     var preview = document.getElementById("fcs-saved-image");
-    var file    = document.querySelector('input[type=file]').files[0];
+    var file    = document.querySelector('#fcs-source-image').files[0];
     var reader  = new FileReader();
 
     reader.addEventListener("load", function () {
