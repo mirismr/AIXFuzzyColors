@@ -638,8 +638,18 @@
         <script type="module" src="app/fcs_results.js"></script>
         <div style="display: flex; margin: auto auto 10px;">
           <canvas id="fcs-results-space" style="flex-grow:1;"></canvas>
-          <div id="fcs-results-select" style="margin-top: 60px; margin-right:80px; display:flex; flex-direction: column;">
-            <label style="margin-right: 10px;">Select an image: </label>
+          <div class="caption" id="fcs-results-select" style="display:flex; flex-direction: column;">
+            <b>Select the Fuzzy Color Space to use:</b>
+            <div style="display: flex;">
+              <form name="fcs_form">
+                <label for="html">Default FCS</label>
+                <input type="radio" id="fcs-default" name="fcs_to_use" value="default" checked>
+                <label for="css">Fig. 5 FCS</label>
+                <input type="radio" id="fcs-created" name="fcs_to_use" value="created">
+              </form>
+            </div>
+
+            <b style="margin-right: 10px; margin-top: 10px;">Select an image: </b>
             <input type="file" id="fcs-source-image" accept="image/*">
             <div id="fcs-image-wrapper" style="display: flex; margin: auto auto; margin-top: 10px;">
             
@@ -654,7 +664,7 @@
             </div>
             <canvas width="180" height="180" style="display: none;" id="fcs-saved-image-canvas"></canvas>
             </div>
-            <label style="margin-right: 10px; margin-top: 20px;">Pick up a color: </label>
+            <b style="margin-right: 10px; margin-top: 20px;">Pick up a color: </b>
             </div>
           </div>
         <div class="caption"><b>Figure 7:</b><br>Results obtained by single-granular fuzzy colors.</div>

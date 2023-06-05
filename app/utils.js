@@ -631,7 +631,7 @@ export function getGranularPrototypes() {
     ]
 }
 
-function hexToRgb(hex) {
+export function hexToRgb(hex) {
     var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
     return result ? {
       r: parseInt(result[1], 16),
@@ -956,6 +956,8 @@ export function resetToDefaultGranularFCS() {
     }
 
     document.querySelector("#granular-clean-prototypes").disabled = true;
+
+    $("#granular-picker").val("-1").change();
 }
 
 export function visualizeGranularColor() {
@@ -995,14 +997,41 @@ export function visualizeGranularColor() {
     }
 }
 
+export function obtainCustomPrototypesLabelsFCS() {
+    let prototypes = []
+    let rgb;
+    $("#fuzzycolor-intro-selected-prototypes").children().each(function(i) {
+        rgb = hexToRgb($(this).attr("value"));
+        prototypes.push( new Point3D(rgb.r, rgb.g, rgb.b));
+    });
+
+    let fcs = new FuzzyColorSpace('#fcs-results-space', "flex-grow:1;");
+    fcs.buildSphericalFuzzyColorSpace(prototypes);
+
+    let prototypes_labels = [];
+    for(let i = 0; i < prototypes.length; i++) {
+        prototypes_labels.push([`Custom color ${(i+1)}`, prototypes[i]])
+    }
+
+    return prototypes_labels
+}
+
+export function visualizeFCSCustomColor() {
+    generalVisualizeFCSColor(obtainCustomPrototypesLabelsFCS())
+}
+
 export function visualizeFCSColor() {
+    generalVisualizeFCSColor(getISCCBasicPrototypesWithLabels())
+}
+
+export function generalVisualizeFCSColor(prototypes_labels) {
     let visible_color = [$('#fcs-results-picker :selected').val()];
 
     if (visible_color[0] == "-1")
-        visible_color = getISCCBasicPrototypesWithLabels().map(color_prototype => color_prototype[0]);
+        visible_color = prototypes_labels.map(color_prototype => color_prototype[0]);
 
     let fcs = new FuzzyColorSpace('#fcs-results-space', "flex-grow:1;");
-    fcs.buildSphericalFuzzyColorSpaceWithLabels(getISCCBasicPrototypesWithLabels(), visible_color);
+    fcs.buildSphericalFuzzyColorSpaceWithLabels(prototypes_labels, visible_color);
 
     if (visible_color[0] != "-1"){
         var preview = document.querySelector("#fcs-saved-image");
