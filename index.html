@@ -173,9 +173,8 @@
       </p>
       <p class="inline-math">
       As it is proposed in [<a href="#ref_14">14</a>], imposing the use of normal membership functions implies that for each fuzzy color $$\tilde{C}$$
-      there is at least one crisp color $$\bold{r}$$ such that $$\tilde{C}(\bold{r}) = 1$$. <b style="color: red">As a result, the absence of any elements in the set implies that no fuzzy color is being represented. To ensure consistency, we employ normalization because we expect that at least one color is fully representative of a color term.</b>
+      there is at least one crisp color $$\bold{r}$$ such that $$\tilde{C}(\bold{r}) = 1$$. <b style="color: red">As a consequence, no fuzzy color is represented by the empty set. We require normalization because we expect that at least one color is fully representative of a color term.</b>
       </p>
-
       <p>
         A fuzzy color space is the collection of fuzzy colors which are relevant in some context. Formally, from [<a href="#ref_14">14</a>]:
       </p>
@@ -202,7 +201,7 @@
       <p>
         As we have introduced before, the granular approaches to fuzzy color modeling are used in this paper, which have shown to be more suitable
         than non-granular ones [<a href="#ref_46">46</a>]. To define granular fuzzy colors, three-dimensional membership functions on the color space domain will be proposed.
-        In particular, we will use membership functions on the basis of parametric functions of the distance to prototypes [<a href="#ref_14">14</a>], [<a href="#ref_34">34</a>]. <b style="color: red">This concept comes naturally to humans as we commonly rely on color prototypes to define fundamental color categories. Simultaneously, the similarity of colors and their categorization are closely related with the concept of distance in color spaces. This relationship is clearly demonstrated in color naming methodologies [<a href="#ref_37">37</a>], [<a href="#ref_38">38</a>], where prototypes are used to establish connections between color categories and computational representations of color.</b>
+        In particular, we will use membership functions on the basis of parametric functions of the distance to prototypes [<a href="#ref_14">14</a>], [<a href="#ref_34">34</a>]. <b style="color: red">This approach comes naturally to humans as we commonly rely on color prototypes to define fundamental color categories, and at the same time color resemblance and categorization is tightly related to distance in color spaces. This relationship is clearly demonstrated in color naming methodologies [<a href="#ref_37">37</a>], [<a href="#ref_38">38</a>], where prototypes are used to establish connections between color categories and computational representations of color.</b>
       </p>
 
       <p class="inline-math">
@@ -234,7 +233,7 @@
       </p>
       <p class="inline-math">
         There are many different types of functions $$f$$ [<a href="#ref_46">46</a>], [<a href="#ref_46">48</a>] that can be used for defining a fuzzy color, being the
-        most employed the sphere-based ones and polyhedron-based ones [<a href="#ref_14">14</a>]. <b style="color: red">This paper aims to explain a methodology interactively. Thus, we propose to use the sphere-based function since this approach is geometrically intuitive and allows proper color modeling.</b> In particular, the following function $$f$$ , with parameters $$\lambda = (a, b)$$,
+        most employed the sphere-based ones and polyhedron-based ones [<a href="#ref_14">14</a>]. <b style="color: red">This paper aims to explain a methodology interactively, so we propose to use the sphere-based function since this approach is geometrically intuitive and allows proper color modeling.</b> In particular, the following function $$f$$ , with parameters $$\lambda = (a, b)$$,
         is used [<a href="#ref_34">34</a>]:
       </p>
       <p id="def-sphere-mf" class="inline-math" style="text-align: center;">
@@ -248,7 +247,7 @@
       </p>
       <p class="inline-math">
         <b style="color: red"> Fig. <a href="#sphere-function-image" >1</a> shows a simple diagram to
-          represent $$f$$ function.</b>The parameter $$a$$ represents the radius of the sphere centered around the prototype $$\bold{p}_{i}$$, where colors are fully 
+          represent $$f$$ function.</b> The parameter $$a$$ represents the radius of the sphere centered around the prototype $$\bold{p}_{i}$$, where colors are fully 
       representative of the color category (having membership 1). The parameter $$b$$ is the radius of the sphere centered
       around $$\bold{p}_{i}$$ containing all colors which are compatible to some extent (having membership greater than 0) with the 
       color category. Membership decreases linearly with the distance to $$\bold{p}_{i}$$ when $$a \leq x \leq b$$, corresponding to points 
