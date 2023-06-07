@@ -703,23 +703,32 @@ export function openModalFCS() {
 }
 
 export function buildFCS() {
-    document.querySelector("#intro-clean-prototypes").disabled = false;
-
     let prototypes = []
     let rgb;
-    $("#fuzzycolor-intro-selected-prototypes").empty();
-
     $("#fuzzycolor-intro-selected-prototypes-modal").children().each(function(i) {
         rgb = hexToRgb($(this).attr("value"));
         prototypes.push( new Point3D(rgb.r, rgb.g, rgb.b));
-        addPrototypeToList("#fuzzycolor-intro-selected-prototypes", rgb.r, rgb.g, rgb.b);
     });
 
-    let fcs = new FuzzyColorSpace('#fuzzycolor-intro-main', "flex-grow:1; margin: auto auto 10px;");
-    fcs.buildSphericalFuzzyColorSpace(prototypes);
+    if (prototypes.length >= 2){
+        document.querySelector("#intro-clean-prototypes").disabled = false;
+        $("#fuzzycolor-intro-selected-prototypes").empty();
+
+        $("#fuzzycolor-intro-selected-prototypes-modal").children().each(function(i) {
+            rgb = hexToRgb($(this).attr("value"));
+            addPrototypeToList("#fuzzycolor-intro-selected-prototypes", rgb.r, rgb.g, rgb.b);
+        });
+        
+        let fcs = new FuzzyColorSpace('#fuzzycolor-intro-main', "flex-grow:1; margin: auto auto 10px;");
+        fcs.buildSphericalFuzzyColorSpace(prototypes);
     
-    let modal = document.getElementById("modal-fcs");
-    modal.style.display = "none";
+        let modal = document.getElementById("modal-fcs");
+        modal.style.display = "none";
+        $("#error-less-prototypes").text("")
+    }
+    else {
+        $("#error-less-prototypes").text("At least two prototypes should be selected to build a fuzzy color space")
+    }    
 }
 
 export function addPrototypeColorFromPicker(event) {
