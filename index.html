@@ -259,9 +259,9 @@
         <div style="display:flex;">
           <img src="img/esquemaFuncionEsfera.png" alt="" style="width: 20%; margin: auto auto; display: block"/>
         </div>
-        <div class="caption inline-math"><b>Figure 1:</b> Sphere-based membership function. The parameter $$a$$ represents the
+        <div class="caption inline-math"><b style="color: red">Figure 1: Sphere-based membership function. The parameter $$a$$ represents the
           radius of the sphere associated to the core, while the parameter $$b$$ represents
-          the radius of the sphere associated to the support.</div>
+          the radius of the sphere associated to the support.</b></div>
       </div>
 
       <p class="inline-math">
@@ -520,7 +520,8 @@
       </p>
       
       <p class="inline-math">
-        To carry on the experiments in this section, the ISCC-NBS system [<a href="#ref_39">39</a>] will be used by default. In particular, for the first example, we will use the core set of 13 basic color categories (see left subfigure of Fig. <a href="#iscc-nbs-fig">4</a>), made up of 10 hue names (pink, red, orange, brown, yellow, olive, yellow-green, green, blue, violet, purple) and three neutral ones (white, gray, and black); for the second experiment, the complete set of 267 color categories will be used (see right subfigure of Fig. <a href="#iscc-nbs-fig">4</a>).
+        To carry on the experiments in this section, the ISCC-NBS system [<a href="#ref_39">39</a>] will be used by default.
+        <b style="color: red">The ISCC-NBS system, developed through collaboration between the Inter-Society Color Council (ISCC) and the National Bureau of Standards (NBS), was designed to establish a common framework for linking various color systems, including Munsell's system. The core of the ISCC-NBS has 13 fundamental color categories (see left subfigure of Fig. <a href="#iscc-nbs-fig">4</a>), consisting of ten hues (such as pink, red, orange, brown, yellow, olive, yellow-green, green, blue, violet, and purple) and three neutral shades (white, gray, and black). These basic categories are expanded into a more detailed set of 267 color terms (see right subfigure of Fig. <a href="#iscc-nbs-fig">4</a>) by incorporating a limited range of adjectives. For instance, descriptors related to lightness (e.g., very light, light, medium, dark, and very dark), saturation (such as grayish, pale, moderate, strong, and vivid), and others are employed. It is important to note that not all modifiers are applicable to every basic color name. Examples of these extended color names include "vivid red" or "very light purple”. In the interactive figures of this paper, the ISCC-NBS prototypes will be used to build the default fuzzy color spaces.</b>
       </p>
 
       <div id="iscc-nbs-fig" class="static" style="margin-bottom: 20px;">
@@ -550,10 +551,10 @@
       <div id="fcs-fig" class="framed">
         <div class="inside">
           <div class="eyebrow">
-            You can build a custom fuzzy color space by clicking "Build new Fuzzy Color Space" button. A new window is open where you can select a set of prototypes by clicking the color picker and selecting the desired color. You can repeat this process until you select the desired number of prototypes. The selected prototypes will appear below in the "selected prototypes" section.
+            <b style="color: red">You can build a custom fuzzy color space by clicking "Build new Fuzzy Color Space" button. A new window is opened where you can select a set of prototypes by clicking the color picker and selecting the desired color. You can repeat this process until you select the desired number of prototypes. The selected prototypes will appear below in the "selected prototypes" section.
             Once you have selected your set of custom prototypes,
             you can build the fuzzy color space by clicking the "OK" button (right bottom corner). If you want to restart the process and 
-            create another fuzzy color space, just click again in "Build new Fuzzy Color Space" button. On the other hand, if you want to see the default example, click on "Reset to default example" button. You can also interact with the RGB cube by zooming (with mouse scroll) or rotating (click and drag) it to inspect the fuzzy color space created.  
+            create another fuzzy color space, just click again in "Build new Fuzzy Color Space" button. On the other hand, if you want to see the default example, click on "Reset to default example" button. You can also interact with the RGB cube by zooming (with mouse scroll) or rotating (click and drag) it to inspect the fuzzy color space created.</b>
           </div>
           <script type="module" src="app/fcs.js"></script>
           <div style="display: flex; margin: auto auto 10px;">
@@ -605,7 +606,7 @@
     <div id="granular-fcs-fig" class="framed">
       <div class="inside">
         <div class="eyebrow">
-          Let's see a granular fuzzy color space with more than one granule for each granular fuzzy color. In this figure, you can modify the prototypes used to build each granular fuzzy color. You can add a new prototype for a category by clicking on the color picker. You can also remove a prototype for a category by clicking on the blue cross (placed under each color). Then, you can build a new fuzzy color space clicking on the "Build new Fuzzy Color Space" button. If you want to see the default example, click on "Reset to default example" button. Furthermore, you can select a particular color category in order to see the granular fuzzy color. You can also interact with the RGB cube by zooming (with mouse scroll) or rotating (click and drag) it.
+          <b style="color: red">Let's see a granular fuzzy color space with more than one granule for each granular fuzzy color. In this figure, you can modify the prototypes used to build each granular fuzzy color. You can add a new prototype for a category by clicking on the color picker. You can also remove a prototype for a category by clicking on the blue cross (placed under each color). Then, you can build a new fuzzy color space clicking on the "Build new Fuzzy Color Space" button. If you want to see the default example, click on "Reset to default example" button. Furthermore, you can select a particular color category in order to see the granular fuzzy color. You can also interact with the RGB cube by zooming (with mouse scroll) or rotating (click and drag) it.</b>
         </div>
       <script type="module" src="app/granular_fcs.js"></script>
       <div style="display: flex; margin: auto auto 10px;">
@@ -625,40 +626,34 @@
 
       <h2 id="results">IV. Results</h2>
       <p>
-        In this section, the ability of the granular fuzzy colors to represent colors and their several tonalities is analysed. For this reason, a comparison between single-granular fuzzy colors and granular fuzzy colors are proposed through qualitative experiments. Two interactive elements have been developed and proposed in this section to perform these experiments. By default, an natural image with high variability in color tonalities are proposed to test  granular fuzzy colors, but the reader could load his/her own image to test it.
+        In this section, the ability of the granular fuzzy colors to represent colors and their several tonalities is analysed. For this purpose, a comparison between single-granular fuzzy colors and granular fuzzy colors are proposed through qualitative experiments. Two interactive elements have been developed and proposed in this section to perform these experiments. In these interactive elements, by default, a natural image of a flag waving in the wind is showed, although the reader could load his/her own image example. In this image, six dominant colors can be labeled: "red" (the two side strips of the flag), "white" (the middle strip of the flag, flag stick and the clouds), "blue" (the sky), "green" and "yellow" (the middle flag details). The most interesting aspect of this image is the variety of tonalities generated by the waving of the flag, causing different types of red colors to arise.
       </p>
 
       <p class="inline-math">
-        In order to show how a particular fuzzy color models a color category, the following mapping is proposed: given an image, the membership degree to a given fuzzy color of each pixel is calculated. Then, these membership degrees are used as transparency degree (alpha channel) in the original image. Note that membership degree with a value of 0 corresponds to maximum transparency and, therefore, shows the background color that, in this case, is the white; on the other hand, membership degree with a value of 1 corresponds with non-transparency and, therefore, shows the original color of the image pixel. This color mapping allows us to see the colors "selected" to some degree by the model, thus it is expected that it shows the areas of the image for the given color category.
+        <b style="color: red">The methodology to generate the image result is the following. First, as we have explained previously, each color category (for example, “red”) has associated a fuzzy color</b>. In order to show how a particular fuzzy color models a color category,  <b style="color: red">we propose to generate as output a mapped image where the pixels associated to this color category will be highlighted. The mapping is performed as follows:</b> given an image, the membership degree of each pixel to a given fuzzy color is calculated; then, these membership degrees are used as transparency degree (alpha channel) in the original image  <b style="color: red">to generate the mapped one.</b> Note that membership degree with a value of 0 corresponds to maximum transparency and, therefore, shows the background color that, in this case, is the white  <b style="color: red">(that means that those pixels have a low fulfillment of the color category)</b>; on the other hand, membership degree with a value of 1 corresponds with non-transparency and, therefore, shows the original color of the image pixel  <b style="color: red">(that means that those pixels have a high fulfillment of the color category). Let us note that</b> this mapping allows us to see the colors "selected" to some degree by the model, since it shows the areas of the image associated with the color category.  <b style="color: red">In the following interactive figures, the reader can choose a color category to obtain the mapped image; by default, the "red" mapped image is shown.</b>
+
       </p>
 
       <p>
-        In the following interactive elements, by default, a natural image of a flag waving in the wind is showed, although the reader could load his/her own image example. In this image, six dominant colors can be labeled: "red" (the two side strips of the flag), "white" (the middle strip of the flag, flag stick and the clouds), "blue" (the sky), "green" and "yellow" (the middle flag details). There are two relevant causes to use this example: on the one hand, there are different subcategories of red (corresponding to the waves in the flag) which are related by an IS-A relationship; on the other hand,
-        there is a lot of variation within the same hue due to the shape of the waves in the flag and the light reflection on
-        their surfaces. By default, the explained mapping is showed on the right side for the "red" color category.
-      </p>
-
-      <p>
-        Fig. <a href="#results-fcs-fig">7</a> shows an interactive element where a single-granular fuzzy color space is represented on the left side. It is built through the basic ISCC-NBS prototypes [<a href="#ref_39">39</a>]. As in previous examples, here we are using the core set of 13 basic color categories (see Fig. <a href="#iscc-nbs-fig">4</a>), where each of them is used as the positive prototype needed to build a single-granular fuzzy color. The rest positives are used as negative prototypes for this single-granular fuzzy color. In the mapping image for the "red" color category, it is showed that this approach is not able to model the variability of the red colors in the folds of the flag. The single-granular techniques do not detect the shadow areas corresponding to different types of red, like "light red" or "dark red" (there are "holes" in the mapping image), working well only in the cases of "vivid red" regions.
-        If we select "blue" color category through the selector, it is showed a similar effect: there are a lot of sky zones where the membership degree to the single-granular fuzzy color corresponding to the "blue" category is too low ("holes" in the mapping image).
+        Fig. <a href="#results-fcs-fig">7</a> shows an interactive element where a single-granular fuzzy color space is represented on the left side. <b style="color: red">By default, it is built through the ISCC-NBS core set [<a href="#ref_39">39</a>], which is composed of 13 basic color categories, each of them having a representative prototype (see Fig. <a href="#iscc-nbs-fig">4</a>). Each category will be modeled by using its ISCC-NBS representative as a positive prototype and the remaining ones as negative prototypes. Furthermore, the reader can select the custom fuzzy color space created in Fig. <a href="#fcs-fig">5</a>. This enables the analysis of results for a specific set of color categories chosen by the reader, different from the basic categories of the ISCC-NBS system. On the right side in Fig. <a href="#results-fcs-fig">7</a>, the original image is shown together with the mapped one. By default, the flag image is loaded and the mapped "red" color category is shown.</b> It is observed that this approach is not able to model the variability of the red colors in the folds of the flag. The single-granular techniques do not detect the shadow areas corresponding to different types of red, like "light red" or "dark red" (there are "holes" in the mapping image), working well only in the cases of "vivid red" regions. If we select the "blue" color category through the selector, it is shown a similar effect: there are a lot of sky zones where the membership degree to the single-granular fuzzy color corresponding to the "blue" category is too low ("holes" in the mapped image).
       </p>
 
     
       <div id="results-fcs-fig" class="framed">
         <div class="inside">
           <div class="eyebrow">
-            Let's test your own image with the default fuzzy color space or with the fuzzy color space created in Fig. <a href="#fcs-fig">5</a>. You can select which fuzzy color space to use on the right side. Furthermore, you could load your own image with the top button and see the mapping image for a given color category. You can select the desired color category on the bottom picker. If you want to use the custom fuzzy color space created in Fig. <a href="#fcs-fig">5</a>, the color categories will be appear as "Custom color 1", "Custom color 2", and so on.
+            <b style="color: red">Let's test your own image with the default fuzzy color space or with the fuzzy color space created in Fig. <a href="#fcs-fig">5</a>. You can select which fuzzy color space to use on the right side. Furthermore, you could load your own image with the top button and see the mapping image for a given color category. You can select the desired color category on the bottom picker. If you want to use the custom fuzzy color space created in Fig. <a href="#fcs-fig">5</a>, the color categories will be appear as "Custom color 1", "Custom color 2", and so on.</b>
           </div>
         <script type="module" src="app/fcs_results.js"></script>
         <div style="display: flex; margin: auto auto 10px;">
           <canvas id="fcs-results-space" style="flex-grow:1;"></canvas>
           <div class="caption" id="fcs-results-select" style="display:flex; flex-direction: column;">
-            <b>Select the Fuzzy Color Space to use:</b>
+            <b style="color: red">Select the Fuzzy Color Space to use:</b>
             <div style="display: flex;">
               <form name="fcs_form">
-                <label for="html">Default FCS</label>
+                <label style="color: red"for="html">Default FCS</label>
                 <input type="radio" id="fcs-default" name="fcs_to_use" value="default" checked>
-                <label for="css">Fig. <a href="#fcs-fig">5</a> FCS</label>
+                <label style="color: red"for="css">Fig. <a href="#fcs-fig">5</a> FCS</label>
                 <input type="radio" id="fcs-created" name="fcs_to_use" value="created">
               </form>
             </div>
@@ -686,7 +681,7 @@
       </div>
 
       <p>
-        Fig. <a href="#results-granular-fcs-fig">8</a> shows an interactive element where a granular fuzzy color space is represented on the left side. Here, again, the 13 basic color categories from the ISCC-NBS system are modelled. For each color category, we use as positive prototypes the ones corresponding to the modifiers <i>moderate</i>, <i>strong</i> and <i>vivid</i>, and as negative prototypes the rest of basic categories (the ones used in the default example of Fig. <a href="#granular-fcs-fig">6</a>). In the mapping image for the "red" color category, it is showed that this approach is able to model the variability of the red colors in the folds of the flag. The granular approach selects almost all the pixels (i.e., it gives high membership degree to all the red pixels even in the different red tonalities).
+        Fig. <a href="#results-granular-fcs-fig">8</a> shows an interactive element where a granular fuzzy color space is represented on the left side. Here, the 13 basic color categories from the ISCC-NBS system are modelled. <b style="color: red">In this case, for each color category, let us remark that a set of positive prototypes is needed (and not only one, as in the single-granular case of Fig. <a href="#results-fcs-fig">7</a>.). By default, as positive prototypes, the ones corresponding to the modifiers <i>moderate</i>, <i>strong</i> and <i>vivid</i> are used, and as negative prototypes the rest of categories. Furthermore, the reader can select the custom fuzzy color space created in Fig. <a href="#granular-fcs-fig">6</a>, where the reader can change the granule prototype. On the right side in Fig. <a href="#results-granular-fcs-fig">8</a>, the original image is shown together with the mapped one. By default, the flag image is loaded and the mapped "red" color category is shown.</b> It is showed that this approach is able to model the variability of the red colors in the folds of the flag. The granular approach selects almost all the pixels (i.e., it gives high membership degree to all the red pixels even in the different red tonalities).
         If we select "blue" color category through the selector, it is showed a similar effect: the blue
         pixels of the sky are also selected with a high membership degree, including the different subcategories of
         "blue", like "light blue", "deep blue" or "pale blue", among others.
@@ -695,18 +690,18 @@
       <div id="results-granular-fcs-fig" class="framed">
         <div class="inside">
           <div class="eyebrow">
-            Let's test your own image with the default granular fuzzy color space or with the fuzzy color space created in Fig. <a href="#granular-fcs-fig">6</a>. You can select which fuzzy color space to use on the right side. Furthermore, you could load your own image with the top button and see the mapping image for a given color category. You can select the desired color category on the bottom picker.
+            <b style="color: red">Let's test your own image with the default granular fuzzy color space or with the fuzzy color space created in Fig. <a href="#granular-fcs-fig">6</a>. You can select which fuzzy color space to use on the right side. Furthermore, you could load your own image with the top button and see the mapping image for a given color category. You can select the desired color category on the bottom picker.</b>
           </div>
         <script type="module" src="app/granular_fcs_results.js"></script>
         <div style="display: flex;">
           <canvas id="granular-results-space" style="flex-grow:1;"></canvas>
           <div class="caption" id="granular-results-select" style="display:flex; flex-direction: column;">
-            <b>Select the Fuzzy Color Space to use:</b>
+            <b style="color: red">Select the Fuzzy Color Space to use:</b>
             <div style="display: flex;">
               <form name="granular_fcs_form">
-                <label for="html">Default FCS</label>
+                <label style="color: red" for="html">Default FCS</label>
                 <input type="radio" id="granular-fcs-default" name="granular_fcs_to_use" value="default" checked>
-                <label for="css">Fig. <a href="#granular-fcs-fig">6</a> FCS</label>
+                <label style="color: red" for="css">Fig. <a href="#granular-fcs-fig">6</a> FCS</label>
                 <input type="radio" id="granular-fcs-created" name="granular_fcs_to_use" value="created">
               </form>
             </div>
