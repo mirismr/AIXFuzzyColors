@@ -323,15 +323,15 @@
             <div style="border: dashed #11679a; border-radius: 10px;">
             <div class="caption" style="display: flex;">
               <label class="inline-math" style="margin-right: 10px;">Pick up a prototype $$\bold{p}$$: </label>
-              <input type="color" id="simple-picker" value="#9A4EAE">
+              <input type="color" id="simple-picker">
             </div>
             <div class="caption" style="display: flex;">
               <label class="inline-math" style="margin-right: 10px;">$$a$$ parameter: </label>
-              <input id="a-parameter" style="width: 50px" type="number" min=0 value="15"/>
+              <input id="a-parameter" style="width: 50px" type="number" min=0/>
             </div>
             <div class="caption" style="display: flex;  margin-bottom: 1rem;">
               <label class="inline-math" style="margin-right: 10px;">$$b$$ parameter: </label>
-              <input id="b-parameter" style="width: 50px" type="number" min=0 value="30"/>
+              <input id="b-parameter" style="width: 50px" type="number" min=0/>
               <label id="simple-parameter-error" class="inline-math" style="margin-left: 5px; color: red; font-size: smaller;"></label>
             </div>
             </div>
@@ -340,19 +340,22 @@
               <div class="caption" style="display: flex;">
                 <label class="inline-math" style="margin-right: 10px;  margin-top: 4px;">
                   Pick up a color to evaluate $$\bold{c}$$: </label>
-                <input type="color" id="simple-point-to-evaluate" value="#CD98DD">
+                <input type="color" id="simple-point-to-evaluate">
               </div>
               <div class="caption" style="display: flex;">
                 <label class="inline-math" style="margin-right: 10px;">Distance from $$\bold{c}$$ to $$\bold{p}$$: </label>
-                <label id="simple-distance">101.42</label>
+                <label id="simple-distance"></label>
               </div>
               <div class="caption" style="display: flex; margin-bottom: 1rem;">
                 <label class="inline-math" style="margin-right: 10px;">Membership degree of $$\bold{c}$$: </label>
-                <label id="simple-md">0.00</label>
+                <label id="simple-md"></label>
               </div>
             </div>
           </div>
           <canvas id="simple-main-support"></canvas>
+        </div>
+        <div class="caption" style="display:flex; justify-content: flex-end;">
+          <button type="button" id="reset-simple">Reset example</button>
         </div>
         <div class="caption"><b>Figure 2:</b><br>Introducing granular fuzzy color composed of a single granule. 
           It is shown an interactive RGB cube where the reader can build our own granular fuzzy color by selecting a custom prototype

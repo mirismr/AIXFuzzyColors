@@ -648,6 +648,32 @@ function rgbToHex(r, g, b) {
     return "#" + componentToHex(r) + componentToHex(g) + componentToHex(b);
 }
 
+export function resetSimple() {
+    let fcs_support = new FuzzyColorSpace('#simple-main-support', "flex-grow:5;");
+    fcs_support.addSphericalColor({r:154.0, g:78.0, b:174.0});
+    fcs_support.addPoint2Evaluate(205, 152, 221);
+
+    $("#simple-picker").val("#9A4EAE")
+    $("#a-parameter").val(15)
+    $("#b-parameter").val(30)
+
+    $("#simple-point-to-evaluate").val("#CD98DD")
+    $("#simple-distance").text(101.42)
+    $("#simple-md").text(0.0)
+
+    let simple_picker = document.querySelector('#simple-picker');
+    simple_picker.addEventListener("change", simpleParametersChange, false);
+
+    let a_parameter = document.querySelector('#a-parameter');
+    a_parameter.addEventListener("change", simpleParametersChange, false);
+
+    let b_parameter = document.querySelector('#b-parameter');
+    b_parameter.addEventListener("change", simpleParametersChange, false);
+
+    let picker2evaluate = document.querySelector('#simple-point-to-evaluate');
+    picker2evaluate.addEventListener("change", simpleParametersChange, false);
+}
+
 export function addGranularFromPicker(event) {
     let div_text = $("#granular-selected-prototypes").text().replace(/\s/g, '');
     if (div_text == "Prototypeswillbeappearhere"){
