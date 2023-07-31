@@ -425,21 +425,17 @@
             <div style="border: dashed #11679a; border-radius: 10px;">
               <div class="caption" style="display: flex;">
                 <label style="margin-right: 10px; margin-top: 4px;">Pick up a set of prototypes: </label>
-                <input type="color" id="granular-picker-prototypes" value="#9A4EAE">
+                <input type="color" id="granular-picker-prototypes">
               </div>
               <div class="caption" style="display: flex;">
                 <div id="granular-selected-prototypes" style="padding:5px; display:flex; flex-wrap: wrap; border: dashed #11679a; color:gray">
-                  <!-- Prototypes will be appear here -->
-                  <div style="margin-left: 3px; height: 20px; width: 20px; border: 1px black solid; background-color: #9A4EAE" value="#9A4EAE"></div>
-                  <div style="margin-left: 3px; height: 20px; width: 20px; border: 1px black solid; background-color: #C251E1" value="#C251E1"></div>
-                  <div style="margin-left: 3px; height: 20px; width: 20px; border: 1px black solid; background-color: #AA51E1" value="#AA51E1"></div>
                 </div>
               </div>
               <div class="caption" style="display: flex;">
                 <label class="inline-math" style="margin-right: 10px; margin-top: 4px;">$$a$$ parameter: </label>
-                <input id="granular-a-parameter" style="width: 50px" type="number" value="15"/>
+                <input id="granular-a-parameter" style="width: 50px" type="number"/>
                 <label class="inline-math" style="padding-left: 10px; border-left: dashed #11679a; margin-left: 10px; margin-right: 10px; margin-top: 4px;">$$b$$ parameter: </label>
-                <input id="granular-b-parameter" style="width: 50px" type="number" value="30"/>
+                <input id="granular-b-parameter" style="width: 50px" type="number"/>
                 <label id="granular-parameter-error" class="inline-math" style="margin-left: 5px; color: red; font-size: smaller;"></label>
               </div>
               <div class="caption" style="display: flex; margin-bottom: 1rem;">
@@ -451,21 +447,23 @@
             <div style="border: dashed #11679a; border-radius: 10px; margin-top: 20px;">
               <div class="caption" style="display: flex;">
                 <label style="margin-right: 10px;margin-top: 4px;">Pick up a color to evaluate: </label>
-                <input type="color" id="granular-point-to-evaluate" value="#AA5082">
+                <input type="color" id="granular-point-to-evaluate">
               </div>
               <div class="caption" style="display: flex;">
                 <label style="margin-right: 10px;">Minimum distance: </label>
-                <label id="granular-distance">60.17</label>
+                <label id="granular-distance"></label>
               </div>
               <div class="caption" style="display: flex; margin-bottom: 1rem;">
                 <label style="margin-right: 10px;">Membership degree: </label>
-                <label id="granular-md">0.00</label>
+                <label id="granular-md"></label>
               </div>
             </div>
           </div>
           <canvas style="border: dashed #11679a; border-radius: 10px;" id="granular-main-support"></canvas>
         </div>
-
+        <div class="caption" style="display:flex; justify-content: flex-end;">
+          <button type="button" id="reset-granular">Reset example</button>
+        </div>
         
         <div class="caption"><b>Figure 3:</b><br>Introducing granular fuzzy color composed of a set of granules (three, in this case). 
           It is shown an interactive RGB cube where the reader can build our own granular fuzzy color by selecting a custom set of prototypes

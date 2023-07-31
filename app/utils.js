@@ -674,6 +674,46 @@ export function resetSimple() {
     picker2evaluate.addEventListener("change", simpleParametersChange, false);
 }
 
+export function resetGranularSimple() {
+    let fcs_support = new FuzzyColorSpace('#granular-main-support', "flex-grow:5;");
+    fcs_support.addSphericalColor({r:154.0, g:78.0, b:174.0});
+    fcs_support.addSphericalColor({r:194.0, g:81.0, b:225.0});
+    fcs_support.addSphericalColor({r:170.0, g:81.0, b:225.0});
+    fcs_support.addPoint2Evaluate(170, 80, 130);
+
+    let granules_text = "<div style=\"margin-left: 3px; height: 20px; width: 20px; border: 1px black solid; background-color: #9A4EAE\" value=\"#9A4EAE\"></div>"
+    granules_text += "<div style=\"margin-left: 3px; height: 20px; width: 20px; border: 1px black solid; background-color: #C251E1\" value=\"#C251E1\"></div>"
+    granules_text += "<div style=\"margin-left: 3px; height: 20px; width: 20px; border: 1px black solid; background-color: #AA51E1\" value=\"#AA51E1\"></div>"
+    $("#granular-selected-prototypes").html(granules_text)
+
+    $("#granular-picker-prototypes").val("#9A4EAE")
+    $("#granular-a-parameter").val(15)
+    $("#granular-b-parameter").val(30)
+
+    $("#granular-point-to-evaluate").val("#AA5082")
+    $("#granular-distance").text(60.17)
+    $("#granular-md").text(0.0)
+
+    let simple_picker_negatives = document.querySelector('#granular-picker-prototypes');
+    simple_picker_negatives.addEventListener("change", addGranularFromPicker, false);
+
+    let a_parameter = document.querySelector('#granular-a-parameter');
+    a_parameter.addEventListener("change", buildGranule, false);
+
+    let b_parameter = document.querySelector('#granular-b-parameter');
+    b_parameter.addEventListener("change", buildGranule, false);
+
+
+    let build_button = document.querySelector('#granule-build-button');
+    build_button.addEventListener("click", buildGranule);
+
+    let clean_button = document.querySelector("#granule-clean-button");
+    clean_button.addEventListener("click", cleanGranule);
+
+    let picker2evaluate = document.querySelector('#granular-point-to-evaluate');
+    picker2evaluate.addEventListener("change", buildGranule, false);
+}
+
 export function addGranularFromPicker(event) {
     let div_text = $("#granular-selected-prototypes").text().replace(/\s/g, '');
     if (div_text == "Prototypeswillbeappearhere"){
@@ -792,7 +832,6 @@ export function buildGranule() {
     let rgb;
     let rgb_p2e = hexToRgb($("#granular-point-to-evaluate").val());
     let p2e = new Point3D(rgb_p2e.r, rgb_p2e.g, rgb_p2e.b);
-    console.log(rgb_p2e);
 
     let a_parameter = parseFloat($("#granular-a-parameter").val());
     let b_parameter = parseFloat($("#granular-b-parameter").val());
