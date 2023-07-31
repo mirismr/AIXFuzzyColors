@@ -637,7 +637,7 @@
       </p>
 
       <p>
-        Fig. <a href="#results-fcs-fig">7</a> shows an interactive element where a single-granular fuzzy color space is represented on the left side. <b style="color: red">By default, it is built through the ISCC-NBS kernel set [<a href="#ref_39">39</a>], which is composed of 13 basic color categories, each of them having a representative prototype (see Fig. <a href="#iscc-nbs-fig">4</a>). Each category will be modeled by using its ISCC-NBS representative as a positive prototype and the remaining ones as negative prototypes. Furthermore, the reader can select the custom fuzzy color space created in Fig. <a href="#fcs-fig">5</a>. This enables the analysis of results for a specific set of color categories chosen by the reader, different from the basic categories of the ISCC-NBS system. On the right side in Fig. <a href="#results-fcs-fig">7</a>, the original image is shown together with the mapped one. By default, the flag image is loaded and the mapped "red" color category is shown.</b> It is observed that this approach is not able to model the variability of the red colors in the folds of the flag. The single-granular techniques do not detect the shadow areas corresponding to different types of red, like "light red" or "dark red" (there are "holes" in the mapping image), working well only in the cases of "vivid red" regions. If the "blue" color category is picked through the selector, it is shown a similar effect: there are a lot of sky zones where the membership degree to the single-granular fuzzy color corresponding to the "blue" category is too low ("holes" in the mapped image).
+        Fig. <a href="#results-fcs-fig">7</a> shows an interactive element where a single-granular fuzzy color space is built. <b style="color: red">By default, it is built through the ISCC-NBS kernel set [<a href="#ref_39">39</a>], which is composed of 13 basic color categories, each of them having a representative prototype (see Fig. <a href="#iscc-nbs-fig">4</a>). Each category will be modeled by using its ISCC-NBS representative as a positive prototype and the remaining ones as negative prototypes. Furthermore, the reader can select the custom fuzzy color space created in Fig. <a href="#fcs-fig">5</a>. This enables the analysis of results for a specific set of color categories chosen by the reader, different from the basic categories of the ISCC-NBS system. On the right side in Fig. <a href="#results-fcs-fig">7</a>, the original image is shown together with the mapped one. By default, the flag image is loaded and the mapped "red" color category is shown.</b> It is observed that this approach is not able to model the variability of the red colors in the folds of the flag. The single-granular techniques do not detect the shadow areas corresponding to different types of red, like "light red" or "dark red" (there are "holes" in the mapping image), working well only in the cases of "vivid red" regions. If the "blue" color category is picked through the selector, it is shown a similar effect: there are a lot of sky zones where the membership degree to the single-granular fuzzy color corresponding to the "blue" category is too low ("holes" in the mapped image).
       </p>
 
     
@@ -666,7 +666,7 @@
             
             <div style="display:flex; flex-direction: column;">
               <label style="margin-right: 10px; margin-top: 20px;">Original image: </label>
-              <img src="img/bandera9.jpg" width="180" height="180" style="margin-right: 10px; " id="fcs-saved-image"></img>
+              <img width="180" height="180" style="margin-right: 10px; " id="fcs-saved-image"></img>
             </div>
             
             <div style="display:flex; flex-direction: column;">
@@ -676,8 +676,12 @@
             <canvas width="180" height="180" style="display: none;" id="fcs-saved-image-canvas"></canvas>
             </div>
             <b style="margin-right: 10px; margin-top: 20px;">Pick up a color: </b>
-            </div>
+            </div>    
           </div>
+          <div class="caption" style="display:flex; justify-content: flex-end;">
+            <button type="button" id="reset-fcs-result" style="margin-left: 80px;">Reset example</button>
+          </div>
+          
         <div class="caption"><b>Figure 7:</b><br>Results obtained by single-granular fuzzy colors.</div>
       </div>
       </div>

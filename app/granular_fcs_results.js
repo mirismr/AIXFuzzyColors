@@ -1,7 +1,7 @@
 import {FuzzyColorSpace} from "./fuzzycolorspace.js";
 import {initializeGranularSelect, visualizeGranularColor, visualizeCustomGranularColor, obtainCurrentGranularPrototypes, getGranularPrototypes, saveImage, initImageLoaded} from "./utils.js";
 
-initImageLoaded("saved-image-canvas", "mapped-image", "bandera9_granular_results.png");
+// initImageLoaded("saved-image-canvas", "mapped-image", "saved-image", "bandera9_granular_results.png");
 
 let visible_colors = getGranularPrototypes().map(color_prototype => color_prototype[0]);
 let fcs = new FuzzyColorSpace('#granular-results-space', "flex-grow:1;");

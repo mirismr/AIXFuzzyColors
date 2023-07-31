@@ -1,18 +1,11 @@
 import {FuzzyColorSpace} from "./fuzzycolorspace.js";
-import {initializeGranularSelect, visualizeFCSColor, visualizeFCSCustomColor, saveFCSImage, getISCCBasicPrototypesWithLabels, initImageLoaded, obtainCustomPrototypesLabelsFCS} from "./utils.js";
+import {initializeGranularSelect, visualizeFCSColor, visualizeFCSCustomColor, saveFCSImage,
+     getISCCBasicPrototypesWithLabels, obtainCustomPrototypesLabelsFCS,
+     resetFCSResult} from "./utils.js";
 
-initImageLoaded("fcs-saved-image-canvas", "fcs-mapped-image", "bandera9_results.png");
-
-let visible_colors = getISCCBasicPrototypesWithLabels().map(color_prototype => color_prototype[0]);
-let fcs = new FuzzyColorSpace('#fcs-results-space', "flex-grow:1;");
-fcs.buildSphericalFuzzyColorSpaceWithLabels(getISCCBasicPrototypesWithLabels(), visible_colors);
-
-initializeGranularSelect(getISCCBasicPrototypesWithLabels(), "fcs-results-picker", "fcs-results-select");
-let selectGranularColor = document.querySelector('#fcs-results-picker');
-selectGranularColor.addEventListener("change", visualizeFCSColor, false);
-
-let sourceImageFCS = document.querySelector('#fcs-source-image');
-sourceImageFCS.addEventListener("change", saveFCSImage, false);
+resetFCSResult()
+let resetButton = document.querySelector("#reset-fcs-result");
+resetButton.addEventListener("click", resetFCSResult);
 
 var rad = document.fcs_form.fcs_to_use;
 for (var i = 0; i < rad.length; i++) {
@@ -23,15 +16,15 @@ for (var i = 0; i < rad.length; i++) {
             fcs.buildSphericalFuzzyColorSpaceWithLabels(getISCCBasicPrototypesWithLabels(), visible_colors);
 
             $("#fcs-results-picker").remove();
-            initializeGranularSelect(getISCCBasicPrototypesWithLabels(), "fcs-results-picker", "fcs-results-select");
-            let selectGranularColor = document.querySelector('#fcs-results-picker');
-            selectGranularColor.addEventListener("change", visualizeFCSColor, false);
+            initializeGranularSelect(getISCCBasicPrototypesWithLabels(), "fcs-results-picker", "fcs-results-select", -1);
+            $("#fcs-results-picker").on( "change", visualizeFCSColor);
+            $("#fcs-results-picker").trigger("change");
         }
         else {
             $("#fcs-results-picker").remove();
-            initializeGranularSelect(obtainCustomPrototypesLabelsFCS(), "fcs-results-picker", "fcs-results-select");
-            let selectGranularColor = document.querySelector('#fcs-results-picker');
-            selectGranularColor.addEventListener("change", visualizeFCSCustomColor, false);
+            initializeGranularSelect(obtainCustomPrototypesLabelsFCS(), "fcs-results-picker", "fcs-results-select", -1);
+            $("#fcs-results-picker").on( "change", visualizeFCSCustomColor);
+            $("#fcs-results-picker").trigger("change");
         }
     });
 }

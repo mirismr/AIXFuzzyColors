@@ -815,10 +815,21 @@ export function cleanGranule(){
     $("#granular-md").text("");
 }
 
-export function initializeGranularSelect(prototypes_positives_negatives, html_element, parent){
-    let select = "<select id=" + "\""+html_element+"\"><option value=\"-1\">All</option>";
+export function initializeGranularSelect(prototypes_positives_negatives, html_element, parent, selected_index){
+    let selected_color = ""
+    if(selected_index == -1){
+        selected_color = "selected=\"selected\""
+    }
+    let select = "<select " + selected_color + " id=" + "\""+html_element+"\"><option value=\"-1\">All</option>";
+
+    let current_index = 0;
     for (const pair of prototypes_positives_negatives) {
-        select += `<option value=\"${pair[0]}\">${pair[0]}</option>`
+        let selected_color = ""
+        if(current_index == selected_index){
+            selected_color = "selected=\"selected\""
+        }
+        select += `<option ${selected_color} value=\"${pair[0]}\">${pair[0]}</option>`
+        current_index += 1
     }
 
     select += "</select>";
@@ -1036,6 +1047,23 @@ export function obtainCustomPrototypesLabelsFCS() {
     return prototypes_labels
 }
 
+export function resetFCSResult(){
+    $('#fcs-source-image').attr('src',Math.random());
+    initImageLoaded("fcs-saved-image-canvas", "fcs-mapped-image", "fcs-saved-image", "bandera9_results.png");
+    
+    let visible_colors = getISCCBasicPrototypesWithLabels().filter(color => color[0] == "Red").map(color_prototype => color_prototype[0]);
+    let fcs = new FuzzyColorSpace('#fcs-results-space', "flex-grow:1;");
+    fcs.buildSphericalFuzzyColorSpaceWithLabels(getISCCBasicPrototypesWithLabels(), visible_colors);
+    
+    $("#fcs-results-picker").remove()
+    initializeGranularSelect(getISCCBasicPrototypesWithLabels(), "fcs-results-picker", "fcs-results-select", 1);
+    $("#fcs-results-picker").on("change", visualizeFCSColor);
+    
+    let sourceImageFCS = document.querySelector('#fcs-source-image');
+    sourceImageFCS.addEventListener("change", saveFCSImage, false);
+
+}
+
 export function visualizeFCSCustomColor() {
     generalVisualizeFCSColor(obtainCustomPrototypesLabelsFCS())
 }
@@ -1044,41 +1072,60 @@ export function visualizeFCSColor() {
     generalVisualizeFCSColor(getISCCBasicPrototypesWithLabels())
 }
 
-export function generalVisualizeFCSColor(prototypes_labels) {
-    let visible_color = [$('#fcs-results-picker :selected').val()];
+function findMaximumBetween(matriz1, matriz2) {
+    let maxMatrix = [];
+    if (matriz1 != null) {
+        for (let i = 0; i < matriz1.length; i++) {
+            maxMatrix.push(matriz1[i]+matriz2[i]);
+          }
+    }
+    else{
+        maxMatrix = matriz2;
+    }
+    return maxMatrix;
+}
 
-    if (visible_color[0] == "-1")
+export function generalVisualizeFCSColor(prototypes_labels) {
+    var visible_color_index = [$('#fcs-results-picker :selected').val()];
+    var visible_color = visible_color_index
+
+    if (visible_color_index == "-1")
         visible_color = prototypes_labels.map(color_prototype => color_prototype[0]);
 
-    let fcs = new FuzzyColorSpace('#fcs-results-space', "flex-grow:1;");
+    var fcs = new FuzzyColorSpace('#fcs-results-space', "flex-grow:1;");
     fcs.buildSphericalFuzzyColorSpaceWithLabels(prototypes_labels, visible_color);
 
-    if (visible_color[0] != "-1"){
-        var preview = document.querySelector("#fcs-saved-image");
-        
-        var canvas = document.getElementById("fcs-saved-image-canvas");
-        var ctx = canvas.getContext("2d", { willReadFrequently: true });
-        
-        
-        var image_data = ctx.getImageData(0, 0, 180, 180);
-        var image = buildMatrixImage(image_data.data);
-        var degrees_image = fcs.mapImage(visible_color, image, fcs.sphericalFuzzyColors).flat();
-
-        var canvas_mapped = document.getElementById("fcs-mapped-image");
-        ctx = canvas_mapped.getContext("2d", { willReadFrequently: true });
-        ctx.drawImage(preview, 0, 0, 180, 180);
-
-        const imageData = ctx.getImageData(0, 0, 180, 180);
-        const data = imageData.data;
-        let degrees_index = 0;
-        
-        for (var i = 0; i < data.length; i += 4) {
-            data[i + 3] = degrees_image[degrees_index]*255;
-            degrees_index++;
-        }
-        
-        ctx.putImageData(imageData, 0, 0);
+    var canvas = document.getElementById("fcs-saved-image-canvas");
+    var ctx = canvas.getContext("2d", { willReadFrequently: true });
+    var image_data = ctx.getImageData(0, 0, 180, 180);
+    var image = buildMatrixImage(image_data.data);
+    var degrees_image = null;
+    
+    if (visible_color_index != "-1"){
+        degrees_image = fcs.mapImage(visible_color, image, fcs.sphericalFuzzyColors).flat();
     }
+    // mapping all colors
+    else {
+        for(const c of visible_color) {
+            let degrees_image_i = fcs.mapImage([c], image, fcs.sphericalFuzzyColors).flat();
+            degrees_image = findMaximumBetween(degrees_image, degrees_image_i)
+        }
+    }
+    
+    var preview = document.querySelector("#fcs-saved-image-canvas");
+    var canvas_mapped = document.getElementById("fcs-mapped-image");
+    var ctx2 = canvas_mapped.getContext("2d", { willReadFrequently: true });
+    ctx2.drawImage(preview, 0, 0, 180, 180);
+
+    const imageData = ctx2.getImageData(0, 0, 180, 180);
+    const data = imageData.data;
+    let degrees_index = 0;
+    
+    for (var i = 0; i < data.length; i += 4) {
+        data[i + 3] = degrees_image[degrees_index]*255;
+        degrees_index++;
+    }
+    ctx2.putImageData(imageData, 0, 0);
 }
 
 export function saveImage() {
@@ -1125,52 +1172,56 @@ export function saveFCSImage() {
     var reader  = new FileReader();
 
     reader.addEventListener("load", function () {
-        preview.src = reader.result;
         var img = new Image();
         img.onload = function () {
+            preview.src = reader.result;
             var canvas = document.getElementById("fcs-saved-image-canvas");
             var ctx = canvas.getContext("2d", { willReadFrequently: true })
-
             ctx.drawImage(preview, 0, 0, 180, 180);
+            console.log("imagen guardada")
+            
+            // var canvas_mapped = document.getElementById("fcs-mapped-image");
+            // var ctx2 = canvas_mapped.getContext("2d", { willReadFrequently: true });
+            // var img2 = new Image();
+            // const imageData = ctx2.getImageData(0, 0, 180, 180);
+            // const data = imageData.data;
+            // for (let i = 0; i < data.length; i += 4) {
+            //     data[i] = 255; // red
+            //     data[i + 1] = 255; // green
+            //     data[i + 2] = 255; // blue
+            // }
+            // ctx2.drawImage(img2, 0, 0, 180, 180);
+            // ctx2.putImageData(imageData, 0, 0);
+            
+            $('#fcs-results-picker').val('-1').change();
         }
         img.src = reader.result;
-
     }, false);
 
     if (file) {
         reader.readAsDataURL(file);
     }
-
-    $('#fcs-results-picker').val('-1').change();
-    var canvas_mapped = document.getElementById("fcs-mapped-image");
-    var ctx = canvas_mapped.getContext("2d", { willReadFrequently: true });
-    var img = new Image();
-    ctx.drawImage(img, 0, 0, 180, 180);
-
-    const imageData = ctx.getImageData(0, 0, 180, 180);
-    const data = imageData.data;
-    for (let i = 0; i < data.length; i += 4) {
-        data[i] = 255; // red
-        data[i + 1] = 255; // green
-        data[i + 2] = 255; // blue
-    }
-    ctx.putImageData(imageData, 0, 0);
 }
 
-export function initImageLoaded(element, element_results, filename_results){
+export function initImageLoaded(element, element_results, element_img, filename_results){
     const canvas = document.getElementById(element);
     const ctx = canvas.getContext("2d", { willReadFrequently: true });
     var img = new Image();
     img.onload = function() {
-      ctx.drawImage(img, 0, 0, 180, 180);
+      ctx.drawImage(img, 0, 0, 180, 180);          
+        $("#fcs-results-picker").trigger("change");
+        $("#fcs-default").prop("checked", true);
     };
     img.src = 'img/bandera9.jpg';
 
-    const canvas_results = document.getElementById(element_results);
-    const ctx_results = canvas_results.getContext("2d", { willReadFrequently: true });
-    var img2 = new Image();
-    img2.onload = function() {
-        ctx_results.drawImage(img2, 0, 0, 180, 180);
-    };
-    img2.src = 'img/'+filename_results;
+    var edit_save = document.getElementById(element_img);
+    edit_save.src = 'img/bandera9.jpg';
+
+    // const canvas_results = document.getElementById(element_results);
+    // const ctx_results = canvas_results.getContext("2d", { willReadFrequently: true });
+    // var img2 = new Image();
+    // img2.onload = function() {
+    //     ctx_results.drawImage(img2, 0, 0, 180, 180);
+    // };
+    // img2.src = 'img/'+filename_results;
 }
