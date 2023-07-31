@@ -1,18 +1,11 @@
 import {FuzzyColorSpace} from "./fuzzycolorspace.js";
-import {initializeGranularSelect, visualizeGranularColor, visualizeCustomGranularColor, obtainCurrentGranularPrototypes, getGranularPrototypes, saveImage, initImageLoaded} from "./utils.js";
+import {initializeGranularSelect, visualizeGranularColor, visualizeCustomGranularColor, obtainCurrentGranularPrototypes,
+     getGranularPrototypes, saveImage, resetGranularFCSResult} from "./utils.js";
 
-// initImageLoaded("saved-image-canvas", "mapped-image", "saved-image", "bandera9_granular_results.png");
 
-let visible_colors = getGranularPrototypes().map(color_prototype => color_prototype[0]);
-let fcs = new FuzzyColorSpace('#granular-results-space', "flex-grow:1;");
-fcs.buildGranularSphericalFuzzyColorSpace(getGranularPrototypes(), visible_colors);
-
-initializeGranularSelect(getGranularPrototypes(), "granular-results-picker", "granular-results-select");
-let selectGranularColor = document.querySelector('#granular-results-picker');
-selectGranularColor.addEventListener("change", visualizeGranularColor, false);
-
-let sourceImage = document.querySelector('#source-image');
-sourceImage.addEventListener("change", saveImage, false);
+resetGranularFCSResult()
+let resetButton = document.querySelector("#reset-granular-fcs-result");
+resetButton.addEventListener("click", resetGranularFCSResult);
 
 
 var rad = document.granular_fcs_form.granular_fcs_to_use;
@@ -24,9 +17,9 @@ for (var i = 0; i < rad.length; i++) {
             fcs.buildGranularSphericalFuzzyColorSpace(getGranularPrototypes(), visible_colors);
 
             $("#granular-results-picker").remove();
-            initializeGranularSelect(getGranularPrototypes(), "granular-results-picker", "granular-results-select");
-            let selectGranularColor = document.querySelector('#granular-results-picker');
-            selectGranularColor.addEventListener("change", visualizeGranularColor, false);
+            initializeGranularSelect(getGranularPrototypes(), "granular-results-picker", "granular-results-select", -1);
+            $('#granular-results-picker').on( "change", visualizeGranularColor);
+            $('#granular-results-picker').trigger("change");
         }
         else {
             let visible_colors = obtainCurrentGranularPrototypes().map(color_prototype => color_prototype[0]);
@@ -34,9 +27,9 @@ for (var i = 0; i < rad.length; i++) {
             fcs.buildGranularSphericalFuzzyColorSpace(obtainCurrentGranularPrototypes(), visible_colors);
 
             $("#granular-results-picker").remove();
-            initializeGranularSelect(obtainCurrentGranularPrototypes(), "granular-results-picker", "granular-results-select");
-            let selectGranularColor = document.querySelector('#granular-results-picker');
-            selectGranularColor.addEventListener("change", visualizeCustomGranularColor, false);
+            initializeGranularSelect(obtainCurrentGranularPrototypes(), "granular-results-picker", "granular-results-select", -1);
+            $('#granular-results-picker').on( "change", visualizeCustomGranularColor);
+            $('#granular-results-picker').trigger("change");
         }
     });
 }

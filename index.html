@@ -687,7 +687,7 @@
       </div>
 
       <p>
-        Fig. <a href="#results-granular-fcs-fig">8</a> shows an interactive element where a granular fuzzy color space is represented on the left side. Here, the 13 basic color categories from the ISCC-NBS system are modeled. <b style="color: red">In this case, for each color category, let us remark that a set of positive prototypes is needed (and not only one, as in the single-granular case of Fig. <a href="#results-fcs-fig">7</a>.). By default, as positive prototypes, the ones corresponding to the modifiers <i>moderate</i>, <i>strong</i> and <i>vivid</i> are used, and as negative prototypes the rest of categories. Furthermore, the reader can select the custom fuzzy color space created in Fig. <a href="#granular-fcs-fig">6</a>, where the reader can change the granule prototype. On the right side in Fig. <a href="#results-granular-fcs-fig">8</a>, the original image is shown together with the mapped one. By default, the flag image is loaded and the mapped "red" color category is shown.</b> It is shown that this approach is able to model the variability of the red colors in the folds of the flag. The granular approach selects almost all the pixels (i.e., it gives a high membership degree to all the red pixels even in the different red tonalities).
+        Fig. <a href="#results-granular-fcs-fig">8</a> shows an interactive element where a granular fuzzy color space is built. Here, the 13 basic color categories from the ISCC-NBS system are modeled. <b style="color: red">In this case, for each color category, let us remark that a set of positive prototypes is needed (and not only one, as in the single-granular case of Fig. <a href="#results-fcs-fig">7</a>.). By default, as positive prototypes, the ones corresponding to the modifiers <i>moderate</i>, <i>strong</i> and <i>vivid</i> are used, and as negative prototypes the rest of categories. Furthermore, the reader can select the custom fuzzy color space created in Fig. <a href="#granular-fcs-fig">6</a>, where the reader can change the granule prototype. On the right side in Fig. <a href="#results-granular-fcs-fig">8</a>, the original image is shown together with the mapped one. By default, the flag image is loaded and the mapped "red" color category is shown.</b> It is shown that this approach is able to model the variability of the red colors in the folds of the flag. The granular approach selects almost all the pixels (i.e., it gives a high membership degree to all the red pixels even in the different red tonalities).
         If the "blue" color category is picked through the selector, it is shown a similar effect: the blue
         pixels of the sky are also selected with a high membership degree, including the different subcategories of
         "blue", like "light blue", "deep blue" or "pale blue", among others.
@@ -718,7 +718,7 @@
             
             <div style="display:flex; flex-direction: column;">
               <label style="margin-right: 10px; margin-top: 20px;">Original image: </label>
-              <img src="img/bandera9.jpg" width="180" height="180" style="margin-right: 10px; " id="saved-image"></img>
+              <img width="180" height="180" style="margin-right: 10px; " id="saved-image"></img>
             </div>
             
             <div style="display:flex; flex-direction: column;">
@@ -729,6 +729,9 @@
             </div>
             <b style="margin-right: 10px; margin-top: 20px;">Pick up a color: </b>
             </div>
+          </div>
+          <div class="caption" style="display:flex; justify-content: flex-end;">
+            <button type="button" id="reset-granular-fcs-result" style="margin-left: 80px;">Reset example</button>
           </div>
         <div class="caption"><b>Figure 8:</b><br>Results obtained by granular fuzzy colors.</div>
       </div>
