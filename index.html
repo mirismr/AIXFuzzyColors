@@ -14,8 +14,12 @@
   <link rel="stylesheet" href="css/style.css">
 
   <!-- MathJax javascript library and implementation file/s -->
-  <script type="text/javascript" async
+  <!-- <script type="text/javascript" async
     src="https://xploreqa.ieee.org/xploreAssets/MathJax-274/MathJax.js?config=default">
+  </script> -->
+  <!-- MathJax does not work and ieee servers, so we import it from local-->
+  <script type="text/javascript" async
+    src="MathJax/MathJax.js?config=default">
   </script>
 
   <!-- Example fuzzy colors immersive app -->
@@ -97,7 +101,7 @@
               <span class="separator">&nbsp;&nbsp;|&nbsp;&nbsp;</span>
             </li>
             <li>
-              <a style="color: red" href="#results">Results</a>
+              <a style="color: blueviolet" href="#results">Fuzzy color experiments</a>
               <span class="separator">&nbsp;&nbsp;|&nbsp;&nbsp;</span>
             </li>
             <li>
@@ -173,7 +177,7 @@
       </p>
       <p class="inline-math">
       As it is proposed in [<a href="#ref_14">14</a>], imposing the use of normal membership functions implies that for each fuzzy color $$\tilde{C}$$,
-      there is at least one crisp color $$\bold{r}$$ such that $$\tilde{C}(\bold{r}) = 1$$. <b style="color: red">As a consequence, no fuzzy color is represented by the empty set.
+      there is at least one crisp color $$\textbf{r}$$ such that $$\tilde{C}(\textbf{r}) = 1$$. <b style="color: red">As a consequence, no fuzzy color is represented by the empty set.
       <b style="color: blueviolet">This normalization is required because it is expected</b> that at least one color is fully representative of a color term.</b>
       </p>
       <p>
@@ -208,29 +212,29 @@
       </p>
 
       <p class="inline-math">
-        Let $$\bold{p}_{i} \in \Gamma$$ be a crisp color prototype and let $$\lambda_i \in \mathbb{R}^{k_i}$$ be a set of 
+        Let $$\textbf{p}_{i} \in \Gamma$$ be a crisp color prototype and let $$\lambda_i \in \mathbb{R}^{k_i}$$ be a set of 
         $$k_i$$ parameters related to the kind of membership function used. 
-        Let $$P = \{\bold{p}_1, \ldots, \bold{p}_n\}$$ and $$\Lambda = \{\lambda_1, \ldots,\lambda_n\}$$ with $$n \geq 1$$.
+        Let $$P = \{\textbf{p}_1, \ldots, \textbf{p}_n\}$$ and $$\Lambda = \{\lambda_1, \ldots,\lambda_n\}$$ with $$n \geq 1$$.
       </p>
 
       <p class="inline-math">
         <b>Definition II.4.</b>
         A fuzzy color $$\tilde{C}$$ is a granular fuzzy color of the form:</p>
         <p class="inline-math" style="text-align: center;">
-          $$\tilde{C}(\bold{c};P,\Lambda) = \bigoplus_{1 \leq i \leq n}{\tilde{C_{i}}(\bold{c}; \bold{p}_{i}, \lambda_{i})}$$
+          $$\tilde{C}(\textbf{c};P,\Lambda) = \bigoplus_{1 \leq i \leq n}{\tilde{C_{i}}(\textbf{c}; \textbf{p}_{i}, \lambda_{i})}$$
         </p>
         <p class="inline-math">
-          with $$\bigoplus$$  being a t-conorm, and where $$\tilde{C_{i}}(\bold{c}; \bold{p}_{i}, \lambda_{i})$$ 
+          with $$\bigoplus$$  being a t-conorm, and where $$\tilde{C_{i}}(\textbf{c}; \textbf{p}_{i}, \lambda_{i})$$ 
           is defined as:
       </p>
       <p id="def-fuzzy-color" class="inline-math" style="text-align: center;">
-        $$\tilde{C}(\bold{c};\bold{p}_{i}, \lambda_{i}) = f(\|\bold{c}-\bold{p}_{i}\|; \lambda_{i})$$
+        $$\tilde{C}(\textbf{c};\textbf{p}_{i}, \lambda_{i}) = f(\|\textbf{c}-\textbf{p}_{i}\|; \lambda_{i})$$
       </p>
       <p class="inline-math">
-        with $$\bold{p}_{i} \in \Gamma$$  being a crisp color prototype, $$\|·\|$$ being the Euclidean distance, and 
-        $$\bold{c}$$ being the crisp color to be analyzed. 
+        with $$\textbf{p}_{i} \in \Gamma$$  being a crisp color prototype, $$\|·\|$$ being the Euclidean distance, and 
+        $$\textbf{c}$$ being the crisp color to be analyzed. 
         The function $$f : [0, +\infty] \rightarrow [0, 1]$$ is a non-increasing function satisfying $$f(0) = 1$$. <b style="color: red">This condition states that the membership of the prototype to the color category in which it represents must be 1,
-        since distance 0 means $$\bold{c} = \bold{p}_i$$. The condition of $$f$$ being a non-increasing function is intuitive
+        since distance 0 means $$\textbf{c} = \textbf{p}_i$$. The condition of $$f$$ being a non-increasing function is intuitive
         as it implies that resemblance to the prototype (and consequently membership to the associated category) should not increase with distance.
         It is immediate that every fuzzy color is a granular fuzzy color.</b>
       </p>
@@ -251,10 +255,10 @@
       </p>
       <p class="inline-math">
       <b style="color: red"> Fig. <a href="#sphere-function-image" >1</a> shows a simple diagram to
-          represent such a function $$f$$.</b> The parameter $$a$$ represents the radius of the sphere centered around the prototype $$\bold{p}_{i}$$, where colors are fully 
+          represent such a function $$f$$.</b> The parameter $$a$$ represents the radius of the sphere centered around the prototype $$\textbf{p}_{i}$$, where colors are fully 
       representative of the color category (having membership 1). The parameter $$b$$ is the radius of the sphere centered
-      around $$\bold{p}_{i}$$ containing all colors <b style="color: blueviolet">that</b> are compatible to some extent (having membership greater than 0) with the 
-      color category. Membership decreases linearly with the distance to $$\bold{p}_{i}$$ when $$a \leq x \leq b$$, corresponding to points 
+      around $$\textbf{p}_{i}$$ containing all colors <b style="color: blueviolet">that</b> are compatible to some extent (having membership greater than 0) with the 
+      color category. Membership decreases linearly with the distance to $$\textbf{p}_{i}$$ when $$a \leq x \leq b$$, corresponding to points 
       between the surfaces of both spheres.
       </p>
 
@@ -271,48 +275,48 @@
         An interactive element to understand how a granular fuzzy color is modeled is included in Fig. <a href="#simple-fig">2</a>. Here, it is shown 
         an RGB cube where a granular fuzzy color with a single granule is represented. As <b style="color: blueviolet">it has been described</b> previously, a set of prototypes $$P$$ and
         a set of parameters $$\Lambda$$ is needed for building a granular fuzzy color $$\tilde{C}$$. In this case,
-        $$P = \{\bold{p}_1\}$$ and $$\Lambda = \{\lambda_1\} = \{(a_1, b_1)\}$$ since the granular fuzzy color $$\tilde{C}$$ is made up of only one granule.
+        $$P = \{\textbf{p}_1\}$$ and $$\Lambda = \{\lambda_1\} = \{(a_1, b_1)\}$$ since the granular fuzzy color $$\tilde{C}$$ is made up of only one granule.
       </p>
       <p class="inline-math">
         Within the RGB cube, two elements are shown: the granular fuzzy color $$\tilde{C}$$ (the purple spheres) and
-        a crisp color $$\bold{c}$$ (the black tetrahedron) to evaluate in the fuzzy color. For the granule which composes the fuzzy color,
-        three elements are shown: first, the prototype $$\bold{p}_1$$ as a solid point in the center of the spheres; second,
+        a crisp color $$\textbf{c}$$ (the black tetrahedron) to evaluate in the fuzzy color. For the granule which composes the fuzzy color,
+        three elements are shown: first, the prototype $$\textbf{p}_1$$ as a solid point in the center of the spheres; second,
         an internal sphere with a radius of $$a_1$$, which represents the kernel of the fuzzy color; finally, an external sphere
         with a radius of $$b_1$$, which illustrates the support of the fuzzy color. On the right side, <b style="color: blueviolet">several
         interactive elements are shown where readers</b> can change the parameters and interact with the figure. <b style="color: blueviolet">Here, a reset button is also available if the reader wants to restart the interactive element to the initial state.</b>
       </p>
       <p class="inline-math">
         By default, the interactive element
-        builds $$\tilde{C}$$ through the prototype $$\bold{p}_1 = (154, 78, 174)$$
+        builds $$\tilde{C}$$ through the prototype $$\textbf{p}_1 = (154, 78, 174)$$
         and the parameters $$a_1 = 15$$ and $$b_1 = 30$$, but these values can be modified through the pickers on the right side.
-        In the default case, it is shown that the point to evaluate $$\bold{c}$$ is outside of the fuzzy color spheres<b style="color: blueviolet">; thus,</b> 
-        the membership degree is 0. If <b style="color: blueviolet">the value of $$b_1$$ is changed</b> from 30 to 110 so that the support grows and reaches $$\bold{c}$$,
-        it is observed that the membership degree has now a value of 0.09, since the point $$\bold{c}$$ is now within the support.
-        <b style="color: blueviolet">To see how the kernel grows up, the value of $$a_1$$ from 15 to 90 can also be changed</b>. Due to this modification, $$\bold{c}$$ is now
-        nearer to the kernel and the membership degree reaches a value of 0.43. If the kernel reaches the point $$\bold{c}$$
-        (change $$a_1$$ value to 110 too), the membership degree has the maximum value since $$\bold{c}$$ is now within the 
+        In the default case, it is shown that the point to evaluate $$\textbf{c}$$ is outside of the fuzzy color spheres<b style="color: blueviolet">; thus,</b> 
+        the membership degree is 0. If <b style="color: blueviolet">the value of $$b_1$$ is changed</b> from 30 to 110 so that the support grows and reaches $$\textbf{c}$$,
+        it is observed that the membership degree has now a value of 0.09, since the point $$\textbf{c}$$ is now within the support.
+        <b style="color: blueviolet">To see how the kernel grows up, the value of $$a_1$$ from 15 to 90 can also be changed</b>. Due to this modification, $$\textbf{c}$$ is now
+        nearer to the kernel and the membership degree reaches a value of 0.43. If the kernel reaches the point $$\textbf{c}$$
+        (change $$a_1$$ value to 110 too), the membership degree has the maximum value since $$\textbf{c}$$ is now within the 
         kernel sphere. In this experiment, we want to highlight the fact that, although the membership degree increases because 
-        <b style="color: blueviolet">the point $$\bold{c}$$ is forced</b> to be within kernel or support, the distance keeps the same value.
+        <b style="color: blueviolet">the point $$\textbf{c}$$ is forced</b> to be within kernel or support, the distance keeps the same value.
       </p>
 
       <p class="inline-math">
-        <b style="color: blueviolet">The point $$\bold{c}$$ can also be moved</b> to analyze how it affects the membership degree and the distance.
+        <b style="color: blueviolet">The point $$\textbf{c}$$ can also be moved</b> to analyze how it affects the membership degree and the distance.
         For example (assuming that $$a_1$$ and $$b_1$$ parameters have 15 and 30 values, respectively), <b style="color: blueviolet">let it be in</b> 
-        (164, 74, 191) RGB coordinates. Here, $$\bold{c}$$ has a membership degree of 0.66, since
-        it is closer to $$\bold{p}_1$$ (distance changes from 101.42 to 20.22). If <b style="color: blueviolet">a closer $$\bold{c}$$ is picked</b> to the prototype
-        $$\bold{p}_1$$ (for example, (152, 82, 173)), it can be seen that distance decreases to 4.58 and the membership degree reaches a value
-        of 1 (note in the RGB cube that $$\bold{c}$$ is within the kernel sphere).
+        (164, 74, 191) RGB coordinates. Here, $$\textbf{c}$$ has a membership degree of 0.66, since
+        it is closer to $$\textbf{p}_1$$ (distance changes from 101.42 to 20.22). If <b style="color: blueviolet">a closer $$\textbf{c}$$ is picked</b> to the prototype
+        $$\textbf{p}_1$$ (for example, (152, 82, 173)), it can be seen that distance decreases to 4.58 and the membership degree reaches a value
+        of 1 (note in the RGB cube that $$\textbf{c}$$ is within the kernel sphere).
         In this experiment, instead of modifying the $$a_i$$ or $$b_i$$ parameters, <b style="color: blueviolet">the position of the point
-        to evaluate $$\bold{c}$$ is changed to see how it increases (decreases)</b> the membership degree (the distance), both numerically and visually. 
+        to evaluate $$\textbf{c}$$ is changed to see how it increases (decreases)</b> the membership degree (the distance), both numerically and visually. 
       </p>
 
       <div id="simple-fig" class="framed" style="margin-top: 20px; margin-bottom: 20px;">
         <div class="inside">
           <div class="eyebrow">
             <p class="inline-math">
-              You can select your own prototype $$\bold{p}_1$$ in the first color picker            
+              You can select your own prototype $$\textbf{p}_1$$ in the first color picker            
               or change $$a_1$$ and $$b_1$$ parameters to see how they affect the fuzzy color building process.
-              The second color picker allows you to select your own $$\bold{c}$$ to evaluate it in the granular fuzzy color and obtain the membership
+              The second color picker allows you to select your own $$\textbf{c}$$ to evaluate it in the granular fuzzy color and obtain the membership
               degree and the distance associated. All these changes will update the left-side RGB cube and the drawn elements.
               You can also interact with the RGB cube by zooming (with mouse scroll) or rotating (click and drag) it.
             </p>
@@ -323,7 +327,7 @@
           <div style="display: flex; flex-direction:column; flex-grow: 1;">
             <div style="border: dashed #11679a; border-radius: 10px;">
             <div class="caption" style="display: flex;">
-              <label class="inline-math" style="margin-right: 10px;">Pick up a prototype $$\bold{p}$$: </label>
+              <label class="inline-math" style="margin-right: 10px;">Pick up a prototype $$\textbf{p}$$: </label>
               <input type="color" id="simple-picker">
             </div>
             <div class="caption" style="display: flex;">
@@ -340,15 +344,15 @@
             <div style="border: dashed #11679a; border-radius: 10px; margin-top: 20px;">
               <div class="caption" style="display: flex;">
                 <label class="inline-math" style="margin-right: 10px;  margin-top: 4px;">
-                  Pick up a color to evaluate $$\bold{c}$$: </label>
+                  Pick up a color to evaluate $$\textbf{c}$$: </label>
                 <input type="color" id="simple-point-to-evaluate">
               </div>
               <div class="caption" style="display: flex;">
-                <label class="inline-math" style="margin-right: 10px;">Distance from $$\bold{c}$$ to $$\bold{p}$$: </label>
+                <label class="inline-math" style="margin-right: 10px;">Distance from $$\textbf{c}$$ to $$\textbf{p}$$: </label>
                 <label id="simple-distance"></label>
               </div>
               <div class="caption" style="display: flex; margin-bottom: 1rem;">
-                <label class="inline-math" style="margin-right: 10px;">Membership degree of $$\bold{c}$$: </label>
+                <label class="inline-math" style="margin-right: 10px;">Membership degree of $$\textbf{c}$$: </label>
                 <label id="simple-md"></label>
               </div>
             </div>
@@ -373,36 +377,36 @@
       </p>
       <p class="inline-math">
         Within the RGB cube, again, two elements are shown: the granular fuzzy color $$\tilde{C}$$ (the three purple spheres) and
-        a crisp color $$\bold{c}$$ (the black tetrahedron) to evaluate in the fuzzy color. For each granule $$\tilde{C}_i$$ three elements are shown:
-        first, the prototype $$\bold{p}_i$$ as a solid point in the center of the spheres; second,
+        a crisp color $$\textbf{c}$$ (the black tetrahedron) to evaluate in the fuzzy color. For each granule $$\tilde{C}_i$$ three elements are shown:
+        first, the prototype $$\textbf{p}_i$$ as a solid point in the center of the spheres; second,
         an internal sphere with a radius of $$a_i$$, which represents the kernel of the granule; finally, an external sphere
         with a radius of $$b_i$$, which illustrates the support of the granule. On the right side, <b style="color: blueviolet">it can be seen</b> several
         interactive elements where <b style="color: blueviolet">readers</b> can change the parameters and interact with the figure. <b style="color: blueviolet">Again, a reset button is also available if the reader wants to restart the interactive element to the initial state.</b>
       </p>
       <p class="inline-math">
         By default, the interactive element
-        builds each $$\tilde{C}_i$$ through the prototypes $$\bold{p}_1 = (154, 78, 174)$$, $$\bold{p}_2 = (194, 81, 225)$$,
-        $$\bold{p}_3 = (170, 81, 225)$$, and the parameters $$a_i = 15$$ and $$b_i = 30$$ (i.e., the same parameters for the three granules),
-        but these values can be modified through the pickers on the right side. In the default case, it is shown that the point to evaluate $$\bold{c}$$ is outside of the three granules spheres; thus, 
+        builds each $$\tilde{C}_i$$ through the prototypes $$\textbf{p}_1 = (154, 78, 174)$$, $$\textbf{p}_2 = (194, 81, 225)$$,
+        $$\textbf{p}_3 = (170, 81, 225)$$, and the parameters $$a_i = 15$$ and $$b_i = 30$$ (i.e., the same parameters for the three granules),
+        but these values can be modified through the pickers on the right side. In the default case, it is shown that the point to evaluate $$\textbf{c}$$ is outside of the three granules spheres; thus, 
         the membership degree is 0. If the value of $$b_i$$ is changed from 30 to 50 growing up the supports,
-        it is observed that the membership degree has now a value of 0.09, since the point $$\bold{c}$$ is now within the support of one of the granules.
-        <b style="color: blueviolet">To see how the kernel grows up, the value of $$a_1$$ from 15 to 40 can also be modified</b>. Due to this change, $$\bold{c}$$ is now
-        nearer to the kernel of one of the granules and the membership degree reaches a value of 0.31. If one of the kernels reaches the point $$\bold{c}$$
-        (changing $$a_i$$ value to 47 too), the membership degree has the maximum value since $$\bold{c}$$ is now inside of one of the 
-        kernel spheres. We want to highlight that <b style="color: blueviolet">it is used</b> max as t-conorm, and thus if $$\bold{c}$$ is in at least one granule, the membership degree will
+        it is observed that the membership degree has now a value of 0.09, since the point $$\textbf{c}$$ is now within the support of one of the granules.
+        <b style="color: blueviolet">To see how the kernel grows up, the value of $$a_1$$ from 15 to 40 can also be modified</b>. Due to this change, $$\textbf{c}$$ is now
+        nearer to the kernel of one of the granules and the membership degree reaches a value of 0.31. If one of the kernels reaches the point $$\textbf{c}$$
+        (changing $$a_i$$ value to 47 too), the membership degree has the maximum value since $$\textbf{c}$$ is now inside of one of the 
+        kernel spheres. We want to highlight that <b style="color: blueviolet">it is used</b> max as t-conorm, and thus if $$\textbf{c}$$ is in at least one granule, the membership degree will
         be greater than 0. Furthermore, note that in this experiment, although the membership degree increases because 
-        <b style="color: blueviolet">the point $$\bold{c}$$ it is forced</b> to be within a kernel or support, the distance keeps the same value.
+        <b style="color: blueviolet">the point $$\textbf{c}$$ it is forced</b> to be within a kernel or support, the distance keeps the same value.
       </p>
 
       <p class="inline-math">
-        In this experiment, the point $$\bold{c}$$ can be also moved to analyze how it affects the membership degree and the distance.
+        In this experiment, the point $$\textbf{c}$$ can be also moved to analyze how it affects the membership degree and the distance.
         For example (assuming that $$a_i$$ and $$b_i$$ take values 15 and 30, respectively), <b style="color: blueviolet">let it be</b> in 
-        (203, 70, 206) RGB coordinates. Here, $$\bold{c}$$ has a membership degree of 0.42, since
-        it is closer to $$\bold{p}_2$$ (minimum distance changes from 60.17 to 23.73). If <b style="color: blueviolet">a closer $$\bold{c}$$ is picked</b> to the prototype
-        $$\bold{p}_2$$ (for example, (203, 70, 220)), <b style="color: blueviolet">it can be seen</b> that the distance decreases to 15.07, and the membership degree reaches a value
-        of 1 (note in the RGB cube that $$\bold{c}$$ is within the kernel sphere of $$\tilde{C}_2$$).
+        (203, 70, 206) RGB coordinates. Here, $$\textbf{c}$$ has a membership degree of 0.42, since
+        it is closer to $$\textbf{p}_2$$ (minimum distance changes from 60.17 to 23.73). If <b style="color: blueviolet">a closer $$\textbf{c}$$ is picked</b> to the prototype
+        $$\textbf{p}_2$$ (for example, (203, 70, 220)), <b style="color: blueviolet">it can be seen</b> that the distance decreases to 15.07, and the membership degree reaches a value
+        of 1 (note in the RGB cube that $$\textbf{c}$$ is within the kernel sphere of $$\tilde{C}_2$$).
         In this experiment, instead of modifying $$a_i$$ or $$b_i$$ parameter, <b style="color: blueviolet">the position of the point
-        to evaluate $$\bold{c}$$ is changed to see how the membership degree (the distance) increases (decreases)</b>, both numerically and visually. 
+        to evaluate $$\textbf{c}$$ is changed to see how the membership degree (the distance) increases (decreases)</b>, both numerically and visually. 
       </p>
 
 
@@ -412,7 +416,7 @@
             <p class="inline-math">
               You can select your own set of prototypes $$P$$ in the first color picker            
               or change $$a_i$$ and $$b_i$$ parameters to see how they affect the granules building process.
-              The second color picker allows you to select your own $$\bold{c}$$ to evaluate it in the granular fuzzy color and obtain the membership
+              The second color picker allows you to select your own $$\textbf{c}$$ to evaluate it in the granular fuzzy color and obtain the membership
               degree and the distance associated. All these changes will update the left-side RGB cube and the drawn elements.
               You can also interact with the RGB cube by zooming (with mouse scroll) or rotating (click and drag) it.
             </p>
@@ -477,8 +481,8 @@
       In the previous section, the granular fuzzy color idea <b style="color: blueviolet">has been introduced</b>: it is defined on the basis of a set of color prototypes $$P$$.
       These positive prototypes are fully representative of the color term modeled by the 
       fuzzy color (i.e., their membership to the fuzzy color is 1.0). To emphasize this feature of $$P$$, <b style="color: blueviolet">it is noted</b> 
-      as $$P^+ = \{\bold{p}_1, \ldots , \bold{p}_n\}$$. Furthermore, for the building process, it will be also considered
-      prototypes representing the complement of the color term to model. Let $$P^− = \{\bold{np}_1, \ldots , \bold{np}_m\}$$,
+      as $$P^+ = \{\textbf{p}_1, \ldots , \textbf{p}_n\}$$. Furthermore, for the building process, it will be also considered
+      prototypes representing the complement of the color term to model. Let $$P^− = \{\textbf{np}_1, \ldots , \textbf{np}_m\}$$,
       with $$m \geq 1$$, be a set of negative prototypes, satisfying $$P^+ \cap P^− = \emptyset$$. Negative prototypes can be 
       obtained in several ways. In particular, when color categories are disjoint in semantics, the negative 
       prototypes for a certain color category include the positive prototypes for the rest of the color categories.
@@ -491,8 +495,8 @@
         of the granular color $$\tilde{C}$$ (given by the union of the individual supports).
       </p>
       <p class="inline-math">
-        Thus, let $$D_i$$ be the distance from $$\bold{p}_i$$ to its nearest point in the set
-        $$P^−_i = P^− \cup P^+\textbackslash\{\bold{p}_i\}$$. Note that $$P^−_i$$ is the set of prototypes employed to limit the
+        Thus, let $$D_i$$ be the distance from $$\textbf{p}_i$$ to its nearest point in the set
+        $$P^−_i = P^− \cup P^+\setminus\{\textbf{p}_i\}$$. Note that $$P^−_i$$ is the set of prototypes employed to limit the
         growth of the granule $$\tilde{C}_i \in \tilde{C}$$, that include both the negative prototypes of $$\tilde{C}$$ and the
         positive prototypes of the rest of the granules that form $$\tilde{C}$$. Then, $$\lambda_i$$ is obtained as follows
         [<a href="ref_46">46</a>]:
@@ -514,7 +518,7 @@
         alpha value increases, the size of the granule kernel increases. In
         the case of $$\beta_i = 1$$, <b style="color: blueviolet">it is gotten</b> $$b_i = D_i$$, which implies that the
         radius of the support is equal to the distance from the prototype
-        $$\bold{p}_i$$ to its nearest point in $$P^−_i$$; as the beta value decreases, the size
+        $$\textbf{p}_i$$ to its nearest point in $$P^−_i$$; as the beta value decreases, the size
         of the support also decreases. In any case, due to the condition $$\alpha_i < \beta_i$$, the radius of the support will always be greater than
         the radius of the kernel.
         </b>
@@ -538,11 +542,11 @@
       <b style="color: blueviolet">To</b> understand the granular fuzzy color building process, an interactive element is shown in Fig. <a href="#fcs-fig">5</a>.
       For the sake of simplicity, <b style="color: blueviolet">the first example is related to building</b> single-granule fuzzy colors, that is, each fuzzy color will be plotted through only one sphere. 
       Our starting point is a set of prototypes
-      $$P$$, so each $$\bold{p}_i \in P$$ it is used as the positive prototype and $$P\textbackslash\{\bold{p}_i\}$$ as the set of negative prototypes. Thus, <b style="color: blueviolet">and as it has been previously explained</b>, the support sphere of each fuzzy color will grow until it reaches a kernel of some other fuzzy color.
+      $$P$$, so each $$\textbf{p}_i \in P$$ it is used as the positive prototype and $$P\setminus\{\textbf{p}_i\}$$ as the set of negative prototypes. Thus, <b style="color: blueviolet">and as it has been previously explained</b>, the support sphere of each fuzzy color will grow until it reaches a kernel of some other fuzzy color.
       Within the RGB cube, a set of fuzzy colors are shown (the colorful spheres); by default, the basic set of ISCC-NBS prototypes is used. For each fuzzy color, three elements are shown:
-      first, the prototype $$\bold{p}_i$$ as a solid point in the center of the spheres; second,
+      first, the prototype $$\textbf{p}_i$$ as a solid point in the center of the spheres; second,
       an internal sphere with a radius of $$a_i$$, which represents the kernel of the fuzzy color; finally, an external sphere
-      with a radius of $$b_i$$, which illustrates the support of the fuzzy color. Note that these parameters are learned in this case. On the right side,<b style="color: blueviolet"> it can be seen</b> several interactive elements where the parameters can be changed. In this example, <b style="color: blueviolet">it is demonstrated</b> that there is no fuzzy color support that intersects with the kernel of another fuzzy color, since given a prototype $$\bold{p}_i$$ the prototypes of the rest of categories $$P\textbackslash\{\bold{p}_i\}$$ (i.e., the negative prototypes) act as "limiters" of the growth of the support sphere.
+      with a radius of $$b_i$$, which illustrates the support of the fuzzy color. Note that these parameters are learned in this case. On the right side,<b style="color: blueviolet"> it can be seen</b> several interactive elements where the parameters can be changed. In this example, <b style="color: blueviolet">it is demonstrated</b> that there is no fuzzy color support that intersects with the kernel of another fuzzy color, since given a prototype $$\textbf{p}_i$$ the prototypes of the rest of categories $$P\setminus\{\textbf{p}_i\}$$ (i.e., the negative prototypes) act as "limiters" of the growth of the support sphere.
       </p>
    
       <p class="inline-math">
@@ -626,7 +630,7 @@
     </div>
     </div>
 
-      <h2 id="results">IV. Results</h2>
+      <h2 style="color: blueviolet" id="results">IV. Fuzzy color experiments</h2>
       <p>
         In this section, the ability of the granular fuzzy colors to represent color terms and their several tonalities is analyzed. For this purpose, a comparison between single-granular fuzzy colors and granular fuzzy colors is proposed through qualitative experiments. Two interactive elements have been developed and proposed in this section to perform these experiments. In these interactive elements, by default, a natural image of a flag <b style="color: blueviolet">fluttering</b> in the wind is shown, although <b style="color: blueviolet">readers</b> could load his/her own image example. In this image, six dominant colors can be labeled: "red" (the two side strips of the flag), "white" (the middle strip of the flag, <b style="color: blueviolet">flagpole</b>, and the clouds), "blue" (the sky), "green", and "yellow" (the middle flag details). The most interesting aspect of this image is the variety of tonalities generated by the <b style="color: blueviolet">fluttering</b> of the flag, causing different types of red colors to arise.
       </p>
@@ -744,7 +748,7 @@
         give zero or very low membership degrees to many pixels). <b style="color: blueviolet">This is due to single-granular based models are leaving out some crisp colors in the models of "red" and "blue" color categories.</b>
       </p>
 
-      <h2 id="conclusions">Conclusions and future work</h2>
+      <h2 id="conclusions">V. Conclusions and future work</h2>
 
       <p>
         In this paper, interactive figures have been developed <b style="color: blueviolet">to walk readers closer to </b> an experimental experience with fuzzy colors. In this case, the notion of granular fuzzy color has been introduced to represent color categories. The concept of granule has been explained in an incremental way in two interactive figures: first, with single-granule fuzzy colors; second, with granular fuzzy colors composed of several granules. These figures allow <b style="color: blueviolet">readers</b> to change prototypes and parameters for a better understanding of the fuzzy color concept.
