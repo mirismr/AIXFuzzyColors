@@ -1164,7 +1164,12 @@ function findMaximumBetween(matriz1, matriz2) {
     let maxMatrix = [];
     if (matriz1 != null) {
         for (let i = 0; i < matriz1.length; i++) {
-            maxMatrix.push(matriz1[i]+matriz2[i]);
+            let sum = matriz1[i]+matriz2[i]
+            if(matriz1[i] === -Infinity | matriz1[i] === Infinity)
+                sum = matriz2[i]
+            if(matriz2[i] === -Infinity | matriz2[i] === Infinity)
+                sum = matriz1[i]
+            maxMatrix.push(sum);
           }
     }
     else{
